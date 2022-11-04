@@ -52,7 +52,7 @@ const assets = (cb) => {
 const watcher = () => {
   watch(['source/layouts/**/*.html', 'source/pages/**/*.html'], series(html, reload))
   watch('source/pages/**/*.scss', styles)
-  watch(['source/pages/**/assets/images/**', 'source/pages/**/assets/videos/**', 'source/pages/**/assets/*.js'], assets)
+  watch(['source/pages/**/assets/images/**', 'source/pages/**/assets/videos/**', 'source/pages/**/assets/*.js'], series(assets, reload))
 }
 
 exports.default = parallel(html, styles, assets, server, watcher)

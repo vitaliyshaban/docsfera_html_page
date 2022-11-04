@@ -22,16 +22,30 @@
   </block>
   
   <block name="content">
-    <include src="mayak/partials/components/header-mayak.html"></include>
     <!-- Модуль Хлебные крошки -->
-    <!-- <include locals='{"breadcrumbs": {{breadcrumbs}}' src="../layouts/components/breadcrumbs.html"></include> -->
+    <include locals='{"breadcrumbs": {{breadcrumbs}}' src="../layouts/components/breadcrumbs.html"></include>
     <!-- Модуль внутреннего меню в .page__content -->
     <!-- <include src="../layouts/components/content-menu.html"></include> -->
     <!-- Модуль заголовка карточки -->
     <!-- <include locals='{"detailHeader": {{detailHeader}}}' src="../layouts/components/detail-header.html"></include> -->
-
     <div class="container">
-      
+      <div class="row">
+        <div class="column column--12-small column--8-tablet content">
+          <div class="new__content">
+            <h1>Ответ на Вопрос 1</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <include locals='{"footerLinks": {{footerLinks}}}' src="../layouts/components/footer-links.html"></include>
+          </div>
+        </div>
+        <div class="column column--12-small column--4-tablet">
+          <aside class="detail-body__aside" style="top: 93px">
+            <div class="detail-body__aside-top">
+              Если нужен оригинальный препарат
+            </div>
+            <include src="../layouts/components/social.html"></include>
+          </aside>
+        </div>
+      </div>
     </div>
   </block>
 
