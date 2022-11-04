@@ -1,0 +1,32 @@
+<div class="container">
+    <div
+        class="brdcrbs"
+        itemscope=""
+        itemtype="https://schema.org/BreadcrumbList">
+        <a class="brdcrbs__item" href="/"
+            ><i class="dsi-home"></i
+        ></a>
+        
+        <each loop="bread, index in {{ breadcrumbs }}">
+            <span class="brdcrbs__item"
+                ><i class="dsi-small_arrow_forward"></i
+            ></span>
+            <div
+                class="brdcrbs__item"
+                itemprop="itemListElement"
+                itemscope=""
+                itemtype="https://schema.org/ListItem">
+                <a
+                    href="""
+                    itemtype="https://schema.org/Thing"
+                    itemprop="item">
+                    <i class="dsi-small_arrow_back"></i>
+                    <span itemprop="name"
+                        >{{bread}}</span
+                    >
+                </a>
+                <meta itemprop="position" content="1" />
+            </div>
+        </each>
+    </div>
+</div>

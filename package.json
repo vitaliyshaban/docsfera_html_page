@@ -1,0 +1,26 @@
+{
+  "name": "esculap-betaserc-m2",
+  "version": "1.0.0",
+  "description": "Betaserc M2 @ Esculap",
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp build",
+    "build-and-zip": "gulp build && cd dist && for f in */; do zip -rq \"${f%/}.zip\" \"$f\"; done"
+  },
+  "browserslist": [
+    "last 10 versions"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^2.26.13",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-posthtml": "^3.0.5",
+    "posthtml-extend": "^0.6.0"
+  },
+  "devDependencies": {
+    "gulp-dart-sass": "^1.0.2",
+    "posthtml-include": "^1.7.2",
+    "posthtml-inline-svg": "^0.2.0"
+  }
+}
