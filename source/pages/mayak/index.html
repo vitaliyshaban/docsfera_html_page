@@ -20,7 +20,10 @@
   <block name="head">
     <link rel="stylesheet" href="assets/styles.css">
   </block>
-  
+  <block name="header">
+    <include src="../layouts/components/header.html"></include>
+  </block>
+
   <block name="content">
     <include src="mayak/partials/components/header-mayak.html"></include>
     <!-- Модуль Хлебные крошки -->
@@ -39,9 +42,5 @@
     <include src="../layouts/components/footer.html"></include>
   </block>
   <block name="post">
-    <script type="text/javascript" src="/local/templates/mcmportal2/library/assets/vendor/jquery/jquery.min.js?166739819289475"></script>
-    <script type="text/javascript" src="/local/templates/mcmportal2/library/js/common.js?166739819223340"></script>
-    <script type="text/javascript" src="/local/templates/mcmportal2/library/js/expands.js?16673981923871"></script>
-
   </block>
 </extends>
