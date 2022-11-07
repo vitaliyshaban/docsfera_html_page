@@ -1,0 +1,10 @@
+<div class="row row--phone js-row-infinity">
+    <each loop="card, index in {{ cardsLector }}">
+        <div class="column column--narrow">
+            <section class="article-item article-item--video has-image">
+                {{card.name}}
+                {{card.descr}}
+            </section>
+        </div>
+    </each>
+</div>

@@ -1,0 +1,14 @@
+<div class="row row--phone js-row-infinity">
+    <each loop="card, index in {{ cardsVideo }}">
+        <div class="column column--narrow">
+            <section class="article-item article-item--video has-image">
+                {{card.title}}
+                {{card.descr}}
+                <each loop="tag, index in {{ card.tags }}">
+                    {{tag}}
+                </each>
+                {{card.date}}
+            </section>
+        </div>
+    </each>
+</div>

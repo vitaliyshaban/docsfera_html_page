@@ -1,0 +1,293 @@
+<div
+	class="column column--narrow-phone column--8-small column--narrow-big dropdown-filter-ajax__wrap filter-area dropdown-filter-ajax__init"
+	data-ajax-container=".js-row-infinity">
+	<div
+		class="dropdown-filter-ajax__list dropdown-filter-ajax__research"></div>
+
+	<button class="button-text filter-switch filter-switch--closed">
+		<span class="button__icon">
+			<i class="dsi-filters"></i>
+		</span>
+		<span>
+			<span class="is-hidden-small">Фильтры</span>
+			<span class="is-hidden-big">Фильтры и сортировка</span>
+		</span>
+		<span class="applied-filter" style="display: none">
+			<span> 0 </span>
+		</span>
+		<span class="button__icon filter-switch-icon">
+			<i class="dsi-small_arrow_closed"></i>
+		</span>
+	</button>
+	<div
+		class="js-dropdown-content dropdown-filter-ajax__params filter-area__content"
+		style="display: none">
+		<div class="filter-area__header">
+			<div>
+				<span class="is-hidden-big">Фильтры</span>
+			</div>
+			<button class="button-text js-filter-area__btn--clear-all">
+				<span>Очистить все</span>
+				<span class="button__icon"><i class="dsi-delete"></i></span>
+			</button>
+		</div>
+		<div class="dropdown-filter-ajax field">
+			<label class="field__label">Специализация</label>
+			<select
+				name="SPECIALITY"
+				data-placeholder="Все"
+				data-select-on-close="false"
+				multiple=""
+				class="select js-dropdown-filter-ajax select2-hidden-accessible"
+				tabindex="-1"
+				aria-hidden="true">
+				<option></option>
+				<option value="1">Администрация</option>
+				<option value="2">Акушерское дело</option>
+				<option value="3">Акушерство и гинекология</option>
+				<option value="4">Аллергология Детская</option>
+				<option value="5">Аллергология и Иммунология</option>
+				<option value="9">Анестезиология и реаниматология</option>
+				<option value="11">Бактериология</option>
+				<option value="17">Гастроэнтерология</option>
+				<option value="18">Гастроэнтерология Детская</option>
+				<option value="19">Гематология</option>
+				<option value="21">Генетика</option>
+				<option value="22">Гепатология</option>
+				<option value="25">Гинекология</option>
+				<option value="28">Дерматология</option>
+				<option value="30">Диабетология</option>
+				<option value="34">Инфекционные болезни</option>
+				<option value="35">Кардиология</option>
+				<option value="36">Кардиореаниматология</option>
+				<option value="37">Кардиоревматология</option>
+				<option value="50">Микробиология</option>
+				<option value="53">Неврология</option>
+				<option value="54">Неврология Детская</option>
+				<option value="56">Неонатология</option>
+				<option value="57">Нефрология</option>
+				<option value="58">
+					Общая врачебная практика (семейная медицина)
+				</option>
+				<option value="59">Онкология</option>
+				<option value="61">Онкоурология</option>
+				<option value="64">Ортопедия</option>
+				<option value="66">Оториноларингология</option>
+				<option value="67">Офтальмология</option>
+				<option value="72">Педиатрия</option>
+				<option value="78">Психиатрия</option>
+				<option value="83">Пульмонология</option>
+				<option value="86">Реаниматология Детская</option>
+				<option value="87">Ревматология</option>
+				<option value="88">Ревматология Детская</option>
+				<option value="102">Терапия</option>
+				<option value="103">Терапия Подростковая</option>
+				<option value="112">Фармация</option>
+				<option value="119">Химиотерапия</option>
+				<option value="120">Хирургия</option>
+				<option value="128">Эндокринология</option>
+				<option value="129">Эндокринология Детская</option>
+				<option value="131">Эпидемиология</option>
+				<option value="132">Эпилептология</option></select
+			>
+			<button
+				type="button"
+				class="dropdown-filter-ajax__clear-btn"
+				style="display: none">
+				<span class="dsi-delete"> </span>
+			</button>
+		</div>
+		<div class="dropdown-filter-ajax field">
+			<label class="field__label">Нозология</label>
+			<select
+				name="NOZOLOGIYA"
+				data-placeholder="Все"
+				data-select-on-close="false"
+				multiple=""
+				class="select js-dropdown-filter-ajax select2-hidden-accessible"
+				tabindex="-1"
+				aria-hidden="true">
+				<option></option>
+				<option value="264">Аллергия</option>
+				<option value="368">Альгодисменорея</option>
+				<option value="159">Артериальная гипертензия</option>
+				<option value="237">Атопический дерматит</option>
+				<option value="316">
+					Биполярное Аффективное Расстройство (БАР)
+				</option>
+				<option value="375">
+					Болевой синдром (миалгия, артралгия, дорсалгия)
+				</option>
+				<option value="341">Болезнь Гоше</option>
+				<option value="204">Болезнь Ниманна-Пика</option>
+				<option value="201">Болезнь Помпе</option>
+				<option value="202">Болезнь Фабри</option>
+				<option value="369">Боли в суставах</option>
+				<option value="268">
+					Бронхиальная астма, бронхоэктатическая болезнь
+				</option>
+				<option value="322">Вакцинопрофилактика</option>
+				<option value="195">Венозный тромбоз</option>
+				<option value="371">Вирусный гепатит B</option>
+				<option value="273">Витамины и минералы</option>
+				<option value="354">Гастрит</option>
+				<option value="319">Гематологические заболевания</option>
+				<option value="160">Гиперхолестеринемия</option>
+				<option value="364">
+					Гормонорезистентный метастатический рак предстательной
+					железы
+				</option>
+				<option value="209">Грипп</option>
+				<option value="376">
+					ДГПЖ (доброкачественная гиперплазия предстательной железы)
+				</option>
+				<option value="366">Дефицит витамина D</option>
+				<option value="277">Дефицит магния</option>
+				<option value="272">Диарея</option>
+				<option value="357">
+					Дискинезия желчного пузыря и желчных путей
+				</option>
+				<option value="348">Дисменорея</option>
+				<option value="343">Диспепсия</option>
+				<option value="340">Дифтерия</option>
+				<option value="344">Желчекаменная болезнь (холелитиаз)</option>
+				<option value="234">Запор</option>
+				<option value="356">Запор спастический</option>
+				<option value="235">Изжога</option>
+				<option value="359">Камни нижних отделов мочевых путей</option>
+				<option value="351">Камни, почки и мочеточника</option>
+				<option value="241">Кашель</option>
+				<option value="367">Кистозный фиброз</option>
+				<option value="207">Коклюш</option>
+				<option value="206">Менингококковая инфекция</option>
+				<option value="362">
+					Метастатическая аденокарцинома поджелудочной железы
+				</option>
+				<option value="363">Метастатический колоректальный рак</option>
+				<option value="361">Метастатический рак молочной железы</option>
+				<option value="349">Метеоризм</option>
+				<option value="286">Множественная миелома</option>
+				<option value="365">
+					МРЩЖ (медуллярный рак щитовидной железы)
+				</option>
+				<option value="249">Муковисцидоз</option>
+				<option value="203">Мукополисахаридоз I типа</option>
+				<option value="236">
+					Неалкогольная жировая болезнь печени (стеатоз)
+				</option>
+				<option value="370">Невралгия</option>
+				<option value="355">Неинфекционный гастроэентерит</option>
+				<option value="196">Онкогематология</option>
+				<option value="197">Онкологические заболевания</option>
+				<option value="373">
+					Острый и хронический бронхит, пневмония
+				</option>
+				<option value="158">Острый коронарный синдром</option>
+				<option value="208">Первичная иммунизация</option>
+				<option value="339">Полиомиелит</option>
+				<option value="275">Полипозный риносинусит</option>
+				<option value="346">Почечная колика</option>
+				<option value="205">Рассеянный склероз</option>
+				<option value="360">Ревакцинация</option>
+				<option value="198">Ревматоидный артрит</option>
+				<option value="320">Респираторные заболевания</option>
+				<option value="318">Сахарный диабет</option>
+				<option value="199">Сахарный диабет I типа</option>
+				<option value="200">Сахарный диабет II типа</option>
+				<option value="274">СРК</option>
+				<option value="337">Столбняк</option>
+				<option value="350">Тенезмы мочевого пузыря</option>
+				<option value="325">Фолликулярная лимфома</option>
+				<option value="338">ХИБ-инфекция</option>
+				<option value="358">Холангит</option>
+				<option value="345">Холецистит</option>
+				<option value="374">
+					Хроническая обструктивная болезнь лёгких
+				</option>
+				<option value="342">Хронический панкреатит</option>
+				<option value="347">Цистит</option>
+				<option value="321">Эпилепсия</option>
+				<option value="353">Язва двенадцатиперстной кишки</option>
+				<option value="352">Язва желудка</option>
+				<option value="330">COVID-19</option></select
+			>
+			<button
+				type="button"
+				class="dropdown-filter-ajax__clear-btn"
+				style="display: none">
+				<span class="dsi-delete"> </span>
+			</button>
+		</div>
+		<div class="dropdown-filter-ajax field">
+			<label class="field__label">Тип</label>
+			<select
+				name="LECTURES_TAG"
+				data-placeholder="Все"
+				data-select-on-close="false"
+				multiple=""
+				class="select js-dropdown-filter-ajax select2-hidden-accessible"
+				tabindex="-1"
+				aria-hidden="true">
+				<option></option>
+				<option value="152">Вебинар</option></select
+			>
+			<button
+				type="button"
+				class="dropdown-filter-ajax__clear-btn"
+				style="display: none">
+				<span class="dsi-delete"> </span>
+			</button>
+		</div>
+		<!-- <div class="is-hidden-big filter-area__header">
+			<div>Сортировка</div>
+		</div>
+		<div class="is-hidden-big mobile-sorting__wrapper">
+			<label class="field__label">Сортировать</label>
+			<select
+				class="select js-select-redirect js-onchange-pers-sort-off select2-hidden-accessible"
+				tabindex="-1"
+				aria-hidden="true">
+				<option value="/lectures/?sort=date" selected="">
+					по дате
+				</option>
+				<option value="/lectures/?sort=popular">
+					по популярности
+				</option></select
+			><span
+				class="select2 select2-container select2-container--ds"
+				dir="ltr"
+				style="width: 100%"
+				><span class="selection"
+					><span
+						class="select2-selection select2-selection--single select2-selection--without-search"
+						role="combobox"
+						aria-haspopup="true"
+						aria-expanded="false"
+						tabindex="0"
+						aria-labelledby="select2-9d5d-container"
+						><span
+							class="select2-selection__rendered"
+							id="select2-9d5d-container"
+							title="
+                                          по дате                                    "
+							><span class="select2-selection__clear">×</span
+							><span> по дате </span></span
+						><span
+							class="select2-selection__arrow"
+							role="presentation"
+							><b role="presentation"></b></span></span></span
+				><span class="dropdown-wrapper" aria-hidden="true"></span
+			></span>
+		</div>
+		<div class="filter-area__btn-accept-spliter is-hidden-big"></div>
+		<div class="filter-area__btn-accept-wrapper is-hidden-big">
+			<button class="button button--fullwidth">Готово</button>
+		</div> -->
+	</div>
+	<!-- <div class="filter-area__mobile-open-header is-hidden-big">
+		<button class="button-text button--fullwidth">
+			<span class="button__icon"><i class="dsi-close"></i></span>
+			<span>Фильтры и сортировка</span>
+		</button>
+	</div> -->
+</div>

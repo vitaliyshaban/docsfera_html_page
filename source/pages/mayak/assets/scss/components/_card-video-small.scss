@@ -1,0 +1,19 @@
+.items-video {
+    background: #F0F0F5;
+    &__aside {
+
+    }
+    &__header {
+
+    }
+    &__list {
+        .column {
+            padding: 0px 10px 1px 10px;
+            .article-item {
+                min-height: 128px;
+                margin-bottom: 12px;
+                background-color: #fff;
+            }
+        }
+    }
+}
