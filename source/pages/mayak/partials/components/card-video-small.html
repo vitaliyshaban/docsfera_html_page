@@ -1,9 +1,7 @@
 <each loop="video, index in {{ listVideo }}">
-    <div class="column column--narrow">
-        <section class="article-item article-item--video has-image">
-            {{video.title}}
-            {{video.tag}}
-            {{video.date}}
-        </section>
-    </div>
+	<div class="column column--narrow">
+		<section class="article-item article-item--video has-image">
+			{{video.title}} {{video.tag}} {{video.date}}
+		</section>
+	</div>
 </each>

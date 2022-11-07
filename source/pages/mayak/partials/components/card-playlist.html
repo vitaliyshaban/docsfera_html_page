@@ -1,13 +1,10 @@
 <div class="row row--phone js-row-infinity">
-    <each loop="card, index in {{ cardsPlaylist }}">
-        <div class="column column--narrow">
-            <section class="article-item article-item--video has-image">
-                {{card.title}}
-                {{card.author}}
-                <each loop="tag, index in {{ card.tags }}">
-                    {{tag}}
-                </each>
-            </section>
-        </div>
-    </each>
+	<each loop="card, index in {{ cardsPlaylist }}">
+		<div class="column column--narrow">
+			<section class="article-item article-item--video has-image">
+				{{card.title}} {{card.author}}
+				<each loop="tag, index in {{ card.tags }}"> {{tag}} </each>
+			</section>
+		</div>
+	</each>
 </div>
