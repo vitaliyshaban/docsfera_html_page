@@ -18,65 +18,65 @@
 			"Если нужен оригинальный препарат",
 			"Ответ на вопрос 1",
 		],
-        cardsPlaylist: [
-            {
-                title: "Если нужен оригинальный препарат",
-                author: "Саверский Александр Владимирович",
-                tags: ["Право", "Конфликты", "Документы"]
-            },
-            {
-                title: "Если нужен оригинальный препарат",
-                author: "Саверский Александр Владимирович",
-                tags: ["Право", "Конфликты", "Документы"]
-            },
-            {
-                title: "Если нужен оригинальный препарат",
-                author: "Саверский Александр Владимирович",
-                tags: ["Право", "Конфликты", "Документы"]
-            }
-        ],
+		cardsPlaylist: [
+			{
+				title: "Если нужен оригинальный препарат",
+				author: "Саверский Александр Владимирович",
+				tags: ["Право", "Конфликты", "Документы"],
+			},
+			{
+				title: "Если нужен оригинальный препарат",
+				author: "Саверский Александр Владимирович",
+				tags: ["Право", "Конфликты", "Документы"],
+			},
+			{
+				title: "Если нужен оригинальный препарат",
+				author: "Саверский Александр Владимирович",
+				tags: ["Право", "Конфликты", "Документы"],
+			},
+		],
 		cardsVideo: [
 			{
 				title: "",
 				descr: 'Из лекции Саверского А. В. "Если нужен оригинальный препарат"',
-				tags: ['Выписки', 'Врачебная комиссия'],
-				date: "Сентябрь 2022"
+				tags: ["Выписки", "Врачебная комиссия"],
+				date: "Сентябрь 2022",
 			},
 			{
 				title: "",
 				descr: 'Из лекции Саверского А. В. "Если нужен оригинальный препарат"',
-				tags: ['Выписки', 'Врачебная комиссия'],
-				date: "Сентябрь 2022"
+				tags: ["Выписки", "Врачебная комиссия"],
+				date: "Сентябрь 2022",
 			},
 			{
 				title: "",
 				descr: 'Из лекции Саверского А. В. "Если нужен оригинальный препарат"',
-				tags: ['Выписки', 'Врачебная комиссия'],
-				date: "Сентябрь 2022"
+				tags: ["Выписки", "Врачебная комиссия"],
+				date: "Сентябрь 2022",
 			},
 			{
 				title: "",
 				descr: 'Из лекции Саверского А. В. "Если нужен оригинальный препарат"',
-				tags: ['Выписки', 'Врачебная комиссия'],
-				date: "Сентябрь 2022"
+				tags: ["Выписки", "Врачебная комиссия"],
+				date: "Сентябрь 2022",
 			},
 			{
 				title: "",
 				descr: 'Из лекции Саверского А. В. "Если нужен оригинальный препарат"',
-				tags: ['Выписки', 'Врачебная комиссия'],
-				date: "Сентябрь 2022"
+				tags: ["Выписки", "Врачебная комиссия"],
+				date: "Сентябрь 2022",
 			},
 		],
 		cardsLector: [
 			{
-				name: 'Гриценко Ирина Юрьевна',
-				descr: 'Практикующий специалист в области медицинского права и урегулирования споров по качеству оказания медицинских услуг.'
+				name: "Гриценко Ирина Юрьевна",
+				descr: "Практикующий специалист в области медицинского права и урегулирования споров по качеству оказания медицинских услуг.",
 			},
 			{
-				name: 'Саверский Александр Владимирович',
-				descr: 'Президент "Лиги пациентов", член Экспертного совета при Правительстве Российской Федерации.'
-			}
-		]
+				name: "Саверский Александр Владимирович",
+				descr: 'Президент "Лиги пациентов", член Экспертного совета при Правительстве Российской Федерации.',
+			},
+		],
 	};
 </script>
 <extends src="layouts/docsfera.html">
@@ -104,16 +104,20 @@
 						<div class="column">
 							<h2>Лекторий (лекционные плейлисты) 8 тем</h2>
 						</div>
-						<include src="mayak/partials/components/filter-mayak.html"></include>
-						<include src="mayak/partials/components/sort-mayak.html"></include>
+						<include
+							src="mayak/partials/components/filter-mayak.html"></include>
+						<include
+							src="mayak/partials/components/sort-mayak.html"></include>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="container container--wide container--card">
-			<include locale='{
+			<include
+				locale='{
 				"cardsPlaylist": {{cardsPlaylist}}
-			}' src="mayak/partials/components/card-playlist.html"></include>
+			}'
+				src="mayak/partials/components/card-playlist.html"></include>
 		</div>
 		<div class="ds-filter__wrapper">
 			<div class="ds-filter">
@@ -122,16 +126,20 @@
 						<div class="column">
 							<h2>Отвечают эксперты</h2>
 						</div>
-						<include src="mayak/partials/components/filter-mayak.html"></include>
-						<include src="mayak/partials/components/sort-mayak.html"></include>
+						<include
+							src="mayak/partials/components/filter-mayak.html"></include>
+						<include
+							src="mayak/partials/components/sort-mayak.html"></include>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="container container--wide container--card">
-			<include locale='{
+			<include
+				locale='{
 				"cardsVideo": {{cardsVideo}}
-			}' src="mayak/partials/components/card-video.html"></include>
+			}'
+				src="mayak/partials/components/card-video.html"></include>
 		</div>
 		<div class="ds-filter__wrapper">
 			<div class="ds-filter">
@@ -145,9 +153,11 @@
 			</div>
 		</div>
 		<div class="container container--wide container--card">
-			<include locale='{
+			<include
+				locale='{
 				"cardsLector": {{cardsLector}}
-			}' src="mayak/partials/components/card-lector.html"></include>
+			}'
+				src="mayak/partials/components/card-lector.html"></include>
 		</div>
 		<include src="../layouts/components/social.html"></include>
 	</block>
