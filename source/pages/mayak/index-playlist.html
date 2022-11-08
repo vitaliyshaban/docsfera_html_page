@@ -1,0 +1,143 @@
+<script locals="">
+	module.exports = {
+		detailHeader: {
+			title: "Test",
+			typeInfo: "Новости",
+			date: "03.11.2022",
+		},
+		footerLinks: {
+			links: [
+				"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+				"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+				"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+			],
+			code: "1234567890",
+		},
+		breadcrumbs: [
+			"Маяк",
+			"Если нужен оригинальный препарат",
+			"Ответ на вопрос 1",
+		],
+		cardsPlaylist: [
+			{
+				title: "Если нужен оригинальный препарат",
+				author: "Саверский Александр Владимирович",
+				tags: ["Право", "Конфликты", "Документы"],
+			},
+			{
+				title: "Если нужен оригинальный препарат",
+				author: "Саверский Александр Владимирович",
+				tags: ["Право", "Конфликты", "Документы"],
+			},
+			{
+				title: "Если нужен оригинальный препарат",
+				author: "Саверский Александр Владимирович",
+				tags: ["Право", "Конфликты", "Документы"],
+			},
+		],
+		cardsVideo: [
+			{
+				title: "",
+				descr: 'Из лекции Саверского А. В. "Если нужен оригинальный препарат"',
+				tags: ["Выписки", "Врачебная комиссия"],
+				date: "Сентябрь 2022",
+			},
+			{
+				title: "",
+				descr: 'Из лекции Саверского А. В. "Если нужен оригинальный препарат"',
+				tags: ["Выписки", "Врачебная комиссия"],
+				date: "Сентябрь 2022",
+			},
+			{
+				title: "",
+				descr: 'Из лекции Саверского А. В. "Если нужен оригинальный препарат"',
+				tags: ["Выписки", "Врачебная комиссия"],
+				date: "Сентябрь 2022",
+			},
+			{
+				title: "",
+				descr: 'Из лекции Саверского А. В. "Если нужен оригинальный препарат"',
+				tags: ["Выписки", "Врачебная комиссия"],
+				date: "Сентябрь 2022",
+			},
+			{
+				title: "",
+				descr: 'Из лекции Саверского А. В. "Если нужен оригинальный препарат"',
+				tags: ["Выписки", "Врачебная комиссия"],
+				date: "Сентябрь 2022",
+			},
+		],
+		listVideo: [
+			{
+				title: "Ответ на вопрос 1",
+				tag: "Право",
+				date: "27 Фев 2019",
+			},
+			{
+				title: "Ответ на вопрос 2",
+				tag: "Конфликты",
+				date: "27 Фев 2019",
+			},
+			{
+				title: "Ответ на вопрос 3",
+				tag: "Конфликты",
+				date: "27 Фев 2019",
+			},
+			{
+				title: "Ответ на вопрос 4",
+				tag: "Конфликты",
+				date: "27 Фев 2019",
+			},
+		],
+	};
+</script>
+<extends src="layouts/docsfera.html">
+	<block name="head">
+		<link rel="stylesheet" href="assets/styles.css" />
+	</block>
+	<block name="header">
+		<include src="../layouts/components/header.html"></include>
+	</block>
+
+	<block name="content">
+		<include src="mayak/partials/components/header-mayak.html"></include>
+		<include src="mayak/partials/components/search-mayak.html"></include>
+		<include src="mayak/partials/components/questions-mayak.html"></include>
+		<!-- Модуль Хлебные крошки -->
+		<!-- <include locals='{"breadcrumbs": {{breadcrumbs}}' src="../layouts/components/breadcrumbs.html"></include> -->
+		<!-- Модуль внутреннего меню в .page__content -->
+		<!-- <include src="../layouts/components/content-menu.html"></include> -->
+		<!-- Модуль заголовка карточки -->
+		<!-- <include locals='{"detailHeader": {{detailHeader}}}' src="../layouts/components/detail-header.html"></include> -->
+		<include
+			locale='{
+                    "cardsVideo": {{cardsVideo}}
+                }'
+			src="mayak/partials/pages/playlist.html"></include>
+		<div class="ds-filter__wrapper">
+			<div class="ds-filter">
+				<div class="container container--wide">
+					<div class="row row--vcentered ds-filter__row">
+						<div class="column">
+							<h2>Другие плейлисты</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container container--wide container--card">
+			<include
+				locale='{
+				"cardsPlaylist": {{cardsPlaylist}}
+			}'
+				src="mayak/partials/components/card-playlist.html"></include>
+		</div>
+		<include src="mayak/partials/components/pagination-page.html"></include>
+		<include src="../layouts/components/social.html"></include>
+	</block>
+
+	<block name="footer">
+		<include src="../layouts/components/footer.html"></include>
+	</block>
+	<block name="post"> </block>
+</extends>
