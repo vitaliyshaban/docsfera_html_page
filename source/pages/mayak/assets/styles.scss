@@ -1,21 +1,23 @@
-@import 'scss/variables';
-@import 'scss/mixins';
-@import 'scss/shared';
-
-
-// Components
-@import 'scss/components/header-mayak';
-@import 'scss/components/search-mayak';
-@import 'scss/components/search-card';
-@import 'scss/components/filter-search';
-@import 'scss/components/card-lector';
-@import 'scss/components/card-playlist';
-@import 'scss/components/card-video';
-@import 'scss/components/card-video-small';
-
-// Pages
-@import 'scss/components/card';
-@import 'scss/components/playlist';
-@import 'scss/components/search';
-
-@import 'scss/components/pagination-page';
+.mayak_content_explorer {
+    @import 'scss/variables';
+    @import 'scss/mixins';
+    @import 'scss/shared';
+    
+    
+    // Components
+    @import 'scss/components/header-mayak';
+    @import 'scss/components/search-mayak';
+    @import 'scss/components/search-card';
+    @import 'scss/components/filter-search';
+    @import 'scss/components/card-lector';
+    @import 'scss/components/card-playlist';
+    @import 'scss/components/card-video';
+    @import 'scss/components/card-video-small';
+    
+    // Pages
+    @import 'scss/components/card';
+    @import 'scss/components/playlist';
+    @import 'scss/components/search';
+    
+    @import 'scss/components/pagination-page';
+}
