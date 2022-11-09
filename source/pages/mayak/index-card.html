@@ -73,52 +73,47 @@
 	};
 </script>
 <extends src="layouts/docsfera.html">
-	<block name="head">
-		<link rel="stylesheet" href="assets/styles.css" />
-	</block>
-	<block name="header">
-		<include src="../layouts/components/header.html"></include>
-	</block>
-
-	<block name="content">
-		<!-- Модуль Хлебные крошки -->
-		<include
-			locals='{"breadcrumbs": {{breadcrumbs}}'
-			src="../layouts/components/breadcrumbs.html"></include>
-		<!-- Модуль внутреннего меню в .page__content -->
-		<!-- <include src="../layouts/components/content-menu.html"></include> -->
-		<!-- Модуль заголовка карточки -->
-		<!-- <include locals='{"detailHeader": {{detailHeader}}}' src="../layouts/components/detail-header.html"></include> -->
-		<div class="container">
-			<div class="row">
-				<div class="column column--12-small column--8-tablet content">
-					<div class="new__content">
-						<include src="mayak/partials/pages/card.html"></include>
-						<include
-							locals='{"footerLinks": {{footerLinks}}}'
-							src="../layouts/components/footer-links.html"></include>
-					</div>
-				</div>
-				<div class="column column--12-small column--4-tablet">
-					<aside class="detail-body__aside" style="top: 93px">
-						<div class="detail-body__aside-top">
-							<div class="items-video items-video__aside">
-								<div class="items-video__header">
-									Если нужен оригинальный препарат
-								</div>
-								<div class="items-video__list">
-									<include
-										locals='{"listVideo": {{listVideo}}}'
-										src="mayak/partials/components/card-video-small.html"></include>
-								</div>
-							</div>
-						</div>
-						<include
-							src="../layouts/components/social.html"></include>
-					</aside>
-				</div>
-			</div>
-		</div>
+  <block name="head">
+    <link rel="stylesheet" href="assets/styles.css">
+  </block>
+  <block name="header">
+    <include src="../layouts/components/header.html"></include>
+  </block>
+  
+  <block name="content">
+    <include src="mayak/partials/components/header-mayak.html"></include>
+    <!-- Модуль Хлебные крошки -->
+    <include locals='{"breadcrumbs": {{breadcrumbs}}' src="../layouts/components/breadcrumbs.html"></include>
+    <!-- Модуль внутреннего меню в .page__content -->
+    <!-- <include src="../layouts/components/content-menu.html"></include> -->
+    <!-- Модуль заголовка карточки -->
+    <!-- <include locals='{"detailHeader": {{detailHeader}}}' src="../layouts/components/detail-header.html"></include> -->
+    <div class="container">
+      <div class="row">
+        <div class="column column--12-small column--8-tablet content">
+          <div class="new__content">
+            <include src="mayak/partials/pages/card.html"></include>
+            <include locals='{"footerLinks": {{footerLinks}}}' src="../layouts/components/footer-links.html"></include>
+          </div>
+        </div>
+        <div class="column column--12-small column--4-tablet">
+          <aside class="detail-body__aside" style="top: 93px">
+            <div class="detail-body__aside-top">
+              <div class="items-video items-video__aside">
+                <div class="items-video__header">
+                  Если нужен оригинальный препарат
+                </div>
+                <div class="items-video__list">
+                  <include locals='{"listVideo": {{listVideo}}}'  src="mayak/partials/components/card-video-small.html"></include>
+                </div>
+              </div>
+            </div>
+            <include src="../layouts/components/social.html"></include>
+          </aside>
+        </div>
+      </div>
+      
+    </div>
 		<div class="ds-filter__wrapper">
 			<div class="ds-filter">
 				<div class="container container--wide">
