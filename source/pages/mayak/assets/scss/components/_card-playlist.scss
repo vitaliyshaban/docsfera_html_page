@@ -1,0 +1,143 @@
+.card-pl {
+  width: 392px;
+  height: 450px;
+  min-height: 450px;
+  background-color: $COLOR_WHITE;
+  border: 1px solid #B2B2B2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &-preview {
+    background-color: #BDBDBD;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 225px;
+
+    .card-pl-button {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &__btn {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: #3A77BC;
+        font-size: 19px;
+        line-height: 20px;
+        color: #FFFFFF;
+        border-radius: 10px;
+      }
+    }
+
+    .card-pl-overlay {
+      min-width: 160px;
+      height: 100%;
+      background-color: rgba(#000000, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &__count {
+        font-size: 26px;
+        line-height: 36px;
+        font-weight: 700;
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  &-body {
+    height: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .card-pl-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      &__title,
+      &__author {
+        margin: 0;
+        font-size: 18px;
+        line-height: 24px;
+        color: #000000;
+      }
+
+      &__title {
+        font-weight: 700;
+      }
+
+      &__author {
+        font-weight: 400;
+      }
+    }
+
+    .card-pl-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .card-pl-tags {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+
+        &__link {
+          font-size: 14px;
+          line-height: 20px;
+          color: #0158BB;
+          text-decoration: underline;
+        }
+      }
+
+      &__btn {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        color: #707075;
+        padding: 0;
+
+        >svg {
+          width: 14px;
+          height: 18px;
+        }
+
+        >span {
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    &-preview {
+      min-height: 140px;
+
+      .card-pl-overlay {
+        min-width: 140px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    &-preview {
+      .card-pl-overlay {
+        min-width: 120px;
+      }
+    }
+  }
+}
