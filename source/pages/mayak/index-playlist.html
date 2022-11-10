@@ -134,9 +134,10 @@
 			</div>
 		</div>
 		<div class="container container--wide container--card">
-			<include locale='{
-				"cardsPlaylist": {{cardsPlaylist}}
-			}' src="mayak/partials/components/card-playlist.html"></include>
+			<div class="playlist__wrapper">
+				<include locale='{ "cardsPlaylist": {{cardsPlaylist}} }' src="mayak/partials/components/card-playlist.html">
+				</include>
+			</div>
 			<include src="mayak/partials/components/pagination.html">
 			</include>
 		</div>

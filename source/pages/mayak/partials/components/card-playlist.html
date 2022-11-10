@@ -1,38 +1,34 @@
-<div class="row row--phone js-row-infinity">
-	<each loop="card, index in {{ cardsPlaylist }}">
-		<div class="column column--narrow">
-			<section class="article-item article-item--video has-image card-pl">
-				<div class="card-pl-preview">
-					<div class="card-pl-button">
-						<button class="card-pl-button__btn">Продолжить <br> просмотр</button>
-					</div>
-					<div class="card-pl-overlay">
-						<span class="card-pl-overlay__count">9 видео</span>
-					</div>
-				</div>
-				<div class="card-pl-body">
-					<div class="card-pl-heading">
-						<h5 class="card-pl-heading__title">{{card.title}}</h5>
-						<p class="card-pl-heading__author">{{card.author}}</p>
-					</div>
-					<div class="card-pl-footer">
-						<div class="card-pl-tags">
-							<each loop="tag, index in {{ card.tags }}">
-								<a href="#" class="card-pl-tags__link">{{tag}}</a>
-							</each>
-							<a href="#" class="card-pl-tags__link">(+2)</a>
-						</div>
-						<button data-card-id="" type="button" class="card-pl-footer__btn">
-							<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M2 0H12C13.1 0 14 0.9 14 2V18L7 15L-1.90735e-06 18V2C-1.90735e-06 0.9 0.899999 0 2 0ZM2 15L7 12.82L12 15V2H2V15Z"
-									fill="#707075" />
-							</svg>
-							<span>В избранное</span>
-						</button>
-					</div>
-				</div>
-			</section>
+<each loop="card, index in {{ cardsPlaylist }}">
+	<section class="article-item article-item--video has-image card-pl">
+		<div class="card-pl-preview">
+			<div class="card-pl-button">
+				<button class="card-pl-button__btn">Продолжить <br> просмотр</button>
+			</div>
+			<div class="card-pl-overlay">
+				<span class="card-pl-overlay__count">9 видео</span>
+			</div>
 		</div>
-	</each>
-</div>
+		<div class="card-pl-body">
+			<div class="card-pl-heading">
+				<h5 class="card-pl-heading__title">{{card.title}}</h5>
+				<p class="card-pl-heading__author">{{card.author}}</p>
+			</div>
+			<div class="card-pl-footer">
+				<div class="card-pl-tags">
+					<each loop="tag, index in {{ card.tags }}">
+						<a href="#" class="card-pl-tags__link">{{tag}}</a>
+					</each>
+					<a href="#" class="card-pl-tags__link">(+2)</a>
+				</div>
+				<button data-card-id="" type="button" class="card-pl-footer__btn">
+					<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M2 0H12C13.1 0 14 0.9 14 2V18L7 15L-1.90735e-06 18V2C-1.90735e-06 0.9 0.899999 0 2 0ZM2 15L7 12.82L12 15V2H2V15Z"
+							fill="#707075" />
+					</svg>
+					<span>В избранное</span>
+				</button>
+			</div>
+		</div>
+	</section>
+</each>

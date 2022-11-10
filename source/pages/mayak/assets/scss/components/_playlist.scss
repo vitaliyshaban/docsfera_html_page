@@ -233,6 +233,10 @@
       scrollbar-width: thin;
       scrollbar-color: $COLOR_ACCENT #D9D9D9;
 
+      &--no-scroll {
+        overflow-y: visible;
+      }
+
       &::-webkit-scrollbar {
         width: 12px;
       }
