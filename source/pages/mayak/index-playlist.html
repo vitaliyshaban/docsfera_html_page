@@ -20,17 +20,17 @@
 		],
 		cardsPlaylist: [
 			{
-				title: "Если нужен оригинальный препарат",
+				title: "Работа с жалобами, провокациями и отказами от выполнения назначений",
 				author: "Саверский Александр Владимирович",
 				tags: ["Право", "Конфликты", "Документы"],
 			},
 			{
-				title: "Если нужен оригинальный препарат",
+				title: "Виды вины медицинских работников",
 				author: "Саверский Александр Владимирович",
 				tags: ["Право", "Конфликты", "Документы"],
 			},
 			{
-				title: "Если нужен оригинальный препарат",
+				title: "Проверки медицинских организаций",
 				author: "Саверский Александр Владимирович",
 				tags: ["Право", "Конфликты", "Документы"],
 			},
@@ -69,22 +69,32 @@
 		],
 		listVideo: [
 			{
-				title: "Ответ на вопрос 1",
+				title: "Если нужен оригинальный препарат",
 				tag: "Право",
 				date: "27 Фев 2019",
 			},
 			{
-				title: "Ответ на вопрос 2",
+				title: "Виды вины медицинских работников",
 				tag: "Конфликты",
 				date: "27 Фев 2019",
 			},
 			{
-				title: "Ответ на вопрос 3",
+				title: "Виды вины медицинских работников",
 				tag: "Конфликты",
 				date: "27 Фев 2019",
 			},
 			{
-				title: "Ответ на вопрос 4",
+				title: "Права и обязанности медицинских работников и пациентов",
+				tag: "Конфликты",
+				date: "27 Фев 2019",
+			},
+			{
+				title: "Проверки медицинских организаций",
+				tag: "Конфликты",
+				date: "27 Фев 2019",
+			},
+			{
+				title: "Права и обязанности медицинских работников и пациентов",
 				tag: "Конфликты",
 				date: "27 Фев 2019",
 			},
@@ -109,11 +119,9 @@
 		<!-- <include src="../layouts/components/content-menu.html"></include> -->
 		<!-- Модуль заголовка карточки -->
 		<!-- <include locals='{"detailHeader": {{detailHeader}}}' src="../layouts/components/detail-header.html"></include> -->
-		<include
-			locale='{
+		<include locale='{
                     "cardsVideo": {{cardsVideo}}
-                }'
-			src="mayak/partials/pages/playlist.html"></include>
+                }' src="mayak/partials/pages/playlist.html"></include>
 		<div class="ds-filter__wrapper">
 			<div class="ds-filter">
 				<div class="container container--wide">
@@ -126,11 +134,12 @@
 			</div>
 		</div>
 		<div class="container container--wide container--card">
-			<include
-				locale='{
-				"cardsPlaylist": {{cardsPlaylist}}
-			}'
-				src="mayak/partials/components/card-playlist.html"></include>
+			<div class="playlist__wrapper">
+				<include locale='{ "cardsPlaylist": {{cardsPlaylist}} }' src="mayak/partials/components/card-playlist.html">
+				</include>
+			</div>
+			<include src="mayak/partials/components/pagination.html">
+			</include>
 		</div>
 		<include src="mayak/partials/components/pagination-page.html"></include>
 		<include src="../layouts/components/social.html"></include>
