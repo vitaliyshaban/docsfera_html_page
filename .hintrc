@@ -13,7 +13,10 @@
           "flex-basis",
           "grid-template-columns",
           "display: grid",
-          "grid-template-columns: repeat(4, 1fr)"
+          "grid-template-columns: repeat(4, 1fr)",
+          "flex-shrink",
+          "transform-origin",
+          "transform"
         ]
       }
     ],
