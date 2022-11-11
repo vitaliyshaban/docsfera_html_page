@@ -1,0 +1,207 @@
+.s-filter {
+  &__title {
+    margin: 0 0 25px 0;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+    color: #000000;
+  }
+
+  &-sort {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .sort-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      &__input {
+        height: 20px;
+        width: 20px;
+      }
+
+      &__label {
+        font-size: 18px;
+        line-height: 24px;
+        color: #000000;
+      }
+    }
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    .filter-group {
+      &__title {
+        margin: 0;
+        font-size: 16px;
+        line-height: 20px;
+        color: #000000;
+      }
+
+      &-heading {
+        width: 100%;
+        height: auto;
+        min-height: 52px;
+        padding: 10px 9px 10px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 2px solid #000000;
+
+        .filter-left {
+          >span {
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 400;
+            color: #000000;
+          }
+
+          .tags-list {
+            display: none;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 15px;
+
+            &__item {
+              padding: 5px 8px;
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              background-color: #F0F0F5;
+
+              >span {
+                text-transform: uppercase;
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: 800;
+                color: #000000;
+              }
+
+              >button {
+                padding: 0;
+                height: 24px;
+                width: 24px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 25px;
+              }
+            }
+
+            &--visible {
+              display: flex;
+            }
+          }
+        }
+
+        .filter-right {
+          display: flex;
+          gap: 12px;
+
+          &__btn {
+            height: 24px;
+            width: 24px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:focus {
+              outline: none;
+              border: none;
+            }
+
+            &[data-role="switch-dropdown"] {
+              >svg {
+                transform-origin: center center;
+                transform: rotate(0deg);
+                transition: 0.3s ease;
+              }
+            }
+
+            &[data-role="delete-tags"] {
+              display: none;
+
+              &.btn-delete-tags--visible {
+                display: inline-flex;
+              }
+            }
+          }
+        }
+
+        &:focus {
+          border: 2px solid #0158BB;
+        }
+      }
+
+      .dropdown-list {
+        width: 100%;
+        max-height: 240px;
+        overflow-y: scroll;
+        box-shadow: 0 8px 16px -8px rgb(0 0 0 / 25%);
+        scrollbar-width: thin;
+        scrollbar-color: #000000 transparent;
+        display: none;
+
+        &::-webkit-scrollbar {
+          width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #000000;
+          border: 3px solid transparent;
+        }
+
+        &__item {
+          height: auto;
+          min-height: 48px;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-shrink: 10;
+          padding: 12px 16px;
+          font-size: 18px;
+          line-height: 24px;
+          color: #000000;
+
+          &:hover {
+            background-color: #0158BB;
+            color: #FFFFFF;
+            cursor: pointer;
+          }
+        }
+
+        &--visible {
+          display: block;
+        }
+      }
+
+      &.is-on {
+        .filter-group-heading {
+          border: 2px solid #0158BB;
+
+          .filter-right {
+            .filter-right__btn {
+              &[data-role="switch-dropdown"] {
+                >svg {
+                  transform: rotate(180deg);
+                  transition: 0.3s ease;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
