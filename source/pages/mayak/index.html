@@ -111,9 +111,11 @@
 			</div>
 		</div>
 		<div class="container container--wide container--card">
-			<include locale='{
-				"cardsPlaylist": {{cardsPlaylist}}
-			}' src="mayak/partials/components/card-playlist.html"></include>
+			<div class="row row--phone js-row-infinity">
+				<include locale='{
+								"cardsPlaylist": {{cardsPlaylist}}
+							}' src="mayak/partials/components/card-playlist.html"></include>
+			</div>
 		</div>
 		<div class="ds-filter__wrapper">
 			<div class="ds-filter">
