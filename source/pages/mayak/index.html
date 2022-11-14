@@ -147,9 +147,9 @@
 			</div>
 		</div>
 		<div class="container container--wide container--card">
-			<include locale='{
-				"cardsLector": {{cardsLector}}
-			}' src="mayak/partials/components/card-lector.html"></include>
+			<div class="row row--phone js-row-infinity">
+				<include locale='{ "cardsLector": {{cardsLector}} }' src="mayak/partials/components/card-lector.html"></include>
+			</div>
 		</div>
 		<include src="../layouts/components/social.html"></include>
 	</block>
