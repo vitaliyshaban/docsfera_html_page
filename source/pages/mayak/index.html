@@ -37,31 +37,31 @@
 		],
 		cardsVideo: [
 			{
-				title: "",
+				title: "Ответ на вопрос 1",
 				descr: 'Из лекции Саверского А. В. "Если нужен оригинальный препарат"',
 				tags: ["Выписки", "Врачебная комиссия"],
 				date: "Сентябрь 2022",
 			},
 			{
-				title: "",
+				title: "Ответ на вопрос 2",
 				descr: 'Из лекции Саверского А. В. "Если нужен оригинальный препарат"',
 				tags: ["Выписки", "Врачебная комиссия"],
 				date: "Сентябрь 2022",
 			},
 			{
-				title: "",
+				title: "Ответ на вопрос 3",
 				descr: 'Из лекции Саверского А. В. "Если нужен оригинальный препарат"',
 				tags: ["Выписки", "Врачебная комиссия"],
 				date: "Сентябрь 2022",
 			},
 			{
-				title: "",
+				title: "Ответ на вопрос 4",
 				descr: 'Из лекции Саверского А. В. "Если нужен оригинальный препарат"',
 				tags: ["Выписки", "Врачебная комиссия"],
 				date: "Сентябрь 2022",
 			},
 			{
-				title: "",
+				title: "Ответ на вопрос 5",
 				descr: 'Из лекции Саверского А. В. "Если нужен оригинальный препарат"',
 				tags: ["Выписки", "Врачебная комиссия"],
 				date: "Сентябрь 2022",
@@ -111,9 +111,11 @@
 			</div>
 		</div>
 		<div class="container container--wide container--card">
-			<include locale='{
-				"cardsPlaylist": {{cardsPlaylist}}
-			}' src="mayak/partials/components/card-playlist.html"></include>
+			<div class="row row--phone js-row-infinity">
+				<include locale='{
+								"cardsPlaylist": {{cardsPlaylist}}
+							}' src="mayak/partials/components/card-playlist.html"></include>
+			</div>
 		</div>
 		<div class="ds-filter__wrapper">
 			<div class="ds-filter">
@@ -145,9 +147,9 @@
 			</div>
 		</div>
 		<div class="container container--wide container--card">
-			<include locale='{
-				"cardsLector": {{cardsLector}}
-			}' src="mayak/partials/components/card-lector.html"></include>
+			<div class="row row--phone js-row-infinity">
+				<include locale='{ "cardsLector": {{cardsLector}} }' src="mayak/partials/components/card-lector.html"></include>
+			</div>
 		</div>
 		<include src="../layouts/components/social.html"></include>
 	</block>
