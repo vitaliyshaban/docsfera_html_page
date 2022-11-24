@@ -54,6 +54,7 @@ const assets = (cb) => {
 	return src([
 		"source/pages/**/assets/images/**",
 		"source/pages/**/assets/videos/**",
+		"source/pages/**/assets/fonts/**",
 		"source/pages/**/assets/*.js",
 	]).pipe(dest("dist"));
 };
