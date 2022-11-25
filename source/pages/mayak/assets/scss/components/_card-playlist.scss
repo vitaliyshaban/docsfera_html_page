@@ -12,6 +12,7 @@
       align-items: center;
 
       &__btn {
+        height: 60px;
         width: 80%;
         display: flex;
         justify-content: center;
@@ -42,4 +43,26 @@
       }
     }
   }
+
+  @media screen and (max-width: 576px) {
+    &__preview {
+      .card-pl-button {
+        &__btn {
+          width: 90%;
+        }
+      }
+    }
+  }
+
+  // @media screen and (max-width: 374px) {
+  //   &__preview {
+  //     flex-direction: column;
+
+  //     .card-pl-button,
+  //     .card-pl-overlay {
+  //       height: 50%;
+  //     }
+
+  //   }
+  // }
 }
