@@ -1,6 +1,6 @@
 .pagination {
   width: 100%;
-  margin: 0;
+  margin: 20px 0;
   padding: 0;
 
   &__wrapper {
@@ -23,6 +23,11 @@
       height: 35px;
       width: 40px;
       float: left;
+
+      &::before,
+      &::after {
+        display: none;
+      }
 
       &:first-child {
         margin-right: 15px;

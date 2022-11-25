@@ -1,4 +1,6 @@
 .questions {
+  margin-bottom: 40px;
+
   &__wrapper {
     width: 100%;
     height: auto;
@@ -27,13 +29,19 @@
     gap: 20px;
 
     &__item {
+      list-style: none;
+    }
+
+    &__link {
+      display: block;
       text-transform: uppercase;
       font-weight: 700;
       font-size: 14px;
-      line-height: 30px;
+      line-height: 18px;
       color: #FFFFFF;
       background-color: #000000;
-      padding: 0 10px;
+      padding: 5px 10px;
+      text-align: center;
 
       &:hover {
         cursor: pointer;
