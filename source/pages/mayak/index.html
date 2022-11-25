@@ -150,9 +150,17 @@
 				</div>
 			</div>
 		</div>
-		<div class="container">
-			<div class="card-lector-wrapper">
-				<include locale='{ "cardsLector": {{cardsLector}} }' src="mayak/partials/components/card-lector.html"></include>
+		<div class="container container--wide">
+			<div class="card-lector-wrapper ds-swiper ds-swiper--item">
+                <div class="swiper-buttons">
+                    <div class="swiper-button-prev swiper-button-disabled" tabindex="-1" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-b55f422f2c222bbc" aria-disabled="true"></div>
+                    <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-b55f422f2c222bbc" aria-disabled="false"></div>
+                </div>
+                <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+                    <div class="swiper-wrapper">
+                        <include locale='{ "cardsLector": {{cardsLector}} }' src="mayak/partials/components/card-lector.html"></include>
+                    </div>
+                </div>
 			</div>
 		</div>
 		<include src="../layouts/components/social.html"></include>
