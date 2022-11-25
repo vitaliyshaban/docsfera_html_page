@@ -76,6 +76,10 @@
 				name: "Саверский Александр Владимирович",
 				descr: 'Президент "Лиги пациентов", член Экспертного совета при Правительстве Российской Федерации.',
 			},
+			{
+				name: "Саверский Александр Владимирович",
+				descr: 'Президент "Лиги пациентов", член Экспертного совета при Правительстве Российской Федерации.',
+			},
 		],
 	};
 </script>
@@ -99,8 +103,8 @@
 		<!-- <include locals='{"detailHeader": {{detailHeader}}}' src="../layouts/components/detail-header.html"></include> -->
 		<div class="ds-filter__wrapper">
 			<div class="ds-filter">
-				<div class="container container--wide">
-					<div class="row row--vcentered ds-filter__row">
+				<div class="container">
+					<div class="row row--vcentered">
 						<div class="column">
 							<h2>Лекторий (лекционные плейлисты) 8 тем</h2>
 						</div>
@@ -110,8 +114,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="container container--wide container--card">
-			<div class="row row--phone js-row-infinity">
+		<div class="container">
+			<div class="row">
 				<include locale='{
 								"cardsPlaylist": {{cardsPlaylist}}
 							}' src="mayak/partials/components/card-playlist.html"></include>
@@ -119,8 +123,8 @@
 		</div>
 		<div class="ds-filter__wrapper">
 			<div class="ds-filter">
-				<div class="container container--wide">
-					<div class="row row--vcentered ds-filter__row">
+				<div class="container">
+					<div class="row">
 						<div class="column">
 							<h2>Отвечают эксперты</h2>
 						</div>
@@ -130,15 +134,15 @@
 				</div>
 			</div>
 		</div>
-		<div class="container container--wide container--card">
+		<div class="container">
 			<include locale='{
 				"cardsVideo": {{cardsVideo}}
 			}' src="mayak/partials/components/card-video.html"></include>
 		</div>
 		<div class="ds-filter__wrapper">
 			<div class="ds-filter">
-				<div class="container container--wide">
-					<div class="row row--vcentered ds-filter__row">
+				<div class="container">
+					<div class="row">
 						<div class="column">
 							<h2>Лекторы</h2>
 						</div>
@@ -146,8 +150,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="container container--wide container--card">
-			<div class="row row--phone js-row-infinity">
+		<div class="container">
+			<div class="card-lector-wrapper">
 				<include locale='{ "cardsLector": {{cardsLector}} }' src="mayak/partials/components/card-lector.html"></include>
 			</div>
 		</div>

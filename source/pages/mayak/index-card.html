@@ -1,5 +1,5 @@
 <script locals="">
-  module.exports = {
+	module.exports = {
 		detailHeader: {
 			title: "Test",
 			typeInfo: "Новости",
@@ -69,78 +69,92 @@
 				tag: "Конфликты",
 				date: "27 Фев 2019",
 			},
+			{
+				title: "Ответ на вопрос 5",
+				tag: "Конфликты",
+				date: "27 Фев 2019",
+			},
 		],
 	};
 </script>
 <extends src="layouts/docsfera.html">
-  <block name="head">
-    <link rel="stylesheet" href="assets/styles.css">
-  </block>
-  <block name="header">
-    <include src="../layouts/components/header.html"></include>
-  </block>
-  
-  <block name="content">
-    <include src="mayak/partials/components/header-mayak.html"></include>
-    <!-- Модуль Хлебные крошки -->
-    <include locals='{"breadcrumbs": {{breadcrumbs}}' src="../layouts/components/breadcrumbs.html"></include>
-    <!-- Модуль внутреннего меню в .page__content -->
-    <!-- <include src="../layouts/components/content-menu.html"></include> -->
-    <!-- Модуль заголовка карточки -->
-    <!-- <include locals='{"detailHeader": {{detailHeader}}}' src="../layouts/components/detail-header.html"></include> -->
-    <div class="container">
-      <div class="row">
-        <div class="column column--12-small column--8-tablet content">
-          <div class="new__content">
-            <include src="mayak/partials/pages/card.html"></include>
-            <include locals='{"footerLinks": {{footerLinks}}}' src="../layouts/components/footer-links.html"></include>
-          </div>
-        </div>
-        <div class="column column--12-small column--4-tablet">
-          <aside class="detail-body__aside" style="top: 93px">
-            <div class="detail-body__aside-top">
-              <div class="items-video items-video__aside">
-                <div class="items-video__header">
-                  Если нужен оригинальный препарат
-                </div>
-                <div class="items-video__list">
-                  <include locals='{"listVideo": {{listVideo}}}'  src="mayak/partials/components/card-video-small.html"></include>
-                </div>
-              </div>
-            </div>
-            <include src="../layouts/components/social.html"></include>
-          </aside>
-        </div>
-      </div>
-      
-    </div>
+	<block name="head">
+		<link rel="stylesheet" href="assets/styles.css">
+	</block>
+	<block name="header">
+		<include src="../layouts/components/header.html"></include>
+	</block>
+
+	<block name="content">
+		<include src="mayak/partials/components/header-mayak.html"></include>
+		<!-- Модуль Хлебные крошки -->
+		<include locals='{"breadcrumbs": {{breadcrumbs}}' src="../layouts/components/breadcrumbs.html"></include>
+		<!-- Модуль внутреннего меню в .page__content -->
+		<!-- <include src="../layouts/components/content-menu.html"></include> -->
+		<!-- Модуль заголовка карточки -->
+		<!-- <include locals='{"detailHeader": {{detailHeader}}}' src="../layouts/components/detail-header.html"></include> -->
+		<div class="container">
+			<div class="row">
+				<div class="column column--12-small column--8-tablet content">
+					<div class="new__content">
+						<include src="mayak/partials/pages/card.html"></include>
+						<include locals='{"footerLinks": {{footerLinks}}}' src="../layouts/components/footer-links.html"></include>
+					</div>
+				</div>
+				<div class="column column--12-small column--4-tablet">
+					<aside class="detail-body__aside" style="top: 93px">
+						<div class="detail-body__aside-top">
+							<div class="items-video items-video__aside">
+								<div class="playlist playlist__block">
+									<div class="playlist-header playlist-header--sm">
+										<img src="./assets/images/playlist-header.jpg" alt="Изображение плейлиста"
+											class="playlist-header__bg">
+										<div class="playlist-header-info">
+											<span class="playlist-header-info__topic">Лекторий (лекционный плейлист)</span>
+											<h4 class="playlist-header-info__title">Если нужен оригинальный препарат</h4>
+										</div>
+										<div class="playlist-header-count">
+											<span class="playlist-header-count__number">6</span>
+											<span class="playlist-header-count__text">Видео</span>
+										</div>
+									</div>
+									<div class="playlist__wrapper playlist__wrapper--one-column playlist__wrapper--scroll">
+										<include locale='{ "cardsVideo": {{cardsVideo}} }'
+											src="mayak/partials/components/card-video-small.html">
+										</include>
+									</div>
+								</div>
+							</div>
+						</div>
+						<include src="../layouts/components/social.html"></include>
+					</aside>
+				</div>
+			</div>
+
+		</div>
 		<div class="ds-filter__wrapper">
 			<div class="ds-filter">
-				<div class="container container--wide">
-					<div class="row row--vcentered ds-filter__row">
+				<div class="container">
+					<div class="row row--vcentered">
 						<div class="column">
 							<h2>Другие лекции</h2>
 						</div>
-						<include
-							src="mayak/partials/components/filter-mayak.html"></include>
-						<include
-							src="mayak/partials/components/sort-mayak.html"></include>
+						<include src="mayak/partials/components/filter-mayak.html"></include>
+						<include src="mayak/partials/components/sort-mayak.html"></include>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="container container--wide container--card">
-			<include
-				locale='{
+		<div class="container">
+			<include locale='{
 				"cardsVideo": {{cardsVideo}}
-			}'
-				src="mayak/partials/components/card-video.html"></include>
+			}' src="mayak/partials/components/card-video.html"></include>
 			<include src="mayak/partials/components/pagination.html"></include>
 		</div>
 		<div class="ds-filter__wrapper">
 			<div class="ds-filter">
-				<div class="container container--wide">
-					<div class="row row--vcentered ds-filter__row">
+				<div class="container">
+					<div class="row row--vcentered">
 						<div class="column">
 							<h2>Лекторы</h2>
 						</div>
@@ -148,12 +162,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="container container--wide container--card">
-			<include
-				locale='{
+		<div class="container">
+			<include locale='{
 				"cardsLector": {{cardsLector}}
-			}'
-				src="mayak/partials/components/card-lector.html"></include>
+			}' src="mayak/partials/components/card-lector.html"></include>
 		</div>
 		<include src="../layouts/components/social.html"></include>
 	</block>
@@ -161,5 +173,7 @@
 	<block name="footer">
 		<include src="../layouts/components/footer.html"></include>
 	</block>
-	<block name="post"> </block>
+	<block name="post">
+		<script type="text/javascript" src="./assets/index.js"></script>
+	</block>
 </extends>
