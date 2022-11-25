@@ -1,0 +1,31 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "flex-direction",
+          "object-fit",
+          "transition",
+          "flex-basis",
+          "grid-template-columns",
+          "display: grid",
+          "grid-template-columns: repeat(4, 1fr)",
+          "flex-shrink",
+          "transform-origin",
+          "transform",
+          "order"
+        ]
+      }
+    ],
+    "axe/name-role-value": [
+      "default",
+      {
+        "button-name": "off"
+      }
+    ]
+  }
+}

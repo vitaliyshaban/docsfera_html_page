@@ -1,0 +1,35 @@
+.search-card {
+  width: 100%;
+  height: 257px;
+  min-height: 257px;
+
+  &__preview {
+    display: none;
+  }
+
+  &__info {
+    .search-card-info__left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+
+  &__btn {
+    &.card-info__btn--watch {
+      >span {
+        color: #707075;
+      }
+
+      >svg {
+        path {
+          fill: #707075;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+  }
+}

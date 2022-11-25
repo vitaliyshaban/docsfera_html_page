@@ -1,10 +1,87 @@
 <div class="container container--wide container--card">
-    <h2>Если нужен оригинальный препарат</h2>
-    <div class="row row--playlist js-row-infinity">
-        <include
-            locale='{
-            "cardsVideo": {{cardsVideo}}
-        }'
-            src="mayak/partials/components/card-video-small.html"></include>
+  <h2>Если нужен оригинальный препарат</h2>
+  <div class="lecturer">
+    <h4 class="lecturer__name">Гриценко Ирина Юрьевна</h4>
+    <p class="ds-title__desc lecturer__desc">Практикующий специалист в области медицинского права и урегулирования
+      споров по качеству оказания медицинских услуг.</p>
+    <div class="lecturer-playlist lecturer__playlist lecturer-accordion">
+      <h5 class="lecturer-playlist__title">Описание плейлиста</h5>
+      <p class="lecturer-playlist__text" style="height: 80px;">
+        Тут будет расшифровка видео Тут будет расшифровка видео Тут будет расшифровка видео Тут будет расшифровка видео
+        Тут будет расшифровка видео Тут будет расшифровка видео Тут будет расшифровка видео Тут будет расшифровка видео
+        Тут будет расшифровка видеоТут будет расшифровка видеоТут будет расшифровка видеоТут будет расшифровка видеоТут
+        будет расшифровка видеоТут будет расшифровка видеоТут будет расшифровка видеоТут будет расшифровка видеоТут
+        будет расшифровка видеоТут будет расшифровка видеоТут будет расшифровка видеоТут будет расшифровка видеоТут
+        будет расшифровка видео Тут будет расшифровка видео Тут будет расшифровка видеоТут будет расшифровка видео
+        Тут будет расшифровка видео Тут будет расшифровка видео Тут будет расшифровка видео Тут будет расшифровка видео
+        Тут будет расшифровка видео Тут будет расшифровка видео Тут будет расшифровка видео Тут будет расшифровка видео
+        Тут будет расшифровка видеоТут будет расшифровка видеоТут будет расшифровка видеоТут будет расшифровка видеоТут
+        будет расшифровка видеоТут будет расшифровка видеоТут будет расшифровка видеоТут будет расшифровка видеоТут
+        будет расшифровка видеоТут будет расшифровка видеоТут будет расшифровка видеоТут будет расшифровка видеоТут
+        будет расшифровка видео Тут будет расшифровка видео Тут будет расшифровка видеоТут будет расшифровка видео
+      </p>
+      <div class="lecturer-accordion__controls">
+        <button type="button" class="lecturer-accordion__btn lecturer-accordion__btn--show">
+          Развернуть
+          <i class="dsi-small_arrow_closed"></i>
+        </button>
+        <button type="button" class="lecturer-accordion__btn lecturer-accordion__btn--hide">
+          Свернуть
+          <i class="dsi-small_arrow_opened"></i>
+        </button>
+      </div>
     </div>
+  </div>
+
+  <div class="playlist playlist__block">
+    <div class="playlist-header">
+      <img src="./assets/images/playlist-header.jpg" alt="Изображение плейлиста" class="playlist-header__bg">
+      <div class="playlist-header-info">
+        <span class="playlist-header-info__topic">Лекторий (лекционный плейлист)</span>
+        <h4 class="playlist-header-info__title">Если нужен оригинальный препарат</h4>
+      </div>
+      <div class="playlist-header-count">
+        <span class="playlist-header-count__number">6</span>
+        <span class="playlist-header-count__text">Видео</span>
+      </div>
+    </div>
+    <div class="playlist__wrapper">
+      <include locale='{ "cardsVideo": {{cardsVideo}} }' src="mayak/partials/components/card-video-small.html">
+      </include>
+    </div>
+  </div>
+
+  <include src="mayak/partials/components/pagination.html">
+  </include>
 </div>
+
+<script>
+  let accordionText = document.querySelector('p.lecturer-playlist__text');
+  let accordionBtnShow = document.querySelector('button.lecturer-accordion__btn--show');
+  let accordionBtnHide = document.querySelector('button.lecturer-accordion__btn--hide');
+
+  // Развернуть
+  accordionBtnShow.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    accordionBtnShow.classList.remove('lecturer-accordion__btn--show');
+    accordionBtnShow.classList.add('lecturer-accordion__btn--hide');
+    accordionBtnHide.classList.add('lecturer-accordion__btn--show');
+    accordionBtnHide.classList.remove('lecturer-accordion__btn--hide');
+    accordionText.classList.add('is-on');
+
+    accordionText.style.height = `${accordionText.scrollHeight}px`;
+  });
+  // Свернуть
+  accordionBtnHide.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    accordionBtnHide.classList.remove('lecturer-accordion__btn--show');
+    accordionBtnHide.classList.add('lecturer-accordion__btn--hide');
+    accordionBtnShow.classList.add('lecturer-accordion__btn--show');
+    accordionBtnShow.classList.remove('lecturer-accordion__btn--hide');
+    accordionText.classList.remove('is-on');
+
+    accordionText.style.height = `80px`;
+  });
+</script>
