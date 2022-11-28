@@ -3,99 +3,66 @@
 <!--[if IE 8]><html class="no-js ie8 oldie" lang="ru"><![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="ru">
-	<!--<![endif]-->
-	<head>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			window.dataLayer.push({
-				user_id: 6373,
-			});
-		</script>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta
-			name="csrf-token"
-			content="OWliHA0F7BlUdqWbtDb9BJ7p9MZQnD8FJvF1vufO" />
-		<title>Доксфера тест</title>
-		<meta name="keywords" content="" />
-		<meta
-			name="description"
-			content="Docsfera — это профессиональный медицинский портал для врачей, с большим каталогом медицинской информации. На портале представлены статьи, клинические исследования, видеолекции, калькуляторы, информация по нозологиям." />
-		<script>
-			window.Laravel = {
-				csrfToken: "OWliHA0F7BlUdqWbtDb9BJ7p9MZQnD8FJvF1vufO",
-			};
-		</script>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--<![endif]-->
 
-		<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href="{{env}}apple-touch-icon.png?v=A052qrmbB6" />
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="{{env}}favicon-32x32.png?v=A052qrmbB6" />
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href="{{env}}favicon-16x16.png?v=A052qrmbB6" />
-		<link
-			rel="shortcut icon"
-			href="{{env}}favicon.ico?v=A052qrmbB6" />
+<head>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		window.dataLayer.push({
+			user_id: 6373,
+		});
+	</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="csrf-token" content="OWliHA0F7BlUdqWbtDb9BJ7p9MZQnD8FJvF1vufO" />
+	<title>Доксфера тест</title>
+	<meta name="keywords" content="" />
+	<meta name="description"
+		content="Docsfera — это профессиональный медицинский портал для врачей, с большим каталогом медицинской информации. На портале представлены статьи, клинические исследования, видеолекции, калькуляторы, информация по нозологиям." />
+	<script>
+		window.Laravel = {
+			csrfToken: "OWliHA0F7BlUdqWbtDb9BJ7p9MZQnD8FJvF1vufO",
+		};
+	</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<meta name="msapplication-TileColor" content="#0158bb" />
-		<meta name="theme-color" content="#0158bb" />
+	<link rel="apple-touch-icon" sizes="180x180" href="{{env}}apple-touch-icon.png?v=A052qrmbB6" />
+	<link rel="icon" type="image/png" sizes="32x32" href="{{env}}favicon-32x32.png?v=A052qrmbB6" />
+	<link rel="icon" type="image/png" sizes="16x16" href="{{env}}favicon-16x16.png?v=A052qrmbB6" />
+	<link rel="shortcut icon" href="{{env}}favicon.ico?v=A052qrmbB6" />
 
-		<link
-			rel="manifest"
-			href="{{env}}site.webmanifest?v=A052qrmbB6" />
-		<link
-			rel="mask-icon"
-			href="{{env}}safari-pinned-tab.svg?v=A052qrmbB6"
-			color="#0158bb" />
+	<meta name="msapplication-TileColor" content="#0158bb" />
+	<meta name="theme-color" content="#0158bb" />
 
-        <link
-			href="{{env}}local/templates/mcmportal2/library/css/common.css"
-			type="text/css"
-			rel="stylesheet" />
-		<block name="head"></block>
-		<meta
-			property="og:title"
-			content="Docsfera — профессиональный медицинский сайт для врачей" />
-		<meta property="og:url" content="{{env}}" />
-		<meta
-			property="og:image"
-			content="{{env}}local/templates/mcmportal/images/logo_msgr_n.png" />
-		<meta property="og:site_name" content="Docsfera" />
-		<meta
-			property="og:description"
-			content="Docsfera — медицинский портал с доступом для специалистов здравоохранения" />
-	</head>
+	<link rel="manifest" href="{{env}}site.webmanifest?v=A052qrmbB6" />
+	<link rel="mask-icon" href="{{env}}safari-pinned-tab.svg?v=A052qrmbB6" color="#0158bb" />
 
-	<body onclick="return {'page': {}}" class="page js-widget-inited">
-		<block name="header"></block>
-		<div class="page__main">
-			<section class="page__content">
-                <div class="mayak_content_explorer">
-                    <block name="content"></block>
-                </div>
-			</section>
-		</div>
-		<block name="footer"></block>
-		<link
-			href="{{env}}local/templates/mcmportal2/library/assets/vendor/select2/select2.min.css"
-			type="text/css"
-			rel="stylesheet" />
+	<link href="{{env}}local/templates/mcmportal2/library/css/common.css" type="text/css" rel="stylesheet" />
+	<block name="head"></block>
+	<meta property="og:title" content="Docsfera — профессиональный медицинский сайт для врачей" />
+	<meta property="og:url" content="{{env}}" />
+	<meta property="og:image" content="{{env}}local/templates/mcmportal/images/logo_msgr_n.png" />
+	<meta property="og:site_name" content="Docsfera" />
+	<meta property="og:description" content="Docsfera — медицинский портал с доступом для специалистов здравоохранения" />
+</head>
 
-		<link
-			href="{{env}}bitrix/cache/css/s1/mcmportal2/template_46113d3985b806c81db87412bc34c3e4/template_46113d3985b806c81db87412bc34c3e4_v1.css?1667398195895616"
-			type="text/css"
-			data-template-style="true"
-			rel="stylesheet" />
+<body onclick="return {'page': {}}" class="page js-widget-inited">
+	<block name="header"></block>
+	<div class="page__main">
+		<section class="page__content">
+			<div class="mayak_content_explorer">
+				<block name="content"></block>
+			</div>
+		</section>
+	</div>
+	<block name="footer"></block>
+	<link href="{{env}}local/templates/mcmportal2/library/assets/vendor/select2/select2.min.css" type="text/css"
+		rel="stylesheet" />
 
-		<!-- <link
+	<link
+		href="{{env}}bitrix/cache/css/s1/mcmportal2/template_46113d3985b806c81db87412bc34c3e4/template_46113d3985b806c81db87412bc34c3e4_v1.css?1667398195895616"
+		type="text/css" data-template-style="true" rel="stylesheet" />
+
+	<!-- <link
 			href="/bitrix/js/ui/design-tokens/dist/compatibility.css?1664985013439"
 			type="text/css"
 			rel="stylesheet" />
@@ -107,74 +74,56 @@
 			href="/bitrix/js/main/popup/dist/main.popup.bundle.css?166498512828285"
 			type="text/css"
 			rel="stylesheet" /> -->
-		<link
-			href="{{env}}bitrix/cache/css/s1/mcmportal2/page_1f243f3f364991273e8a50e372fa4cfe/page_1f243f3f364991273e8a50e372fa4cfe_v1.css?166739930016683"
-			type="text/css"
-			rel="stylesheet" />
-		<script
-			type="text/javascript"
-			src="{{env}}local/templates/mcmportal2/library/assets/vendor/jquery/jquery.min.js?166739819289475"></script>
-		<script
-			type="text/javascript"
-			src="{{env}}local/templates/mcmportal2/library/js/common.js?166739819223340"></script>
-		<script
-			type="text/javascript"
-			src="{{env}}local/templates/mcmportal2/library/js/expands.js?16673981923871"></script>
+	<link
+		href="{{env}}bitrix/cache/css/s1/mcmportal2/page_1f243f3f364991273e8a50e372fa4cfe/page_1f243f3f364991273e8a50e372fa4cfe_v1.css?166739930016683"
+		type="text/css" rel="stylesheet" />
+	<script type="text/javascript"
+		src="{{env}}local/templates/mcmportal2/library/assets/vendor/jquery/jquery.min.js?166739819289475"></script>
+	<script type="text/javascript" src="{{env}}local/templates/mcmportal2/library/js/common.js?166739819223340"></script>
+	<script type="text/javascript" src="{{env}}local/templates/mcmportal2/library/js/expands.js?16673981923871"></script>
 
-		<script
-			type="text/javascript"
-			src="{{env}}local/templates/mcmportal2/library/js/tabs.js?16673981927874"></script>
-		<script
-			type="text/javascript"
-			src="{{env}}local/templates/mcmportal2/library/js/footer.js?16673981921552"></script>
-		<script
-			type="text/javascript"
-			src="{{env}}local/templates/mcmportal2/library/js/stepper.js?16673981923927"></script>
-		<script
-			type="text/javascript"
-			src="{{env}}local/templates/mcmportal2/library/js/header.js?166739819219994"></script>
-		<script
-			type="text/javascript"
-			src="{{env}}local/templates/mcmportal2/library/assets/vendor/simplebar/simplebar.min.js?166739819258168"></script>
-		<script
-			type="text/javascript"
-			src="{{env}}local/templates/mcmportal2/js/moment.min.js?166331130553324"></script>
+	<script type="text/javascript" src="{{env}}local/templates/mcmportal2/library/js/tabs.js?16673981927874"></script>
+	<script type="text/javascript" src="{{env}}local/templates/mcmportal2/library/js/footer.js?16673981921552"></script>
+	<script type="text/javascript" src="{{env}}local/templates/mcmportal2/library/js/stepper.js?16673981923927"></script>
+	<script type="text/javascript" src="{{env}}local/templates/mcmportal2/library/js/header.js?166739819219994"></script>
+	<script type="text/javascript"
+		src="{{env}}local/templates/mcmportal2/library/assets/vendor/simplebar/simplebar.min.js?166739819258168"></script>
+	<script type="text/javascript" src="{{env}}local/templates/mcmportal2/js/moment.min.js?166331130553324"></script>
 
-		<!-- <script type="text/javascript" src="/local/templates/mcmportal2/js/daterangepicker.js?166331130568526"></script>
+	<!-- <script type="text/javascript" src="/local/templates/mcmportal2/js/daterangepicker.js?166331130568526"></script>
 <script type="text/javascript" src="/local/js/vendor/jquery/validate/jquery.validate.min.js?163635830130330"></script>
 <script type="text/javascript" src="/local/js/vendor/jquery/ui/jquery-ui-1.11.4.custom.js?161535346295228"></script>
 <script type="text/javascript" src="/local/js/korus/core/core.js?16153534623002"></script> -->
 
-		<script
-			type="text/javascript"
-			src="{{env}}local/js/korus/select2ex/js/select2.full.min.js?161535346274922"></script>
-		<!-- <script type="text/javascript" src="/local/js/korus/select2ex/js/i18n/ru.js?16153534621127"></script>
+	<script type="text/javascript" src="{{env}}local/js/korus/select2ex/js/select2.full.min.js?161535346274922"></script>
+	<!-- <script type="text/javascript" src="/local/js/korus/select2ex/js/i18n/ru.js?16153534621127"></script>
 <script type="text/javascript" src="/local/js/korus/select2ex/js/select2ex.js?16153536451701"></script>
 <script type="text/javascript" src="/local/js/korus/field/field.js?16153536451748"></script>
 <script type="text/javascript" src="/local/js/vendor/jquery/masonry/masonry.pkgd.min.js?161535346224103"></script>
 <script type="text/javascript" src="/local/js/vendor/jquery/magnific_popup/js/jquery.magnific_popup.min.js?161535346220216"></script> -->
 
-		<!-- <script type="text/javascript" src="/local/js/vendor/jquery/inputmask/jquery.inputmask.bundle.js?161535346289224"></script> -->
-		<!-- <script type="text/javascript" src="/local/js/vendor/jquery/scrollbar/jquery.scrollbar.min.js?161535346245479"></script> -->
-		<!-- <script type="text/javascript" src="/local/js/korus/page/page.js?163635830111397"></script> -->
-		<!-- <script type="text/javascript" src="/local/js/korus/favorite/favorite.js?16678045861549"></script> -->
-		<!-- <script type="text/javascript" src="/local/templates/mcmportal2/js/lazyload.js?16153536468065"></script> -->
-		<!-- <script type="text/javascript" src="/local/templates/mcmportal2/components/bitrix/search.form/search_redesign/script.js?16407009502896"></script> -->
-		<!-- <script type="text/javascript" src="/local/templates/mcmportal2/components/adv/promo/usual/script.js?1615353645309"></script> -->
-		<!-- <script type="text/javascript" src="/local/templates/.default/components/bitrix/voting.form/content_vote_new/script.js?16678045861128"></script> -->
-		<!-- <script type="text/javascript" src="/local/components/icl/signin.popup/templates/.default/script.js?1658838355965"></script> -->
-		<!-- <script type="text/javascript" src="/local/components/adv/only_register/templates/.default/script.js?16153536452307"></script> -->
-		<!-- <script type="text/javascript" src="/local/js/korus/join_auth/join_auth.js?16153534621439"></script> -->
-		<!-- <script type="text/javascript" src="/local/components/icl/register.empty_phone/templates/.default/script.js?1649859426714"></script> -->
-		<!-- <script type="text/javascript" src="/local/components/adv/ext_link/templates/.default/script.js?16363583003708"></script> -->
-		<!-- <script type="text/javascript" src="/local/js/korus/preloader/preloader.js?16153534621759"></script> -->
-		<!-- <script type="text/javascript" src="/local/js/korus/campaign_popup/campaign_popup.js?1615353462922"></script> -->
-		<script
-			type="text/javascript"
-			src="{{env}}local/components/luxoft/filter/templates/.default/script.js?163635830020634"></script>
-		<!-- <script type="text/javascript" src="/local/components/luxoft/personalization.settings/templates/.default/script.js?16153536452391"></script> -->
-		<!-- <script type="text/javascript" src="/local/js/korus/infinity/js/infinity.js?16363583012597"></script> -->
-        <script type="text/javascript" src="{{env}}local/templates/mcmportal2/library/assets/vendor/swiper/swiper-bundle.min.js?1669021703145868"></script>
-		<block name="post"></block>
-	</body>
+	<!-- <script type="text/javascript" src="/local/js/vendor/jquery/inputmask/jquery.inputmask.bundle.js?161535346289224"></script> -->
+	<!-- <script type="text/javascript" src="/local/js/vendor/jquery/scrollbar/jquery.scrollbar.min.js?161535346245479"></script> -->
+	<!-- <script type="text/javascript" src="/local/js/korus/page/page.js?163635830111397"></script> -->
+	<!-- <script type="text/javascript" src="/local/js/korus/favorite/favorite.js?16678045861549"></script> -->
+	<!-- <script type="text/javascript" src="/local/templates/mcmportal2/js/lazyload.js?16153536468065"></script> -->
+	<!-- <script type="text/javascript" src="/local/templates/mcmportal2/components/bitrix/search.form/search_redesign/script.js?16407009502896"></script> -->
+	<!-- <script type="text/javascript" src="/local/templates/mcmportal2/components/adv/promo/usual/script.js?1615353645309"></script> -->
+	<!-- <script type="text/javascript" src="/local/templates/.default/components/bitrix/voting.form/content_vote_new/script.js?16678045861128"></script> -->
+	<!-- <script type="text/javascript" src="/local/components/icl/signin.popup/templates/.default/script.js?1658838355965"></script> -->
+	<!-- <script type="text/javascript" src="/local/components/adv/only_register/templates/.default/script.js?16153536452307"></script> -->
+	<!-- <script type="text/javascript" src="/local/js/korus/join_auth/join_auth.js?16153534621439"></script> -->
+	<!-- <script type="text/javascript" src="/local/components/icl/register.empty_phone/templates/.default/script.js?1649859426714"></script> -->
+	<!-- <script type="text/javascript" src="/local/components/adv/ext_link/templates/.default/script.js?16363583003708"></script> -->
+	<!-- <script type="text/javascript" src="/local/js/korus/preloader/preloader.js?16153534621759"></script> -->
+	<!-- <script type="text/javascript" src="/local/js/korus/campaign_popup/campaign_popup.js?1615353462922"></script> -->
+	<script type="text/javascript"
+		src="{{env}}local/components/luxoft/filter/templates/.default/script.js?163635830020634"></script>
+	<!-- <script type="text/javascript" src="/local/components/luxoft/personalization.settings/templates/.default/script.js?16153536452391"></script> -->
+	<!-- <script type="text/javascript" src="/local/js/korus/infinity/js/infinity.js?16363583012597"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+	<block name="post"></block>
+</body>
+
 </html>

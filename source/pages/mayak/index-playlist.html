@@ -124,8 +124,8 @@
                 }' src="mayak/partials/pages/playlist.html"></include>
 		<div class="ds-filter__wrapper">
 			<div class="ds-filter">
-				<div class="container container--wide">
-					<div class="row row--vcentered ds-filter__row">
+				<div class="container">
+					<div class="row row--vcentered">
 						<div class="column">
 							<h2>Другие плейлисты</h2>
 						</div>
@@ -133,8 +133,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="container container--wide container--card">
-			<div class="row row--vcentered ds-filter__row">
+		<div class="container">
+			<div class="row row--vcentered">
 				<include locale='{ "cardsPlaylist": {{cardsPlaylist}} }' src="mayak/partials/components/card-playlist.html">
 				</include>
 			</div>
@@ -148,5 +148,7 @@
 	<block name="footer">
 		<include src="../layouts/components/footer.html"></include>
 	</block>
-	<block name="post"> </block>
+	<block name="post">
+		<script type="text/javascript" src="./assets/index.js"></script>
+	</block>
 </extends>
