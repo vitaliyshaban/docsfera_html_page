@@ -313,7 +313,6 @@
     let lectorSlider = document.querySelectorAll('.lector-slider');
 
     for (const slider of lectorSlider) {
-      console.log(slider.children);
       const swiper = new Swiper(slider.children[0], {
         direction: 'horizontal',
         slidesPerView: 1,
