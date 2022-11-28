@@ -38,6 +38,7 @@
 
   // Компонент фильтр
   (function () {
+    let filterGroups = document.querySelectorAll('.filter-group');
     let filterGroupsMultiple = document.querySelectorAll('.filter-group--multiple');
     let filterGroupsSingle = document.querySelectorAll('.filter-group--single');
 
@@ -45,8 +46,8 @@
     for (const group of filterGroupsMultiple) {
       let headingBlock = group.children[1];
       let deleteTagsBtn = group.children[1].querySelector('button[data-role="delete-tags"]');
-      let dropdownBlock = group.children[2];
-      let dropdownBlockItem = group.children[2].querySelectorAll('li.dropdown-list__item');
+      let dropdownBlock = group.children[1].querySelector('ul.dropdown-list');
+      let dropdownBlockItem = group.children[1].querySelectorAll('li.dropdown-list__item');
       let tagsBlock = group.children[1].querySelector('ul.tags-list');
       let staticValue = group.children[1].querySelector('span[data-role="static-value"]');
       let formIsOpen = false;
@@ -54,7 +55,7 @@
 
       // Показываем кнопку корзины только тогда, когда есть тэги
       function eachClickOnForm() {
-        console.log(tagsBlock.children.length);
+        console.log('length', tagsBlock.children.length);
         if (tagsBlock.children.length !== 0) {
           deleteTagsBtn.classList.add('btn-delete-tags--visible');
         } else {
@@ -65,8 +66,9 @@
 
       // Обрабатываем клик по элементу из dropdown
       for (const item of dropdownBlockItem) {
-
         item.addEventListener('click', (e) => {
+          e.stopPropagation();
+
           function cretateItemTemplate() {
             let li = document.createElement('li');
             li.className = "tags-list__item";
@@ -104,6 +106,7 @@
           tagsBlock.classList.add('tags-list--visible');
           tagsBlock.append(cretateItemTemplate());
           item.style.display = 'none';
+          deleteTagsBtn.classList.add('btn-delete-tags--visible');
 
           // Добавляем выбранный элемент в массив (для бэкенда)
           arraySelected.push(item.getAttribute('data-value'));
@@ -113,6 +116,13 @@
 
       // При клике на форму
       headingBlock.addEventListener('click', () => {
+        // Удаляем все классы у всех элементов
+        for (const eachGroup of filterGroups) {
+          let dropdown = eachGroup.children[1].querySelector('ul.dropdown-list');
+          eachGroup.classList.remove('is-on');
+          dropdown.classList.remove('dropdown-list--visible');
+        }
+
         if (formIsOpen) {
           group.classList.remove('is-on');
           dropdownBlock.classList.remove('dropdown-list--visible');
@@ -126,6 +136,7 @@
           formIsOpen = true;
           return;
         }
+
       });
 
       group.addEventListener('click', e => {
@@ -136,7 +147,7 @@
         let formName = group.children[0];
         console.log(`data-values формы [${formName.innerText}]:`, arraySelected);
         console.log('\n');
-      })
+      });
 
       // При клике на кнопку корзины
       deleteTagsBtn.addEventListener('click', (e) => {
@@ -161,19 +172,20 @@
     // Единичный выбор
     for (const group of filterGroupsSingle) {
       let headingBlock = group.children[1];
-      let dropdownBlock = group.children[2];
-      let dropdownBlockItem = group.children[2].querySelectorAll('li.dropdown-list__item');
+      let dropdownBlock = group.children[1].querySelector('ul.dropdown-list');
+      let dropdownBlockItem = group.children[1].querySelectorAll('li.dropdown-list__item');
       let staticValue = group.children[1].querySelector('span[data-role="static-value"]');
 
       // Обрабатываем клик по элементу из dropdown
       for (const item of dropdownBlockItem) {
         item.addEventListener('click', (e) => {
+          e.stopPropagation();
+
           // Добавляем тэг в поле
           staticValue.textContent = item.innerText;
           staticValue.setAttribute('data-value', item.getAttribute('data-value'));
 
           group.classList.remove('is-on');
-          console.log(true);
           dropdownBlock.classList.remove('dropdown-list--visible');
 
           // КОД НИЖЕ УДАЛИТЬ, ТОЛЬКО ДЛЯ ДЕБАГА!!!
@@ -184,10 +196,20 @@
       }
 
       // При клике на блок
-      headingBlock.addEventListener('click', (e) => {
-        e.stopPropagation();
+      headingBlock.addEventListener('click', () => {
+        // Удаляем все классы у всех элементов
+        for (const eachGroup of filterGroups) {
+          let dropdown = eachGroup.children[1].querySelector('ul.dropdown-list');
+          eachGroup.classList.remove('is-on');
+          dropdown.classList.remove('dropdown-list--visible');
+        }
+
         group.classList.toggle('is-on');
         dropdownBlock.classList.toggle('dropdown-list--visible');
+      });
+
+      group.addEventListener('click', e => {
+        e.stopPropagation();
       });
 
       // Если кликнули вне формы
