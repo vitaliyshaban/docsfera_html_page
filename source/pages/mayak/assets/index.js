@@ -252,40 +252,51 @@
 
   // Показать / скрыть фильтры
   (function () {
-    let filterBtn = document.querySelector('.button-text.filter-switch.filter-switch--closed');
-    let sortBtn = document.querySelector('.button-text.button--filtered.popup-filter__button');
+    let filterGroup = document.querySelectorAll('.s-filter-group');
     let windowInnerWidth = window.innerWidth;
 
-    let filterBlock = document.querySelector('.s-filter');
+    for (const group of filterGroup) {
+      let filterBtn = group.querySelector('button.show-filter-btn');
+      let sortBtn = group.querySelector('button.show-sort-btn');
+      let filterBlock = group.querySelector('.s-filter.s-filter--hidden');
 
-    filterBtn.addEventListener('click', (e) => {
-      e.preventDefault();
+      if (filterBtn !== null) {
+        filterBtn.addEventListener('click', (e) => {
+          e.preventDefault();
 
-      filterBlock.classList.toggle('is-on');
+          filterBlock.classList.toggle('is-on');
 
-      if (windowInnerWidth > 1024) {
-        filterBlock.classList.remove('s-filter--only-sort');
-        filterBlock.classList.add('s-filter--only-filter');
-        return;
-      } else {
-        filterBlock.classList.remove('s-filter--only-sort');
-        filterBlock.classList.remove('s-filter--only-filter');
+          if (windowInnerWidth > 1024) {
+            filterBlock.classList.remove('s-filter--only-sort');
+            filterBlock.classList.add('s-filter--only-filter');
+            return;
+          } else {
+            filterBlock.classList.remove('s-filter--only-sort');
+            filterBlock.classList.remove('s-filter--only-filter');
+          }
+        });
       }
-    });
 
-    sortBtn.addEventListener('click', (e) => {
-      e.preventDefault();
+      if (sortBtn !== null) {
+        sortBtn.addEventListener('click', (e) => {
+          e.preventDefault();
 
-      filterBlock.classList.toggle('is-on');
-      if (windowInnerWidth > 1024) {
-        filterBlock.classList.remove('s-filter--only-filter');
-        filterBlock.classList.add('s-filter--only-sort'); r
-        return;
-      } else {
-        filterBlock.classList.remove('s-filter--only-sort');
-        filterBlock.classList.remove('s-filter--only-filter');
+          filterBlock.classList.toggle('is-on');
+          if (windowInnerWidth > 1024) {
+            filterBlock.classList.remove('s-filter--only-filter');
+            filterBlock.classList.add('s-filter--only-sort');
+            return;
+          } else {
+            filterBlock.classList.remove('s-filter--only-sort');
+            filterBlock.classList.remove('s-filter--only-filter');
+          }
+        });
       }
-    });
+
+      if (windowInnerWidth <= 1024 && sortBtn !== null) {
+        sortBtn.style.display = 'none';
+      }
+    }
 
     window.addEventListener('resize', (e) => {
       windowInnerWidth = e.target.innerWidth;
