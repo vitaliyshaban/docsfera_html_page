@@ -1,4 +1,41 @@
 (function () {
+  // Свернуть / развернуть текстовый блок
+  (function () {
+    let lecturerAccordion = document.querySelectorAll('.lecturer-accordion');
+
+    for (const accordion of lecturerAccordion) {
+      let accordionText = accordion.children[1];
+      let accordionBtnShow = accordion.children[2].querySelector('button.lecturer-accordion__btn--show');
+      let accordionBtnHide = accordion.children[2].querySelector('button.lecturer-accordion__btn--hide');
+
+      // Развернуть
+      accordionBtnShow.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        accordionBtnShow.classList.remove('lecturer-accordion__btn--show');
+        accordionBtnShow.classList.add('lecturer-accordion__btn--hide');
+        accordionBtnHide.classList.add('lecturer-accordion__btn--show');
+        accordionBtnHide.classList.remove('lecturer-accordion__btn--hide');
+        accordionText.classList.add('is-on');
+
+        accordionText.style.height = `${accordionText.scrollHeight}px`;
+      });
+
+      // Свернуть
+      accordionBtnHide.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        accordionBtnHide.classList.remove('lecturer-accordion__btn--show');
+        accordionBtnHide.classList.add('lecturer-accordion__btn--hide');
+        accordionBtnShow.classList.add('lecturer-accordion__btn--show');
+        accordionBtnShow.classList.remove('lecturer-accordion__btn--hide');
+        accordionText.classList.remove('is-on');
+
+        accordionText.style.height = `80px`;
+      });
+    }
+  })();
+
   // Компонент фильтр
   (function () {
     let filterGroupsMultiple = document.querySelectorAll('.filter-group--multiple');
@@ -162,44 +199,57 @@
   })();
 
   // Расчитываем высоту wrapper для маленьких видео
-  // (function () {
-  //   let wrapper = document.querySelectorAll('.playlist__wrapper--scroll');
-  //   let paddingTop = 16;
-  //   let paddingBottom = 16;
-  //   let gap = 20;
-  //   let videoCardHeight = 150;
-  //   let videoCardSmallHeight = 130;
-  //   // const windowInnerHeight = window.innerHeight;
+  (function () {
+    let wrapper = document.querySelectorAll('.playlist__wrapper--scroll');
+    let paddingTop = 16;
+    let paddingBottom = 16;
+    let gap = 20;
+    let videoCardHeight = 150;
+    let videoCardSmallHeight = 130;
+    const windowInnerHeight = window.innerHeight;
+    const windowInnerWidth = window.innerWidth;
 
-  //   console.log(windowInnerHeight);
+    for (const elem of wrapper) {
+      function checkResolution(height, width) {
+        // console.log('height:', height);
+        // console.log('width:', width);
 
-  //   for (const elem of wrapper) {
-  //     function checkResolution(height) {
-  //       if (height >= 1100) {
-  //         console.log('>больше 1100');
-  //         elem.style.height = `${paddingTop + paddingBottom + videoCardHeight * 4 + gap * 3}px`;
-  //       }
+        if (width > 1024) {
+          if (height >= 1100) {
+            elem.style.height = `${paddingTop + paddingBottom + videoCardHeight * 4 + gap * 3}px`;
+          }
 
-  //       if (height >= 920 && height <= 1100) {
-  //         console.log('от 920 до 1000');
-  //         elem.style.height = `${(paddingTop + paddingBottom) + videoCardHeight * 3 + gap * 2}px`;
-  //       }
+          if (height >= 920 && height <= 1100) {
+            elem.style.height = `${(paddingTop + paddingBottom) + videoCardHeight * 3 + gap * 2}px`;
+          }
 
-  //       if (height >= 750 && height <= 920) {
-  //         console.log('от 920 до 1000');
-  //         elem.style.height = `${(paddingTop + paddingBottom) + videoCardHeight * 2 + gap * 1}px`;
-  //       }
+          if (height >= 750 && height <= 920) {
+            elem.style.height = `${(paddingTop + paddingBottom) + videoCardHeight * 2 + gap * 1}px`;
+          }
 
-  //       if (height >= 580 && height <= 750) {
-  //         console.log('от 920 до 1000');
-  //         elem.style.height = `${(paddingTop + paddingBottom) + videoCardHeight}px`;
-  //       }
-  //     }
+          if (height >= 580 && height <= 750) {
+            elem.style.height = `${(paddingTop + paddingBottom) + videoCardHeight}px`;
+          }
+        }
 
-  //     window.addEventListener("resize", function () {
-  //       console.log(innerWidth);
-  //       console.log(innerHeight);
-  //     }, false);
-  //   }
-  // })();
+        if (width <= 1024 && width > 768) {
+          elem.style.height = `${(paddingTop + paddingBottom) + videoCardHeight * 2 + gap * 1}px`;
+        }
+
+        if (width <= 768 && width > 576) {
+          elem.style.height = `${(paddingTop + paddingBottom) + videoCardSmallHeight * 2 + gap * 1}px`;
+        }
+
+        if (width <= 576 && width >= 320) {
+          elem.style.height = `${paddingTop + paddingBottom + videoCardSmallHeight * 4 + gap * 3}px`;
+        }
+      }
+
+      checkResolution(windowInnerHeight, windowInnerWidth);
+
+      window.addEventListener("resize", function (e) {
+        checkResolution(e.target.innerHeight, e.target.innerWidth);
+      }, false);
+    }
+  })();
 })();
