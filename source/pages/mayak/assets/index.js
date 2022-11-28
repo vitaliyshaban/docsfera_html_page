@@ -198,7 +198,7 @@
     }
   })();
 
-  // Расчитываем высоту wrapper для маленьких видео
+  // Расчитываем высоту wrapper "ЛЕКЦИОННЫЙ ПЛЕЙЛИСТ"
   (function () {
     let wrapper = document.querySelectorAll('.playlist__wrapper--scroll');
     let paddingTop = 16;
@@ -211,9 +211,6 @@
 
     for (const elem of wrapper) {
       function checkResolution(height, width) {
-        // console.log('height:', height);
-        // console.log('width:', width);
-
         if (width > 1024) {
           if (height >= 1100) {
             elem.style.height = `${paddingTop + paddingBottom + videoCardHeight * 4 + gap * 3}px`;
@@ -251,5 +248,49 @@
         checkResolution(e.target.innerHeight, e.target.innerWidth);
       }, false);
     }
+  })();
+
+  // Показать / скрыть фильтры
+  (function () {
+    let filterBtn = document.querySelector('.button-text.filter-switch.filter-switch--closed');
+    let sortBtn = document.querySelector('.button-text.button--filtered.popup-filter__button');
+    let windowInnerWidth = window.innerWidth;
+
+    let filterBlock = document.querySelector('.s-filter');
+
+    filterBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      filterBlock.classList.toggle('is-on');
+
+      if (windowInnerWidth > 1024) {
+        filterBlock.classList.remove('s-filter--only-sort');
+        filterBlock.classList.add('s-filter--only-filter');
+        return;
+      } else {
+        filterBlock.classList.remove('s-filter--only-sort');
+        filterBlock.classList.remove('s-filter--only-filter');
+      }
+    });
+
+    sortBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      filterBlock.classList.toggle('is-on');
+      if (windowInnerWidth > 1024) {
+        filterBlock.classList.remove('s-filter--only-filter');
+        filterBlock.classList.add('s-filter--only-sort'); r
+        return;
+      } else {
+        filterBlock.classList.remove('s-filter--only-sort');
+        filterBlock.classList.remove('s-filter--only-filter');
+      }
+    });
+
+    window.addEventListener('resize', (e) => {
+      windowInnerWidth = e.target.innerWidth;
+    });
+
+
   })();
 })();
