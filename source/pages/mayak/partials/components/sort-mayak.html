@@ -1,5 +1,6 @@
-<div class="s-filter-group" style="position: relative;">
-	<button class="button-text button--filtered popup-filter__button show-sort-btn" type="button">
+<div class="s-filter-group">
+	<button class="button-text button--filtered popup-filter__button show-sort-btn" type="button"
+		data-role="show-sort-btn">
 		<span class="button__icon"><i class="dsi-sorting"></i></span>
 		<span class="button__text">Сортировка</span>
 		<span class="button__icon"><i class="dsi-small_arrow_closed"></i></span>
@@ -196,3 +197,15 @@
 		</form>
 	</div>
 </div>
+
+<style>
+	.s-filter-group {
+		position: relative;
+		display: flex;
+		align-items: center;
+	}
+
+	.s-filter-group.is-on button .button__icon>.dsi-small_arrow_closed {
+		transform: rotate(180deg);
+	}
+</style>

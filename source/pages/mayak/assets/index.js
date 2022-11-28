@@ -265,6 +265,7 @@
           e.preventDefault();
 
           filterBlock.classList.toggle('is-on');
+          group.classList.toggle('is-on');
 
           if (windowInnerWidth > 1024) {
             filterBlock.classList.remove('s-filter--only-sort');
@@ -282,6 +283,8 @@
           e.preventDefault();
 
           filterBlock.classList.toggle('is-on');
+          group.classList.toggle('is-on');
+
           if (windowInnerWidth > 1024) {
             filterBlock.classList.remove('s-filter--only-filter');
             filterBlock.classList.add('s-filter--only-sort');

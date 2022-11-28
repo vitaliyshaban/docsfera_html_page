@@ -1,5 +1,5 @@
-<div class="s-filter-group" style="position: relative;">
-	<button class="button-text filter-switch filter-switch--closed show-filter-btn">
+<div class="s-filter-group">
+	<button class="button-text filter-switch filter-switch--closed show-filter-btn" data-role="show-filter-btn">
 		<span class="button__icon">
 			<i class="dsi-filters"></i>
 		</span>
@@ -180,3 +180,15 @@
 		</form>
 	</div>
 </div>
+
+<style>
+	.s-filter-group {
+		position: relative;
+		display: flex;
+		align-items: center;
+	}
+
+	.s-filter-group.is-on button .button__icon.filter-switch-icon>.dsi-small_arrow_closed {
+		transform: rotate(180deg);
+	}
+</style>
