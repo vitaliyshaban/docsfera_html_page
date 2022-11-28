@@ -307,4 +307,31 @@
 
 
   })();
+
+  // Конфигурируем Swiper
+  (function () {
+    let lectorSlider = document.querySelectorAll('.lector-slider');
+
+    for (const slider of lectorSlider) {
+      console.log(slider.children);
+      const swiper = new Swiper(slider.children[0], {
+        direction: 'horizontal',
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: false,
+
+        navigation: {
+          nextEl: '.lector-slider-controls__next',
+          prevEl: '.lector-slider-controls__prev',
+        },
+
+        breakpoints: {
+          1200: {
+            slidesPerView: 2,
+            spaceBetween: 24
+          },
+        }
+      });
+    }
+  })();
 })();
