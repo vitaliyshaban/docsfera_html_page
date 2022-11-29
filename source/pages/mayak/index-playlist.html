@@ -98,6 +98,46 @@
 				tag: "Конфликты",
 				date: "27 Фев 2019",
 			},
+			{
+				title: "Права и обязанности медицинских работников и пациентов",
+				tag: "Конфликты",
+				date: "27 Фев 2019",
+			},
+			{
+				title: "Если нужен оригинальный препарат",
+				tag: "Право",
+				date: "27 Фев 2019",
+			},
+			{
+				title: "Виды вины медицинских работников",
+				tag: "Конфликты",
+				date: "27 Фев 2019",
+			},
+			{
+				title: "Виды вины медицинских работников",
+				tag: "Конфликты",
+				date: "27 Фев 2019",
+			},
+			{
+				title: "Права и обязанности медицинских работников и пациентов",
+				tag: "Конфликты",
+				date: "27 Фев 2019",
+			},
+			{
+				title: "Проверки медицинских организаций",
+				tag: "Конфликты",
+				date: "27 Фев 2019",
+			},
+			{
+				title: "Права и обязанности медицинских работников и пациентов",
+				tag: "Конфликты",
+				date: "27 Фев 2019",
+			},
+			{
+				title: "Права и обязанности медицинских работников и пациентов",
+				tag: "Конфликты",
+				date: "27 Фев 2019",
+			},
 		],
 	};
 </script>
@@ -133,13 +173,19 @@
 				</div>
 			</div>
 		</div>
-		<div class="container">
+		<div class="container container--card">
 			<div class="row row--vcentered">
 				<include locale='{ "cardsPlaylist": {{cardsPlaylist}} }' src="mayak/partials/components/card-playlist.html">
 				</include>
+				<include src="mayak/partials/components/pagination.html">
+				</include>
+				<div class="ds-pagination column--12 ds-pagination--playlist" data-target="#content-4">
+					<div class="column column--12 has-text-align-center js-infinity-pager-wrap">
+						<a href="/research/?PAGEN_1=2&amp;paging=y" class="button button--outlined" id="infinity-next-page">Показать
+							ещё</a>
+					</div>
+				</div>
 			</div>
-			<include src="mayak/partials/components/pagination.html">
-			</include>
 		</div>
 		<include src="mayak/partials/components/pagination-page.html"></include>
 		<include src="../layouts/components/social.html"></include>

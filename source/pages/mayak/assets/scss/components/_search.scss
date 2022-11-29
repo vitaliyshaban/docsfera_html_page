@@ -1,0 +1,20 @@
+.pagination {
+  &__wrapper {
+    display: flex;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 30px;
+  }
+
+  .pagination-list {
+    margin: 0 !important;
+  }
+
+  @media screen and (max-width: 576px) {
+    .pagination {
+      &__wrapper {
+        flex-direction: column !important;
+      }
+    }
+  }
+}

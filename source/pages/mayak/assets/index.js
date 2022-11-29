@@ -38,19 +38,18 @@
 
   // Компонент фильтр
   (function () {
-    let filterGroups = document.querySelectorAll('.filter-group');
     let filterGroupsMultiple = document.querySelectorAll('.filter-group--multiple');
     let filterGroupsSingle = document.querySelectorAll('.filter-group--single');
+    let filterSortRadio = document.querySelectorAll('.sort-group');
 
     // Множественный выбор
-    for (const group of filterGroupsMultiple) {
+    filterGroupsMultiple.forEach((group, index) => {
       let headingBlock = group.children[1];
       let deleteTagsBtn = group.children[1].querySelector('button[data-role="delete-tags"]');
       let dropdownBlock = group.children[1].querySelector('ul.dropdown-list');
       let dropdownBlockItem = group.children[1].querySelectorAll('li.dropdown-list__item');
       let tagsBlock = group.children[1].querySelector('ul.tags-list');
       let staticValue = group.children[1].querySelector('span[data-role="static-value"]');
-      let formIsOpen = false;
       let arraySelected = [];
 
       // Показываем кнопку корзины только тогда, когда есть тэги
@@ -61,9 +60,6 @@
           deleteTagsBtn.classList.remove('btn-delete-tags--visible');
           staticValue.style.display = 'inline';
         }
-
-        console.log('tagsBlock', tagsBlock.children.length);
-        console.log('itemLength', itemLength);
 
         if (tagsBlock.children.length === itemLength) {
           group.classList.remove('is-on');
@@ -127,38 +123,34 @@
       }
 
       // При клике на форму
-      headingBlock.addEventListener('click', () => {
-        // Удаляем все классы у всех элементов
-        for (const eachGroup of filterGroups) {
-          let dropdown = eachGroup.children[1].querySelector('ul.dropdown-list');
-          eachGroup.classList.remove('is-on');
-          dropdown.classList.remove('dropdown-list--visible');
-        }
-
-        if (formIsOpen) {
-          group.classList.remove('is-on');
-          dropdownBlock.classList.remove('dropdown-list--visible');
-          formIsOpen = false;
-          return;
-        }
-
-        if (!formIsOpen) {
-          group.classList.add('is-on');
-          dropdownBlock.classList.add('dropdown-list--visible');
-          formIsOpen = true;
-          return;
-        }
-      });
-
-      group.addEventListener('click', e => {
+      headingBlock.addEventListener('click', async (e) => {
         e.stopPropagation();
-        eachClickOnForm(dropdownBlockItem.length);
-
-        // КОД НИЖЕ УДАЛИТЬ, ТОЛЬКО ДЛЯ ДЕБАГА!!!
-        let formName = group.children[0];
-        console.log(`data-values формы [${formName.innerText}]:`, arraySelected);
-        console.log('\n');
+        await showCloseForm(index);
       });
+
+      // Добавляем/удаляем все классы у всех элементов
+      async function showCloseForm(groupIndex) {
+        filterGroupsMultiple.forEach((el, i) => {
+          let dropdown = el.children[1].querySelector('ul.dropdown-list');
+
+          if (groupIndex === i) {
+            el.classList.toggle('is-on');
+            dropdown.classList.toggle('dropdown-list--visible');
+          }
+
+          if (groupIndex !== i) {
+            el.classList.remove('is-on');
+            dropdown.classList.remove('dropdown-list--visible');
+            return;
+          }
+
+          if (groupIndex === undefined) {
+            el.classList.remove('is-on');
+            dropdown.classList.remove('dropdown-list--visible');
+            return;
+          }
+        });
+      }
 
       // При клике на кнопку корзины
       deleteTagsBtn.addEventListener('click', (e) => {
@@ -173,26 +165,20 @@
       });
 
       // Если кликнули вне формы
-      document.addEventListener('click', () => {
-        formIsOpen = false;
-        group.classList.remove('is-on');
-        dropdownBlock.classList.remove('dropdown-list--visible');
-      });
-    }
+      document.addEventListener('click', () => showCloseForm());
+    });
 
     // Единичный выбор
-    for (const group of filterGroupsSingle) {
+    filterGroupsSingle.forEach((group, index) => {
       let headingBlock = group.children[1];
       let dropdownBlock = group.children[1].querySelector('ul.dropdown-list');
       let dropdownBlockItem = group.children[1].querySelectorAll('li.dropdown-list__item');
       let staticValue = group.children[1].querySelector('span[data-role="static-value"]');
-      let formIsOpen = false;
 
       // Обрабатываем клик по элементу из dropdown
       for (const item of dropdownBlockItem) {
         item.addEventListener('click', (e) => {
           e.stopPropagation();
-          formIsOpen = false;
 
           // Добавляем тэг в поле
           staticValue.textContent = item.innerText;
@@ -200,51 +186,42 @@
 
           group.classList.remove('is-on');
           dropdownBlock.classList.remove('dropdown-list--visible');
-
-          // КОД НИЖЕ УДАЛИТЬ, ТОЛЬКО ДЛЯ ДЕБАГА!!!
-          let formName = group.children[0];
-          console.log(`data-value формы [${formName.innerText}]:`, `${staticValue.getAttribute('data-value')} - ${staticValue.innerText}`);
-          console.log('\n');
         });
       }
 
-      // При клике на блок
-      headingBlock.addEventListener('click', (e) => {
-        // e.stopPropagation();
-
-        // Удаляем все классы у всех элементов
-        for (const eachGroup of filterGroups) {
-          let dropdown = eachGroup.children[1].querySelector('ul.dropdown-list');
-          eachGroup.classList.remove('is-on');
-          dropdown.classList.remove('dropdown-list--visible');
-        }
-
-        if (formIsOpen) {
-          group.classList.remove('is-on');
-          dropdownBlock.classList.remove('dropdown-list--visible');
-          formIsOpen = false;
-          return;
-        }
-
-        if (!formIsOpen) {
-          group.classList.add('is-on');
-          dropdownBlock.classList.add('dropdown-list--visible');
-          formIsOpen = true;
-          return;
-        }
-      });
-
-      group.addEventListener('click', e => {
+      // При клике на форму
+      headingBlock.addEventListener('click', async (e) => {
         e.stopPropagation();
+        await showCloseForm(index);
       });
+
+      // Добавляем/удаляем все классы у всех элементов
+      async function showCloseForm(groupIndex) {
+        filterGroupsSingle.forEach((el, i) => {
+          let dropdown = el.children[1].querySelector('ul.dropdown-list');
+
+          if (groupIndex === i) {
+            el.classList.toggle('is-on');
+            dropdown.classList.toggle('dropdown-list--visible');
+          }
+
+          if (groupIndex !== i) {
+            el.classList.remove('is-on');
+            dropdown.classList.remove('dropdown-list--visible');
+            return;
+          }
+
+          if (groupIndex === undefined) {
+            el.classList.remove('is-on');
+            dropdown.classList.remove('dropdown-list--visible');
+            return;
+          }
+        })
+      }
 
       // Если кликнули вне формы
-      document.addEventListener('click', () => {
-        formIsOpen = false;
-        group.classList.remove('is-on');
-        dropdownBlock.classList.remove('dropdown-list--visible');
-      });
-    }
+      document.addEventListener('click', () => showCloseForm());
+    })
   })();
 
   // Расчитываем высоту wrapper "ЛЕКЦИОННЫЙ ПЛЕЙЛИСТ"
@@ -268,14 +245,6 @@
           if (height >= 920 && height <= 1100) {
             elem.style.height = `${(paddingTop + paddingBottom) + videoCardHeight * 3 + gap * 2}px`;
           }
-
-          if (height >= 750 && height <= 920) {
-            elem.style.height = `${(paddingTop + paddingBottom) + videoCardHeight * 2 + gap * 1}px`;
-          }
-
-          if (height >= 580 && height <= 750) {
-            elem.style.height = `${(paddingTop + paddingBottom) + videoCardHeight}px`;
-          }
         }
 
         if (width <= 1024 && width > 768) {
@@ -283,11 +252,7 @@
         }
 
         if (width <= 768 && width > 576) {
-          elem.style.height = `${(paddingTop + paddingBottom) + videoCardSmallHeight * 2 + gap * 1}px`;
-        }
-
-        if (width <= 576 && width >= 320) {
-          elem.style.height = `${paddingTop + paddingBottom + videoCardSmallHeight * 4 + gap * 3}px`;
+          elem.style.height = `${(paddingTop + paddingBottom) + videoCardSmallHeight * 3 + gap * 2}px`;
         }
       }
 
@@ -305,11 +270,21 @@
     let windowInnerWidth = window.innerWidth;
 
     for (const group of filterGroup) {
+      let selectBlock = group.querySelectorAll('.filter-group');
       let filterBtn = group.querySelector('button[data-role="show-filter-block"]');
       let sortBtn = group.querySelector('button[data-role="show-sort-block"]');
+      let hiddenBlock = group.querySelectorAll('.s-filter.s-filter--hidden');
       let filterBlock = group.querySelector('.s-filter.s-filter--hidden.s-filter--only-phone');
       let filterBlockOnlyFilter = group.querySelector('.s-filter.s-filter--hidden.s-filter--only-filter');
       let filterBlockOnlySort = group.querySelector('.s-filter.s-filter--hidden.s-filter--only-sort');
+
+      function closeAllForm() {
+        sortBtn.classList.remove('is-on');
+        filterBtn.classList.remove('is-on');
+        filterBlockOnlyFilter.classList.remove('is-on');
+        filterBlockOnlySort.classList.remove('is-on');
+        filterBlock.classList.remove('is-on');
+      }
 
       filterBtn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -355,18 +330,27 @@
         }
       });
 
+      group.addEventListener('click', (e) => {
+        e.stopPropagation();
+        selectBlock.forEach((el, i) => {
+          let dropdown = el.children[1].querySelector('ul.dropdown-list');
+          el.classList.remove('is-on');
+          dropdown.classList.remove('dropdown-list--visible');
+        });
+      });
+
       window.addEventListener('resize', (e) => {
         windowInnerWidth = e.target.innerWidth;
       });
 
+      for (const hiddenElem of hiddenBlock) {
+        hiddenElem.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      }
+
       // Если кликнули вне формы
-      document.addEventListener('click', () => {
-        sortBtn.classList.remove('is-on');
-        filterBtn.classList.remove('is-on');
-        filterBlockOnlyFilter.classList.remove('is-on');
-        filterBlockOnlySort.classList.remove('is-on');
-        filterBlock.classList.remove('is-on');
-      });
+      document.addEventListener('click', () => closeAllForm());
     }
   })();
 
@@ -380,6 +364,7 @@
         slidesPerView: 1,
         spaceBetween: 0,
         loop: false,
+        autoHeight: false,
 
         navigation: {
           nextEl: '.lector-slider-controls__next',
@@ -387,7 +372,7 @@
         },
 
         breakpoints: {
-          1200: {
+          1280: {
             slidesPerView: 2,
             spaceBetween: 24
           },
