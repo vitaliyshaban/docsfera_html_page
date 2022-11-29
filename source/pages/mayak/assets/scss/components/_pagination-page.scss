@@ -83,19 +83,4 @@
       }
     }
   }
-
-  &__btn {
-    // max-width: 210px;
-    display: none;
-  }
-
-  @media screen and (max-width: 768px) {
-    &-list {
-      display: none;
-    }
-
-    &__btn {
-      display: block;
-    }
-  }
 }

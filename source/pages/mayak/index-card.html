@@ -107,11 +107,10 @@
 					<div class="new__content">
 						<h1>Ответ на Вопрос 1</h1>
 						<include src="mayak/partials/pages/card.html"></include>
-						<include locals='{"footerLinks": {{footerLinks}}}' src="../layouts/components/footer-links.html"></include>
 					</div>
 				</div>
 				<div class="column column--12-small column--4-tablet">
-					<aside class="detail-body__aside" style="top: 93px">
+					<aside class="detail-body__aside detail-body__aside--playlist" style="top: 93px">
 						<div class="detail-body__aside-top">
 							<div class="items-video items-video__aside">
 								<div class="playlist playlist__block">
@@ -151,11 +150,16 @@
 				</div>
 			</div>
 		</div>
-		<div class="container">
+		<div class="container container--card">
 			<include locale='{
 				"cardsVideo": {{cardsVideo}}
 			}' src="mayak/partials/components/card-video.html"></include>
-			<include src="mayak/partials/components/pagination.html"></include>
+			<div class="ds-pagination column--12" data-target="#content-4">
+				<div class="column column--12 has-text-align-center js-infinity-pager-wrap">
+					<a href="/research/?PAGEN_1=2&amp;paging=y" class="button button--outlined" id="infinity-next-page">Показать
+						ещё</a>
+				</div>
+			</div>
 		</div>
 		<div class="ds-filter__wrapper">
 			<div class="ds-filter">
