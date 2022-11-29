@@ -54,13 +54,23 @@
       let arraySelected = [];
 
       // Показываем кнопку корзины только тогда, когда есть тэги
-      function eachClickOnForm() {
-        console.log('length', tagsBlock.children.length);
+      function eachClickOnForm(itemLength) {
         if (tagsBlock.children.length !== 0) {
           deleteTagsBtn.classList.add('btn-delete-tags--visible');
         } else {
           deleteTagsBtn.classList.remove('btn-delete-tags--visible');
           staticValue.style.display = 'inline';
+        }
+
+        console.log('tagsBlock', tagsBlock.children.length);
+        console.log('itemLength', itemLength);
+
+        if (tagsBlock.children.length === itemLength) {
+          group.classList.remove('is-on');
+          dropdownBlock.classList.remove('dropdown-list--visible');
+        } else {
+          group.classList.add('is-on');
+          dropdownBlock.classList.add('dropdown-list--visible');
         }
       }
 
@@ -111,6 +121,8 @@
           // Добавляем выбранный элемент в массив (для бэкенда)
           arraySelected.push(item.getAttribute('data-value'));
           arraySelected.sort();
+
+          eachClickOnForm(dropdownBlockItem.length);
         });
       }
 
@@ -136,12 +148,11 @@
           formIsOpen = true;
           return;
         }
-
       });
 
       group.addEventListener('click', e => {
         e.stopPropagation();
-        eachClickOnForm();
+        eachClickOnForm(dropdownBlockItem.length);
 
         // КОД НИЖЕ УДАЛИТЬ, ТОЛЬКО ДЛЯ ДЕБАГА!!!
         let formName = group.children[0];
@@ -175,11 +186,13 @@
       let dropdownBlock = group.children[1].querySelector('ul.dropdown-list');
       let dropdownBlockItem = group.children[1].querySelectorAll('li.dropdown-list__item');
       let staticValue = group.children[1].querySelector('span[data-role="static-value"]');
+      let formIsOpen = false;
 
       // Обрабатываем клик по элементу из dropdown
       for (const item of dropdownBlockItem) {
         item.addEventListener('click', (e) => {
           e.stopPropagation();
+          formIsOpen = false;
 
           // Добавляем тэг в поле
           staticValue.textContent = item.innerText;
@@ -196,7 +209,9 @@
       }
 
       // При клике на блок
-      headingBlock.addEventListener('click', () => {
+      headingBlock.addEventListener('click', (e) => {
+        // e.stopPropagation();
+
         // Удаляем все классы у всех элементов
         for (const eachGroup of filterGroups) {
           let dropdown = eachGroup.children[1].querySelector('ul.dropdown-list');
@@ -204,8 +219,19 @@
           dropdown.classList.remove('dropdown-list--visible');
         }
 
-        group.classList.toggle('is-on');
-        dropdownBlock.classList.toggle('dropdown-list--visible');
+        if (formIsOpen) {
+          group.classList.remove('is-on');
+          dropdownBlock.classList.remove('dropdown-list--visible');
+          formIsOpen = false;
+          return;
+        }
+
+        if (!formIsOpen) {
+          group.classList.add('is-on');
+          dropdownBlock.classList.add('dropdown-list--visible');
+          formIsOpen = true;
+          return;
+        }
       });
 
       group.addEventListener('click', e => {
@@ -214,6 +240,7 @@
 
       // Если кликнули вне формы
       document.addEventListener('click', () => {
+        formIsOpen = false;
         group.classList.remove('is-on');
         dropdownBlock.classList.remove('dropdown-list--visible');
       });
@@ -228,8 +255,8 @@
     let gap = 20;
     let videoCardHeight = 150;
     let videoCardSmallHeight = 130;
-    const windowInnerHeight = window.innerHeight;
-    const windowInnerWidth = window.innerWidth;
+    let windowInnerHeight = window.innerHeight;
+    let windowInnerWidth = window.innerWidth;
 
     for (const elem of wrapper) {
       function checkResolution(height, width) {
@@ -274,60 +301,73 @@
 
   // Показать / скрыть фильтры
   (function () {
-    let filterGroup = document.querySelectorAll('.s-filter-group');
+    let filterGroup = document.querySelectorAll('.filter-mayak-group');
     let windowInnerWidth = window.innerWidth;
 
     for (const group of filterGroup) {
-      let filterBtn = group.querySelector('button.show-filter-btn');
-      let sortBtn = group.querySelector('button.show-sort-btn');
-      let filterBlock = group.querySelector('.s-filter.s-filter--hidden');
+      let filterBtn = group.querySelector('button[data-role="show-filter-block"]');
+      let sortBtn = group.querySelector('button[data-role="show-sort-block"]');
+      let filterBlock = group.querySelector('.s-filter.s-filter--hidden.s-filter--only-phone');
+      let filterBlockOnlyFilter = group.querySelector('.s-filter.s-filter--hidden.s-filter--only-filter');
+      let filterBlockOnlySort = group.querySelector('.s-filter.s-filter--hidden.s-filter--only-sort');
 
-      if (filterBtn !== null) {
-        filterBtn.addEventListener('click', (e) => {
-          e.preventDefault();
+      filterBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
 
+        if (windowInnerWidth <= 1024) {
+          filterBtn.classList.toggle('is-on');
           filterBlock.classList.toggle('is-on');
-          group.classList.toggle('is-on');
+          return;
+        }
 
-          if (windowInnerWidth > 1024) {
-            filterBlock.classList.remove('s-filter--only-sort');
-            filterBlock.classList.add('s-filter--only-filter');
-            return;
-          } else {
-            filterBlock.classList.remove('s-filter--only-sort');
-            filterBlock.classList.remove('s-filter--only-filter');
-          }
-        });
-      }
+        sortBtn.classList.remove('is-on');
+        filterBlockOnlySort.classList.remove('is-on');
 
-      if (sortBtn !== null) {
-        sortBtn.addEventListener('click', (e) => {
-          e.preventDefault();
+        if (filterBtn.classList.contains('is-on')) {
+          filterBtn.classList.remove('is-on');
+          filterBlockOnlyFilter.classList.remove('is-on');
+          return;
+        }
 
-          filterBlock.classList.toggle('is-on');
-          group.classList.toggle('is-on');
+        if (!filterBtn.classList.contains('is-on')) {
+          filterBtn.classList.add('is-on');
+          filterBlockOnlyFilter.classList.add('is-on');
+          return;
+        }
+      });
 
-          if (windowInnerWidth > 1024) {
-            filterBlock.classList.remove('s-filter--only-filter');
-            filterBlock.classList.add('s-filter--only-sort');
-            return;
-          } else {
-            filterBlock.classList.remove('s-filter--only-sort');
-            filterBlock.classList.remove('s-filter--only-filter');
-          }
-        });
-      }
+      sortBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
 
-      if (windowInnerWidth <= 1024 && sortBtn !== null) {
-        sortBtn.style.display = 'none';
-      }
+        filterBtn.classList.remove('is-on');
+        filterBlockOnlyFilter.classList.remove('is-on');
+
+        if (sortBtn.classList.contains('is-on')) {
+          sortBtn.classList.remove('is-on');
+          filterBlockOnlySort.classList.remove('is-on');
+          return;
+        }
+
+        if (!sortBtn.classList.contains('is-on')) {
+          sortBtn.classList.add('is-on');
+          filterBlockOnlySort.classList.add('is-on');
+          return;
+        }
+      });
+
+      window.addEventListener('resize', (e) => {
+        windowInnerWidth = e.target.innerWidth;
+      });
+
+      // Если кликнули вне формы
+      document.addEventListener('click', () => {
+        sortBtn.classList.remove('is-on');
+        filterBtn.classList.remove('is-on');
+        filterBlockOnlyFilter.classList.remove('is-on');
+        filterBlockOnlySort.classList.remove('is-on');
+        filterBlock.classList.remove('is-on');
+      });
     }
-
-    window.addEventListener('resize', (e) => {
-      windowInnerWidth = e.target.innerWidth;
-    });
-
-
   })();
 
   // Конфигурируем Swiper

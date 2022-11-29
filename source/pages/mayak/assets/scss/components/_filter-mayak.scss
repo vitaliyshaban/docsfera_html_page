@@ -1,0 +1,108 @@
+.filter-mayak {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+
+  h2 {}
+
+  &-group {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+  }
+
+  &-btn {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    outline: none;
+
+    &__icon {
+      margin-right: 7px;
+
+      path {
+        fill: #000000;
+      }
+    }
+
+    &__title {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 28px;
+
+      &--hidden {
+        display: none;
+      }
+    }
+
+    &__arrow {
+      margin-left: 10px;
+      transition: transform 0.3s ease;
+
+      path {
+        fill: #000000;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+      border: none;
+    }
+
+    &.is-on {
+
+      .filter-mayak-btn__icon,
+      .filter-mayak-btn__arrow {
+        path {
+          fill: #0158BB;
+        }
+      }
+
+      .filter-mayak-btn__title {
+        color: #0158BB;
+      }
+
+      .filter-mayak-btn__arrow {
+        transform: rotate(180deg);
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+
+
+  @media screen and (max-width: 1024px) {
+    margin: 0;
+    flex-direction: column;
+    gap: 15px;
+
+    &-btn {
+      &.sort-mayak-btn {
+        display: none;
+      }
+
+      &__title {
+        display: none;
+
+        &--hidden {
+          display: inline;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    h2 {
+      text-align: center;
+    }
+  }
+}

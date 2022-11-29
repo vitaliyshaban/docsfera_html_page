@@ -16,25 +16,26 @@
     opacity: 0;
     transition: all 0.3s ease;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-wdith: 1024px) {
       right: 0;
     }
 
-    @media screen and (max-width: 768px) {
-      left: 0;
+    @media screen and (max-width: 1024px) {
+      left: 50%;
+      transform: translateX(-50%) translateY(102%);
     }
   }
 
   &--only-sort {
-    .s-filter__filter {
-      display: none;
-    }
+    display: none;
   }
 
   &--only-filter {
-    .s-filter__sort {
-      display: none;
-    }
+    display: none;
+  }
+
+  &--only-phone {
+    display: none;
   }
 
   &-group {
@@ -301,6 +302,18 @@
       visibility: visible;
       opacity: 1;
       transition: all 0.3s ease;
+    }
+
+    &.s-filter--only-sort {
+      display: flex;
+    }
+
+    &.s-filter--only-filter {
+      display: flex;
+    }
+
+    &.s-filter--only-phone {
+      display: flex;
     }
   }
 }
