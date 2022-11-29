@@ -197,6 +197,14 @@
       text-align: left;
     }
 
+    &__title {
+      &::before {
+        max-width: 100%;
+        left: 2px;
+        top: -15px;
+      }
+    }
+
     &-form {
       order: 0;
       width: 100%;

@@ -6,8 +6,6 @@
   flex-wrap: wrap;
   margin: 20px 0;
 
-  h2 {}
-
   &-group {
     display: flex;
     align-items: center;
@@ -82,8 +80,7 @@
 
   @media screen and (max-width: 1024px) {
     margin: 0;
-    flex-direction: column;
-    gap: 15px;
+
 
     &-btn {
       &.sort-mayak-btn {
@@ -98,6 +95,11 @@
         }
       }
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 15px;
   }
 
   @media screen and (max-width: 576px) {
