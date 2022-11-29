@@ -219,10 +219,6 @@
       }
     }
 
-    &--no-scroll {
-      overflow-y: visible;
-    }
-
     &--scroll {
       // height: 692px;
       overflow-y: scroll;
@@ -245,7 +241,7 @@
     }
   }
 
-  @media screen and (max-width: 1280px) {
+  @media screen and (max-width: 1024px) {
     &__wrapper {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -278,24 +274,24 @@
 
     &__wrapper {
       grid-template-columns: 1fr;
-      height: 312px;
       overflow-y: scroll;
       scrollbar-width: thin;
       scrollbar-color: #0F71D6 #D9D9D9;
-
-      &::-webkit-scrollbar {
-        width: 7px;
-      }
-
-      &::-webkit-scrollbar-track {
-        background: #D9D9D9;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: $COLOR_ACCENT;
-        border-radius: 10px;
-        border: 1px solid #FFFFFF;
-      }
     }
+  }
+}
+
+.ds-pagination--playlist {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .pagination {
+    display: none;
+  }
+
+  .ds-pagination--playlist {
+    display: block;
+    margin-top: 0;
   }
 }
