@@ -343,11 +343,11 @@
         windowInnerWidth = e.target.innerWidth;
       });
 
-      for (const hiddenElem of hiddenBlock) {
-        hiddenElem.addEventListener('click', (e) => {
-          e.stopPropagation();
-        });
-      }
+      // for (const hiddenElem of hiddenBlock) {
+      //   hiddenElem.addEventListener('click', (e) => {
+      //     e.stopPropagation();
+      //   });
+      // }
 
       // Если кликнули вне формы
       document.addEventListener('click', () => closeAllForm());
