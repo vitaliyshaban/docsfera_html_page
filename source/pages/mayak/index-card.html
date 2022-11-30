@@ -47,6 +47,14 @@
 				name: "Саверский Александр Владимирович",
 				descr: 'Президент "Лиги пациентов", член Экспертного совета при Правительстве Российской Федерации.',
 			},
+			{
+				name: "Гриценко Ирина Юрьевна",
+				descr: "Практикующий специалист в области медицинского права и урегулирования споров по качеству оказания медицинских услуг.",
+			},
+			{
+				name: "Саверский Александр Владимирович",
+				descr: 'Президент "Лиги пациентов", член Экспертного совета при Правительстве Российской Федерации.',
+			},
 		],
 		listVideo: [
 			{
@@ -97,12 +105,12 @@
 			<div class="row">
 				<div class="column column--12-small column--8-tablet content">
 					<div class="new__content">
+						<h1>Ответ на Вопрос 1</h1>
 						<include src="mayak/partials/pages/card.html"></include>
-						<include locals='{"footerLinks": {{footerLinks}}}' src="../layouts/components/footer-links.html"></include>
 					</div>
 				</div>
 				<div class="column column--12-small column--4-tablet">
-					<aside class="detail-body__aside" style="top: 93px">
+					<aside class="detail-body__aside detail-body__aside--playlist" style="top: 93px">
 						<div class="detail-body__aside-top">
 							<div class="items-video items-video__aside">
 								<div class="playlist playlist__block">
@@ -135,21 +143,23 @@
 		<div class="ds-filter__wrapper">
 			<div class="ds-filter">
 				<div class="container">
-					<div class="row row--vcentered">
-						<div class="column">
-							<h2>Другие лекции</h2>
-						</div>
+					<div class="filter-mayak">
+						<h2>Другие лекции</h2>
 						<include src="mayak/partials/components/filter-mayak.html"></include>
-						<include src="mayak/partials/components/sort-mayak.html"></include>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="container">
+		<div class="container container--card">
 			<include locale='{
 				"cardsVideo": {{cardsVideo}}
 			}' src="mayak/partials/components/card-video.html"></include>
-			<include src="mayak/partials/components/pagination.html"></include>
+			<div class="ds-pagination column--12" data-target="#content-4">
+				<div class="column column--12 has-text-align-center js-infinity-pager-wrap">
+					<a href="/research/?PAGEN_1=2&amp;paging=y" class="button button--outlined" id="infinity-next-page">Показать
+						ещё</a>
+				</div>
+			</div>
 		</div>
 		<div class="ds-filter__wrapper">
 			<div class="ds-filter">
@@ -163,9 +173,32 @@
 			</div>
 		</div>
 		<div class="container">
-			<include locale='{
-				"cardsLector": {{cardsLector}}
-			}' src="mayak/partials/components/card-lector.html"></include>
+			<div class="lector-slider swiper-container">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<include locale='{ "cardsLector": {{cardsLector}} }' src="mayak/partials/components/card-lector.html">
+						</include>
+					</div>
+				</div>
+				<div class="lector-slider-controls">
+					<div class="lector-slider-controls__prev">
+						<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd"
+								d="M26.6745 16.2386L31.7657 21.4239C32.0781 21.7421 32.0781 22.2579 31.7657 22.5761L26.6745 27.7614C26.3621 28.0795 25.8556 28.0795 25.5431 27.7614C25.2307 27.4432 25.2307 26.9273 25.5431 26.6091L29.2686 22.8148L12 22.8148L12 21.1852L29.2686 21.1852L25.5431 17.3909C25.2307 17.0727 25.2307 16.5568 25.5431 16.2386C25.8556 15.9205 26.3621 15.9205 26.6745 16.2386Z"
+								fill="black" />
+							<rect x="1" y="1" width="42" height="42" rx="21" stroke="black" stroke-width="2" />
+						</svg>
+					</div>
+					<div class="lector-slider-controls__next">
+						<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd"
+								d="M26.6745 16.2386L31.7657 21.4239C32.0781 21.7421 32.0781 22.2579 31.7657 22.5761L26.6745 27.7614C26.3621 28.0795 25.8556 28.0795 25.5431 27.7614C25.2307 27.4432 25.2307 26.9273 25.5431 26.6091L29.2686 22.8148L12 22.8148L12 21.1852L29.2686 21.1852L25.5431 17.3909C25.2307 17.0727 25.2307 16.5568 25.5431 16.2386C25.8556 15.9205 26.3621 15.9205 26.6745 16.2386Z"
+								fill="black" />
+							<rect x="1" y="1" width="42" height="42" rx="21" stroke="black" stroke-width="2" />
+						</svg>
+					</div>
+				</div>
+			</div>
 		</div>
 		<include src="../layouts/components/social.html"></include>
 	</block>

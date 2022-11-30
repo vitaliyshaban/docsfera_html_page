@@ -11,6 +11,7 @@
     @import 'scss/components/search-mayak';
     @import 'scss/components/search-card';
     @import 'scss/components/filter-search';
+    @import 'scss/components/filter-mayak';
     @import 'scss/components/card-lector';
     @import 'scss/components/card-playlist';
     @import 'scss/components/card-video';
@@ -18,9 +19,11 @@
     @import 'scss/components/questions-mayak';
 
     // Pages
-    @import 'scss/components/card';
+    @import 'scss/components/index';
     @import 'scss/components/playlist';
+    @import 'scss/components/card';
     @import 'scss/components/search';
 
     @import 'scss/components/pagination-page';
+    @import 'scss/components/swiper';
 }

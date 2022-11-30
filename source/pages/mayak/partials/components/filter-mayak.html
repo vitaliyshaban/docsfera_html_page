@@ -1,27 +1,359 @@
-<div
-	class="column column--narrow-phone column--8-small column--narrow-big dropdown-filter-ajax__wrap filter-area dropdown-filter-ajax__init"
-	data-ajax-container=".js-row-infinity">
-	<div class="dropdown-filter-ajax__list dropdown-filter-ajax__research"></div>
-
-	<button class="button-text filter-switch filter-switch--closed">
-		<span class="button__icon">
-			<i class="dsi-filters"></i>
-		</span>
-		<span>
-			<span class="is-hidden-small">Фильтры</span>
-			<span class="is-hidden-big">Фильтры и сортировка</span>
-		</span>
-		<span class="applied-filter" style="display: none">
-			<span> 0 </span>
-		</span>
-		<span class="button__icon filter-switch-icon">
-			<i class="dsi-small_arrow_closed"></i>
-		</span>
+<div class="filter-mayak-group">
+	<button class="filter-mayak-btn" data-role="show-filter-block">
+		<svg class="filter-mayak-btn__icon" width="18" height="12" viewBox="0 0 18 12" fill="none"
+			xmlns="http://www.w3.org/2000/svg">
+			<path d="M7 12H11V10H7V12ZM0 0V2H18V0H0ZM3 7H15V5H3V7Z" fill="black" />
+		</svg>
+		<span class="filter-mayak-btn__title">Фильтры</span>
+		<span class="filter-mayak-btn__title filter-mayak-btn__title--hidden">Фильтры и сортировка</span>
+		<svg class="filter-mayak-btn__arrow" width="12" height="8" viewBox="0 0 12 8" fill="none"
+			xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M10.6 0L6 4.6L1.4 0L0 1.4L6 7.4L12 1.4L10.6 0Z" fill="black" />
+		</svg>
 	</button>
-	<!-- <div class="filter-area__mobile-open-header is-hidden-big">
-		<button class="button-text button--fullwidth">
-			<span class="button__icon"><i class="dsi-close"></i></span>
-			<span>Фильтры и сортировка</span>
-		</button>
-	</div> -->
+	<button class="filter-mayak-btn sort-mayak-btn" data-role="show-sort-block">
+		<svg class="filter-mayak-btn__icon" width="18" height="12" viewBox="0 0 18 12" fill="none"
+			xmlns="http://www.w3.org/2000/svg">
+			<path d="M0 12H6V10H0V12ZM0 0V2H18V0H0ZM0 7H12V5H0V7Z" fill="#0158BB" />
+		</svg>
+		<span class="filter-mayak-btn__title">Сортировка</span>
+		<svg class="filter-mayak-btn__arrow" width="12" height="8" viewBox="0 0 12 8" fill="none"
+			xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M10.6 0L6 4.6L1.4 0L0 1.4L6 7.4L12 1.4L10.6 0Z" fill="black" />
+		</svg>
+	</button>
+
+	<div class="s-filter s-filter--hidden s-filter--only-sort">
+		<form action="#" class="s-filter-sort s-filter__sort">
+			<div class="sort-group">
+				<input type="radio" name="sort-radio" id="radio-new" class="sort-group__input" value="radio-new">
+				<label for="radio-new" class="sort-group__label">Сначала самые новые</label>
+			</div>
+			<div class="sort-group">
+				<input type="radio" name="sort-radio" id="radio-old" class="sort-group__input" value="radio-old">
+				<label for="radio-old" class="sort-group__label">Сначала самые старые</label>
+			</div>
+		</form>
+	</div>
+
+	<div class="s-filter s-filter--hidden s-filter--only-filter">
+		<form action="#" class="s-filter-form s-filter__filter">
+			<div class="filter-group filter-group--single">
+				<span class="filter-group__title">Тема</span>
+				<div class="filter-group-heading">
+					<div class="filter-left">
+						<span data-role="static-value">Все темы</span>
+					</div>
+					<div class="filter-right">
+						<button type="button" data-role="switch-dropdown" class="filter-right__btn">
+							<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M10.6 0L6 4.6L1.4 0L0 1.4L6 7.4L12 1.4L10.6 0Z"
+									fill="black" />
+							</svg>
+						</button>
+					</div>
+					<ul class="dropdown-list">
+						<li class="dropdown-list__item" data-value="0">Все темы</li>
+						<li class="dropdown-list__item" data-value="1">Если нужен оригинальный препарат</li>
+						<li class="dropdown-list__item" data-value="2">
+							Являясь всего лишь частью общей картины, многие известные личности объединены. Таким образом, дальнейшее
+							развитие различных форм.
+						</li>
+						<li class="dropdown-list__item" data-value="3">Если нужен оригинальный препарат2</li>
+						<li class="dropdown-list__item" data-value="4">Если нужен оригинальный препарат3</li>
+						<li class="dropdown-list__item" data-value="5">Если нужен оригинальный препарат4</li>
+						<li class="dropdown-list__item" data-value="6">Если нужен оригинальный препарат5</li>
+						<li class="dropdown-list__item" data-value="7">Если нужен оригинальный препарат6</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="filter-group filter-group--multiple">
+				<span class="filter-group__title">Лектор</span>
+				<div class="filter-group-heading">
+					<div class="filter-left">
+						<span data-role="static-value">Все</span>
+						<ul class="tags-list">
+							<!-- <li class="tags-list__item">
+		                  <span>Саверский</span>
+		                  <button type="button" data-role="remove-this-tag">&times;</button>
+		                </li> -->
+						</ul>
+					</div>
+					<div class="filter-right">
+						<button type="button" data-role="delete-tags" class="filter-right__btn">
+							<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M11 6V16H3V6H11ZM9.5 0H4.5L3.5 1H0V3H14V1H10.5L9.5 0ZM13 4H1V16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V4Z"
+									fill="black" />
+							</svg>
+						</button>
+						<button type="button" data-role="switch-dropdown" class="filter-right__btn">
+							<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M10.6 0L6 4.6L1.4 0L0 1.4L6 7.4L12 1.4L10.6 0Z"
+									fill="black" />
+							</svg>
+						</button>
+					</div>
+					<ul class="dropdown-list">
+						<li class="dropdown-list__item" data-value="0">Все</li>
+						<li class="dropdown-list__item" data-value="1">Саверский</li>
+						<li class="dropdown-list__item" data-value="2">Гриценко</li>
+						<li class="dropdown-list__item" data-value="3">Иванов</li>
+						<li class="dropdown-list__item" data-value="4">Петров</li>
+						<li class="dropdown-list__item" data-value="5">Семёнов</li>
+						<li class="dropdown-list__item" data-value="6">Пупкин</li>
+						<li class="dropdown-list__item" data-value="7">Исаев</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="filter-group filter-group--multiple">
+				<span class="filter-group__title">Длительность</span>
+				<div class="filter-group-heading">
+					<div class="filter-left">
+						<span data-role="static-value">Выберите длительность</span>
+						<ul class="tags-list">
+							<!-- <li class="tags-list__item">
+		                      <span>Саверский</span>
+		                      <button type="button" data-role="remove-this-tag">&times;</button>
+		                    </li> -->
+						</ul>
+					</div>
+					<div class="filter-right">
+						<button type="button" data-role="delete-tags" class="filter-right__btn">
+							<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M11 6V16H3V6H11ZM9.5 0H4.5L3.5 1H0V3H14V1H10.5L9.5 0ZM13 4H1V16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V4Z"
+									fill="black" />
+							</svg>
+						</button>
+						<button type="button" data-role="switch-dropdown" class="filter-right__btn">
+							<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M10.6 0L6 4.6L1.4 0L0 1.4L6 7.4L12 1.4L10.6 0Z"
+									fill="black" />
+							</svg>
+						</button>
+					</div>
+					<ul class="dropdown-list">
+						<li class="dropdown-list__item" data-value="0">Любая</li>
+						<li class="dropdown-list__item" data-value="1">0-15 минут</li>
+						<li class="dropdown-list__item" data-value="2">15-30 минут</li>
+						<li class="dropdown-list__item" data-value="3">30-45 минут</li>
+						<li class="dropdown-list__item" data-value="4">45-60 минут</li>
+						<li class="dropdown-list__item" data-value="5">60+ минут</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="filter-group filter-group--multiple">
+				<span class="filter-group__title">Тэги</span>
+				<div class="filter-group-heading">
+					<div class="filter-left">
+						<span data-role="static-value">Выберите тэги</span>
+						<ul class="tags-list">
+							<!-- <li class="tags-list__item">
+		                          <span>Саверский</span>
+		                          <button type="button" data-role="remove-this-tag">&times;</button>
+		                        </li> -->
+						</ul>
+					</div>
+					<div class="filter-right">
+						<button type="button" data-role="delete-tags" class="filter-right__btn">
+							<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M11 6V16H3V6H11ZM9.5 0H4.5L3.5 1H0V3H14V1H10.5L9.5 0ZM13 4H1V16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V4Z"
+									fill="black" />
+							</svg>
+						</button>
+						<button type="button" data-role="switch-dropdown" class="filter-right__btn">
+							<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M10.6 0L6 4.6L1.4 0L0 1.4L6 7.4L12 1.4L10.6 0Z"
+									fill="black" />
+							</svg>
+						</button>
+					</div>
+					<ul class="dropdown-list">
+						<li class="dropdown-list__item" data-value="0">Все тэги</li>
+						<li class="dropdown-list__item" data-value="1">#Tag1</li>
+						<li class="dropdown-list__item" data-value="2">#Tag2</li>
+						<li class="dropdown-list__item" data-value="3">#Tag3</li>
+						<li class="dropdown-list__item" data-value="4">#Tag4</li>
+						<li class="dropdown-list__item" data-value="5">#Tag5</li>
+						<li class="dropdown-list__item" data-value="6">#Tag6</li>
+						<li class="dropdown-list__item" data-value="7">#Tag7</li>
+						<li class="dropdown-list__item" data-value="8">#Tag8</li>
+						<li class="dropdown-list__item" data-value="9">#Tag9</li>
+						<li class="dropdown-list__item" data-value="10">#Tag10</li>
+					</ul>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div class="s-filter s-filter--hidden s-filter--only-phone">
+		<form action="#" class="s-filter-sort s-filter__sort">
+			<div class="sort-group">
+				<input type="radio" name="sort-radio" id="radio-new" class="sort-group__input" value="radio-new">
+				<label for="radio-new" class="sort-group__label">Сначала самые новые</label>
+			</div>
+			<div class="sort-group">
+				<input type="radio" name="sort-radio" id="radio-old" class="sort-group__input" value="radio-old">
+				<label for="radio-old" class="sort-group__label">Сначала самые старые</label>
+			</div>
+		</form>
+
+		<form action="#" class="s-filter-form s-filter__filter">
+			<div class="filter-group filter-group--single">
+				<span class="filter-group__title">Тема</span>
+				<div class="filter-group-heading">
+					<div class="filter-left">
+						<span data-role="static-value">Все темы</span>
+					</div>
+					<div class="filter-right">
+						<button type="button" data-role="switch-dropdown" class="filter-right__btn">
+							<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M10.6 0L6 4.6L1.4 0L0 1.4L6 7.4L12 1.4L10.6 0Z"
+									fill="black" />
+							</svg>
+						</button>
+					</div>
+					<ul class="dropdown-list">
+						<li class="dropdown-list__item" data-value="0">Все темы</li>
+						<li class="dropdown-list__item" data-value="1">Если нужен оригинальный препарат</li>
+						<li class="dropdown-list__item" data-value="2">
+							Являясь всего лишь частью общей картины, многие известные личности объединены. Таким образом, дальнейшее
+							развитие различных форм.
+						</li>
+						<li class="dropdown-list__item" data-value="3">Если нужен оригинальный препарат2</li>
+						<li class="dropdown-list__item" data-value="4">Если нужен оригинальный препарат3</li>
+						<li class="dropdown-list__item" data-value="5">Если нужен оригинальный препарат4</li>
+						<li class="dropdown-list__item" data-value="6">Если нужен оригинальный препарат5</li>
+						<li class="dropdown-list__item" data-value="7">Если нужен оригинальный препарат6</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="filter-group filter-group--multiple">
+				<span class="filter-group__title">Лектор</span>
+				<div class="filter-group-heading">
+					<div class="filter-left">
+						<span data-role="static-value">Все</span>
+						<ul class="tags-list">
+							<!-- <li class="tags-list__item">
+	                  <span>Саверский</span>
+	                  <button type="button" data-role="remove-this-tag">&times;</button>
+	                </li> -->
+						</ul>
+					</div>
+					<div class="filter-right">
+						<button type="button" data-role="delete-tags" class="filter-right__btn">
+							<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M11 6V16H3V6H11ZM9.5 0H4.5L3.5 1H0V3H14V1H10.5L9.5 0ZM13 4H1V16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V4Z"
+									fill="black" />
+							</svg>
+						</button>
+						<button type="button" data-role="switch-dropdown" class="filter-right__btn">
+							<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M10.6 0L6 4.6L1.4 0L0 1.4L6 7.4L12 1.4L10.6 0Z"
+									fill="black" />
+							</svg>
+						</button>
+					</div>
+					<ul class="dropdown-list">
+						<li class="dropdown-list__item" data-value="0">Все</li>
+						<li class="dropdown-list__item" data-value="1">Саверский</li>
+						<li class="dropdown-list__item" data-value="2">Гриценко</li>
+						<li class="dropdown-list__item" data-value="3">Иванов</li>
+						<li class="dropdown-list__item" data-value="4">Петров</li>
+						<li class="dropdown-list__item" data-value="5">Семёнов</li>
+						<li class="dropdown-list__item" data-value="6">Пупкин</li>
+						<li class="dropdown-list__item" data-value="7">Исаев</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="filter-group filter-group--multiple">
+				<span class="filter-group__title">Длительность</span>
+				<div class="filter-group-heading">
+					<div class="filter-left">
+						<span data-role="static-value">Выберите длительность</span>
+						<ul class="tags-list">
+							<!-- <li class="tags-list__item">
+	                      <span>Саверский</span>
+	                      <button type="button" data-role="remove-this-tag">&times;</button>
+	                    </li> -->
+						</ul>
+					</div>
+					<div class="filter-right">
+						<button type="button" data-role="delete-tags" class="filter-right__btn">
+							<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M11 6V16H3V6H11ZM9.5 0H4.5L3.5 1H0V3H14V1H10.5L9.5 0ZM13 4H1V16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V4Z"
+									fill="black" />
+							</svg>
+						</button>
+						<button type="button" data-role="switch-dropdown" class="filter-right__btn">
+							<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M10.6 0L6 4.6L1.4 0L0 1.4L6 7.4L12 1.4L10.6 0Z"
+									fill="black" />
+							</svg>
+						</button>
+					</div>
+					<ul class="dropdown-list">
+						<li class="dropdown-list__item" data-value="0">Любая</li>
+						<li class="dropdown-list__item" data-value="1">0-15 минут</li>
+						<li class="dropdown-list__item" data-value="2">15-30 минут</li>
+						<li class="dropdown-list__item" data-value="3">30-45 минут</li>
+						<li class="dropdown-list__item" data-value="4">45-60 минут</li>
+						<li class="dropdown-list__item" data-value="5">60+ минут</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="filter-group filter-group--multiple">
+				<span class="filter-group__title">Тэги</span>
+				<div class="filter-group-heading">
+					<div class="filter-left">
+						<span data-role="static-value">Выберите тэги</span>
+						<ul class="tags-list">
+							<!-- <li class="tags-list__item">
+	                          <span>Саверский</span>
+	                          <button type="button" data-role="remove-this-tag">&times;</button>
+	                        </li> -->
+						</ul>
+					</div>
+					<div class="filter-right">
+						<button type="button" data-role="delete-tags" class="filter-right__btn">
+							<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M11 6V16H3V6H11ZM9.5 0H4.5L3.5 1H0V3H14V1H10.5L9.5 0ZM13 4H1V16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V4Z"
+									fill="black" />
+							</svg>
+						</button>
+						<button type="button" data-role="switch-dropdown" class="filter-right__btn">
+							<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M10.6 0L6 4.6L1.4 0L0 1.4L6 7.4L12 1.4L10.6 0Z"
+									fill="black" />
+							</svg>
+						</button>
+					</div>
+					<ul class="dropdown-list">
+						<li class="dropdown-list__item" data-value="0">Все тэги</li>
+						<li class="dropdown-list__item" data-value="1">#Tag1</li>
+						<li class="dropdown-list__item" data-value="2">#Tag2</li>
+						<li class="dropdown-list__item" data-value="3">#Tag3</li>
+						<li class="dropdown-list__item" data-value="4">#Tag4</li>
+						<li class="dropdown-list__item" data-value="5">#Tag5</li>
+						<li class="dropdown-list__item" data-value="6">#Tag6</li>
+						<li class="dropdown-list__item" data-value="7">#Tag7</li>
+						<li class="dropdown-list__item" data-value="8">#Tag8</li>
+						<li class="dropdown-list__item" data-value="9">#Tag9</li>
+						<li class="dropdown-list__item" data-value="10">#Tag10</li>
+					</ul>
+				</div>
+			</div>
+		</form>
+	</div>
 </div>

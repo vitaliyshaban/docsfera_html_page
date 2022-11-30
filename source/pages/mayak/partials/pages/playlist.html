@@ -1,4 +1,4 @@
-<div class="container container--wide container--card">
+<div class="container">
   <h2>Если нужен оригинальный препарат</h2>
   <div class="lecturer">
     <h4 class="lecturer__name">Гриценко Ирина Юрьевна</h4>
@@ -45,7 +45,7 @@
         <span class="playlist-header-count__text">Видео</span>
       </div>
     </div>
-    <div class="playlist__wrapper">
+    <div class="playlist__wrapper playlist__wrapper--scroll">
       <include locale='{ "cardsVideo": {{cardsVideo}} }' src="mayak/partials/components/card-video-small.html">
       </include>
     </div>
@@ -54,34 +54,3 @@
   <include src="mayak/partials/components/pagination.html">
   </include>
 </div>
-
-<script>
-  let accordionText = document.querySelector('p.lecturer-playlist__text');
-  let accordionBtnShow = document.querySelector('button.lecturer-accordion__btn--show');
-  let accordionBtnHide = document.querySelector('button.lecturer-accordion__btn--hide');
-
-  // Развернуть
-  accordionBtnShow.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    accordionBtnShow.classList.remove('lecturer-accordion__btn--show');
-    accordionBtnShow.classList.add('lecturer-accordion__btn--hide');
-    accordionBtnHide.classList.add('lecturer-accordion__btn--show');
-    accordionBtnHide.classList.remove('lecturer-accordion__btn--hide');
-    accordionText.classList.add('is-on');
-
-    accordionText.style.height = `${accordionText.scrollHeight}px`;
-  });
-  // Свернуть
-  accordionBtnHide.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    accordionBtnHide.classList.remove('lecturer-accordion__btn--show');
-    accordionBtnHide.classList.add('lecturer-accordion__btn--hide');
-    accordionBtnShow.classList.add('lecturer-accordion__btn--show');
-    accordionBtnShow.classList.remove('lecturer-accordion__btn--hide');
-    accordionText.classList.remove('is-on');
-
-    accordionText.style.height = `80px`;
-  });
-</script>

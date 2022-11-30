@@ -1,0 +1,46 @@
+.lector-slider {
+  position: relative;
+
+  .swiper-container {
+    overflow: hidden;
+  }
+
+  &-controls {
+    overflow: visible !important;
+    position: absolute;
+    top: -60px;
+    right: 0;
+    display: flex;
+    gap: 25px;
+
+    &__prev,
+    &__next {
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.swiper-button-disabled {
+        svg {
+          path {
+            fill: #B2B2B2;
+          }
+
+          rect {
+            stroke: #B2B2B2;
+          }
+        }
+      }
+    }
+
+    &__prev {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+
+  @media screen and (max-width:1024px) {
+    margin-top: 80px;
+  }
+}
