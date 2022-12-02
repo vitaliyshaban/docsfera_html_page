@@ -1,8 +1,18 @@
 <div class="video">
   <a class="learn_more" href="#" target="_blank">Узнать больше</a>
   <div id="player" data-id="{{video}}" data-next-video="{{nextVideo}}"></div>
+  <div class="next-video" id="next-video">
+    <div>
+        <div class="next-video__timer">Видео начнется через <b><span id="timer"></span> сек.</b></div>
+        <div class="next-video__data"><a href="{{nextVideo}}"><img src="https://i.ytimg.com/vi/fhxUZD1KkNg/maxresdefault.jpg" alt=""></a></div>
+        <div class="next-video__buttons">
+            <div class="next-video__buttons_close"><span>Отмена</span></div>
+            <a href="{{nextVideo}}" class="next-video__buttons_play"><span>Воспроизвести</span></a>
+        </div>
+    </div>
+  </div>
 </div>
-<div id="timer"></div>
+
 <div class="lecturer">
   <h4 class="lecturer__name">Гриценко Ирина Юрьевна</h4>
   <p class="ds-title__desc lecturer__desc">Практикующий специалист в области медицинского права и урегулирования споров по качеству оказания медицинских услуг.</p>
