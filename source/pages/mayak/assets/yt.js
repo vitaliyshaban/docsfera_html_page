@@ -10,9 +10,11 @@
 })();
 function onYouTubeIframeAPIReady() {
 	var video = document.getElementById("player");
+    var videoNextBlock = document.getElementById("next-video")
 	var videoId = video.dataset.id;
 	var videoIdNext = video.dataset.nextVideo;
 	var videoDuration = 0;
+    var isNext = true;
     var options = {
         timerNextVideo: 10
     }
@@ -44,8 +46,9 @@ function onYouTubeIframeAPIReady() {
                 videoDuration = data.info.duration;
             }
             // console.log(videoDuration+' :: '+data.info.currentTime);
-            if((videoDuration - options.timerNextVideo) <= data.info.currentTime) {
+            if((videoDuration - options.timerNextVideo) <= data.info.currentTime && isNext) {
                 document.getElementById('timer').innerHTML = Math.floor(videoDuration - data.info.currentTime);
+                videoNextBlock.style.display = "flex";
                 if(videoDuration - data.info.currentTime < 1) {
                     setTimeout(function() {
                         location.href = videoIdNext
@@ -56,6 +59,10 @@ function onYouTubeIframeAPIReady() {
             }
         }
     });
+    document.querySelector('.next-video__buttons_close').addEventListener('click', function() {
+        videoNextBlock.style.display = "none";
+        isNext = false;
+    })
 }
 
 function onPlayerReady(event) {
@@ -63,8 +70,8 @@ function onPlayerReady(event) {
 }
 
 function onPlayerStateChange(event) {
-	console.log(event.data);
-	console.log(player.getDuration());
+	// console.log(event.data);
+	// console.log(player.getDuration());
 	// if (event.data == YT.PlayerState.PLAYING && !done) {
 	//     console.log(event.data);
 	//   setTimeout(stopVideo, 6000);
