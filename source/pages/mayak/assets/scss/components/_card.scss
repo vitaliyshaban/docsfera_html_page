@@ -68,8 +68,8 @@
                     &::after {
                         content: "";
                         background-image: url("../assets/images/play.svg");
-                        width: 84px;
-                        height: 91px;
+                        width: 66px;
+                        height: 60px;
                         position: absolute;
                         left: 50%;
                         top: 50%;
@@ -96,10 +96,14 @@
                     font-weight: 700;
                     font-size: 22px;
                     color: #ffffff;
+                    display: none;
                     p {
                         overflow: hidden;
                         text-overflow: ellipsis;
                         white-space: nowrap;
+                    }
+                    @media screen and (max-width: 768px) {
+                        display: block;
                     }
                 }
                 @media all and (max-width: 1280px) and (min-width: 1024px) {
