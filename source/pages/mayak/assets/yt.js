@@ -16,7 +16,7 @@ function onYouTubeIframeAPIReady() {
 	var videoDuration = 0;
     var isNext = true;
     var options = {
-        timerNextVideo: 10
+        timerNextVideo: 5
     }
 
 	video.parentNode.style.backgroundImage =
