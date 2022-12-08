@@ -25,7 +25,7 @@ const html = () => {
 };
 
 const styles = () => {
-	return src("source/pages/**/*.scss")
+	return src(["source/pages/**/*.scss"])
 		.pipe(
 			sass({
 				outputStyle: "compressed",
@@ -33,6 +33,18 @@ const styles = () => {
 		)
 		.pipe(autoprefixer({ cascade: false }))
 		.pipe(dest("dist"))
+		.pipe(bs.reload({ stream: true }));
+};
+
+const stylesPortal = () => {
+	return src(["source/layouts/local/templates/mcmportal2/library/assets/**/*.scss"])
+		.pipe(
+			sass({
+				outputStyle: "compressed",
+			}).on("error", sass.logError)
+		)
+		.pipe(autoprefixer({ cascade: false }))
+		.pipe(dest("dist/local/templates/mcmportal2/library/assets"))
 		.pipe(bs.reload({ stream: true }));
 };
 
@@ -55,8 +67,14 @@ const assets = (cb) => {
 		"source/pages/**/assets/images/**",
 		"source/pages/**/assets/videos/**",
 		"source/pages/**/assets/fonts/**",
-		"source/pages/**/assets/*.js",
+		"source/pages/**/assets/*.js"
 	]).pipe(dest("dist"));
+};
+
+const portalAssets = (cb) => {
+	return src([
+		"source/layouts/local/**",
+	]).pipe(dest("dist/local"));
 };
 
 const watcher = () => {
@@ -65,6 +83,7 @@ const watcher = () => {
 		series(html, reload)
 	);
 	watch("source/pages/**/*.scss", styles);
+	watch("source/layouts/local/templates/mcmportal2/library/assets/**/*.scss", stylesPortal);
 	watch(
 		[
 			"source/pages/**/assets/images/**",
@@ -75,5 +94,5 @@ const watcher = () => {
 	);
 };
 
-exports.default = parallel(html, styles, assets, server, watcher);
-exports.build = parallel(html, styles, assets);
+exports.default = parallel(html, styles, stylesPortal, assets, portalAssets, server, watcher);
+exports.build = parallel(html, styles, stylesPortal, assets, portalAssets);
