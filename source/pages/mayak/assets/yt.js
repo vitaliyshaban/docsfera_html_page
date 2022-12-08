@@ -33,29 +33,30 @@ function onYouTubeIframeAPIReady() {
 		events: {
 			onReady: onPlayerReady,
 			onStateChange: onPlayerStateChange,
+            onApiChange: function(event) {
+            }
 		},
 	});
 
     var iframeWindow = player.getIframe().contentWindow;
 
     window.addEventListener("message", function (event) {
-        // Check that the event was sent from the YouTube IFrame.
+        // console.log(event.target.getVideoEmbedCode())
         if (event.source === iframeWindow) {
             var data = JSON.parse(event.data);
-            if(data.info.duration) {
-                videoDuration = data.info.duration;
-            }
-            // console.log(videoDuration+' :: '+data.info.currentTime);
-            if((videoDuration - options.timerNextVideo) <= data.info.currentTime && isNext) {
-                document.getElementById('timer').innerHTML = Math.floor(videoDuration - data.info.currentTime);
-                videoNextBlock.style.display = "flex";
-                if(videoDuration - data.info.currentTime < 1) {
-                    setTimeout(function() {
-                        location.href = videoIdNext
-                    }, 500)
+            if(data.info) {
+                data.info.duration ? videoDuration = data.info.duration : null
+                if((videoDuration - options.timerNextVideo) <= data.info.currentTime && isNext) {
+                    document.getElementById('timer').innerHTML = Math.floor(videoDuration - data.info.currentTime);
+                    videoNextBlock.style.display = "flex";
+                    if(videoDuration - data.info.currentTime < 1) {
+                        setTimeout(function() {
+                            location.href = videoIdNext
+                        }, 500)
+                    }
+                } else {
+                    document.getElementById('timer').innerHTML = '';
                 }
-            } else {
-                document.getElementById('timer').innerHTML = '';
             }
         }
     });
@@ -70,6 +71,7 @@ function onPlayerReady(event) {
 }
 
 function onPlayerStateChange(event) {
+    // console.log(event)
 	// console.log(event.data);
 	// console.log(player.getDuration());
 	// if (event.data == YT.PlayerState.PLAYING && !done) {
