@@ -3,6 +3,8 @@
 
   &__preview {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     height: 224px;
 
     .card-pl-button {
