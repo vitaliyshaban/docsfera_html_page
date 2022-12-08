@@ -63,9 +63,9 @@
 
         &:checked+ {
           .sort-group__label {
-            &::after {
-              transform: scale(1);
-              transition: transform 0.3s ease;
+            &::before {
+              background: url('./images/radio-checked.png') no-repeat center center;
+              background-size: 100% 100%;
             }
           }
         }
@@ -81,29 +81,14 @@
 
         &::before {
           content: "";
-          display: inline-block;
+          display: block;
           width: 20px;
           height: 20px;
           position: absolute;
           bottom: 0;
           left: 0;
-          border: 2px solid #000000;
-          border-radius: 50%;
-        }
-
-        &::after {
-          content: "";
-          display: inline-block;
-          width: 10px;
-          height: 10px;
-          position: absolute;
-          bottom: 5px;
-          left: 5px;
-          border-radius: 50%;
-          background-color: #000000;
-          transform-origin: center center;
-          transform: scale(0);
-          transition: transform 0.3s ease;
+          background: url('./images/radio-not-checked.png') no-repeat center center;
+          background-size: 100% 100%;
         }
       }
     }
