@@ -268,12 +268,21 @@
   (function () {
     let filterGroup = document.querySelectorAll('.filter-mayak-group');
     let windowInnerWidth = window.innerWidth;
+    let sortGroup = document.querySelectorAll('.sort-group');
+
+    // Меняем id каждому input[type=radio] и label
+    sortGroup.forEach((group, index) => {
+      let inputRadio = group.children[0];
+      let labelRadio = group.children[1];
+
+      inputRadio.setAttribute('id', `radio-group-${index}`);
+      labelRadio.setAttribute('for', `radio-group-${index}`);
+    });
 
     for (const group of filterGroup) {
       let selectBlock = group.querySelectorAll('.filter-group');
       let filterBtn = group.querySelector('button[data-role="show-filter-block"]');
       let sortBtn = group.querySelector('button[data-role="show-sort-block"]');
-      let hiddenBlock = group.querySelectorAll('.s-filter.s-filter--hidden');
       let filterBlock = group.querySelector('.s-filter.s-filter--hidden.s-filter--only-phone');
       let filterBlockOnlyFilter = group.querySelector('.s-filter.s-filter--hidden.s-filter--only-filter');
       let filterBlockOnlySort = group.querySelector('.s-filter.s-filter--hidden.s-filter--only-sort');
@@ -290,6 +299,7 @@
         e.stopPropagation();
 
         if (windowInnerWidth <= 1024) {
+          filterBlockOnlyFilter.classList.remove('is-on');
           filterBtn.classList.toggle('is-on');
           filterBlock.classList.toggle('is-on');
           return;
@@ -342,12 +352,6 @@
       window.addEventListener('resize', (e) => {
         windowInnerWidth = e.target.innerWidth;
       });
-
-      // for (const hiddenElem of hiddenBlock) {
-      //   hiddenElem.addEventListener('click', (e) => {
-      //     e.stopPropagation();
-      //   });
-      // }
 
       // Если кликнули вне формы
       document.addEventListener('click', () => closeAllForm());
