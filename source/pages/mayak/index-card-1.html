@@ -61,36 +61,36 @@
 				title: "Ответ на вопрос 1",
 				tag: "Право",
 				date: "27 Фев 2019",
-                url: "index-card.html",
-                videoID: "5-L9ArKYRjw"
+				url: "index-card.html",
+				videoID: "5-L9ArKYRjw"
 			},
 			{
 				title: "Ответ на вопрос 2",
 				tag: "Конфликты",
 				date: "27 Фев 2019",
-                url: "index-card-1.html",
-                videoID: "pSV7x0EyVzU"
+				url: "index-card-1.html",
+				videoID: "pSV7x0EyVzU"
 			},
 			{
 				title: "Ответ на вопрос 3",
 				tag: "Конфликты",
 				date: "27 Фев 2019",
-                url: "index-card-2.html",
-                videoID: "fhxUZD1KkNg"
+				url: "index-card-2.html",
+				videoID: "fhxUZD1KkNg"
 			},
 			{
 				title: "Ответ на вопрос 4",
 				tag: "Конфликты",
 				date: "27 Фев 2019",
-                url: "index-card-3.html",
-                videoID: "d_XCXKTOD28"
+				url: "index-card-3.html",
+				videoID: "d_XCXKTOD28"
 			},
 			{
 				title: "Ответ на вопрос 5",
 				tag: "Конфликты",
 				date: "27 Фев 2019",
-                url: "index-card-4.html",
-                videoID: "Or-jsunq-aE"
+				url: "index-card-4.html",
+				videoID: "Or-jsunq-aE"
 			},
 		],
 	};
@@ -116,35 +116,29 @@
 				<div class="column column--12-small column--8-tablet content">
 					<div class="new__content">
 						<h1>Ответ на Вопрос 1</h1>
-						<include locals='{"video": "pSV7x0EyVzU", "nextVideo": "index-card-2.html"}' src="mayak/partials/pages/card.html"></include>
+						<include locals='{"video": "pSV7x0EyVzU", "nextVideo": "index-card-2.html"}'
+							src="mayak/partials/pages/card.html"></include>
 					</div>
 				</div>
 				<div class="column column--12-small column--4-tablet">
-					<aside class="detail-body__aside detail-body__aside--playlist" style="top: 93px">
-						<div class="detail-body__aside-top">
-							<div class="items-video items-video__aside">
-								<div class="playlist playlist__block">
-									<div class="playlist-header playlist-header--sm">
-										<img src="./assets/images/playlist-header.jpg" alt="Изображение плейлиста"
-											class="playlist-header__bg">
-										<div class="playlist-header-info">
-											<span class="playlist-header-info__topic">Лекторий (лекционный плейлист)</span>
-											<h4 class="playlist-header-info__title">Если нужен оригинальный препарат</h4>
-										</div>
-										<div class="playlist-header-count">
-											<span class="playlist-header-count__number">6</span>
-											<span class="playlist-header-count__text">Видео</span>
-										</div>
-									</div>
-									<div class="playlist__wrapper playlist__wrapper--one-column playlist__wrapper--scroll">
-										<include src="mayak/partials/components/card-video-small.html">
-										</include>
-									</div> 
-								</div>
+					<div class="playlist playlist__block">
+						<div class="playlist-header playlist-header--sm">
+							<img src="./assets/images/playlist-header.jpg" alt="Изображение плейлиста" class="playlist-header__bg">
+							<div class="playlist-header-info">
+								<span class="playlist-header-info__topic">Лекторий (лекционный плейлист)</span>
+								<h4 class="playlist-header-info__title">Если нужен оригинальный препарат</h4>
+							</div>
+							<div class="playlist-header-count">
+								<span class="playlist-header-count__number">6</span>
+								<span class="playlist-header-count__text">Видео</span>
 							</div>
 						</div>
-						<include src="../layouts/components/social.html"></include>
-					</aside>
+						<div class="playlist__wrapper playlist__wrapper--one-column playlist__wrapper--scroll">
+							<include src="mayak/partials/components/card-video-small.html">
+							</include>
+						</div>
+					</div>
+					<include src="../layouts/components/social.html"></include>
 				</div>
 			</div>
 
