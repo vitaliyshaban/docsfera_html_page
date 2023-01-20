@@ -1,7 +1,15 @@
 .card-lector {
+  margin: 0;
   width: 100%;
   height: 350px;
   min-height: 350px;
+
+  &.not-clicked {
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
 
   &__wrapper {
     flex-direction: row;

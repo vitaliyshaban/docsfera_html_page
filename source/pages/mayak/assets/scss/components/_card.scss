@@ -267,18 +267,6 @@
             }
         }
     }
-
-    .identifier {
-        display: none;
-    }
-
-    .playlist.playlist__block {
-        display: none;
-    }
-
-    .ds-pagination.column--12[data-target="#content-4"] {
-        display: block !important;
-    }
 }
 
 @media screen and (max-width: 1024px) {

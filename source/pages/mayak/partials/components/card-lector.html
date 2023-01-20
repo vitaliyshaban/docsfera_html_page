@@ -1,32 +1,66 @@
 <each loop="card, index in {{ cardsLector }}">
 	<div class="swiper-slide">
-		<section class="article-item article-item--video has-image card card-lector">
-			<div class="card__wrapper card-lector__wrapper">
-				<div class="card-preview card-lector__preview">
-					<div class="card-lector-image">
-						<img src="https://turnkeymate.com/wp-content/uploads/2021/12/ShutterstockBasic_154772753.jpg"
-							alt="Изображение доктора" />
+
+		<if condition="card.notClicked === true">
+			<section class="article-item article-item--video has-image card card-lector not-clicked">
+				<div class="card__wrapper card-lector__wrapper">
+					<div class="card-preview card-lector__preview">
+						<div class="card-lector-image">
+							<img src="https://turnkeymate.com/wp-content/uploads/2021/12/ShutterstockBasic_154772753.jpg"
+								alt="Изображение доктора" />
+						</div>
 					</div>
-				</div>
-				<div class="card-info card-lector__info">
-					<div class="card-info-heading">
-						<h4 class="card-info__title card-lector__title">{{card.name}}</h4>
-						<p class="card-info__descr card-lector__descr">{{card.descr}}</p>
-					</div>
-					<div class="card-info-footer">
-						<div class="card-info__row">
-							<button data-card-id="" type="button" class="card-info__btn card-info__btn--watch">
-								<span>Смотреть</span>
-								<svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M8 4V12L15 8L8 4ZM20 0H2C0.9 0 0 0.9 0 2V14C0 15.1 0.9 16 2 16H7V18H15V16H20C21.1 16 22 15.1 22 14V2C22 0.9 21.1 0 20 0ZM20 14H2V2H20V14Z"
-										fill="black" />
-								</svg>
-							</button>
+					<div class="card-info card-lector__info">
+						<div class="card-info-heading">
+							<h4 class="card-info__title card-lector__title">{{card.name}}</h4>
+							<p class="card-info__descr card-lector__descr">{{card.descr}}</p>
+						</div>
+						<div class="card-info-footer">
+							<div class="card-info__row">
+								<button data-card-id="" type="button" class="card-info__btn card-info__btn--watch">
+									<span>Смотреть</span>
+									<svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M8 4V12L15 8L8 4ZM20 0H2C0.9 0 0 0.9 0 2V14C0 15.1 0.9 16 2 16H7V18H15V16H20C21.1 16 22 15.1 22 14V2C22 0.9 21.1 0 20 0ZM20 14H2V2H20V14Z"
+											fill="black" />
+									</svg>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+		</if>
+
+		<if condition="card.notClicked === false">
+			<section class="article-item article-item--video has-image card card-lector">
+				<div class="card__wrapper card-lector__wrapper">
+					<div class="card-preview card-lector__preview">
+						<div class="card-lector-image">
+							<img src="https://turnkeymate.com/wp-content/uploads/2021/12/ShutterstockBasic_154772753.jpg"
+								alt="Изображение доктора" />
+						</div>
+					</div>
+					<div class="card-info card-lector__info">
+						<div class="card-info-heading">
+							<h4 class="card-info__title card-lector__title">{{card.name}}</h4>
+							<p class="card-info__descr card-lector__descr">{{card.descr}}</p>
+						</div>
+						<div class="card-info-footer">
+							<div class="card-info__row">
+								<button data-card-id="" type="button" class="card-info__btn card-info__btn--watch">
+									<span>Смотреть</span>
+									<svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M8 4V12L15 8L8 4ZM20 0H2C0.9 0 0 0.9 0 2V14C0 15.1 0.9 16 2 16H7V18H15V16H20C21.1 16 22 15.1 22 14V2C22 0.9 21.1 0 20 0ZM20 14H2V2H20V14Z"
+											fill="black" />
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</if>
 	</div>
 </each>
