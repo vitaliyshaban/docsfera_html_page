@@ -22,10 +22,16 @@
         align-items: center;
         text-align: center;
         background-color: #3A77BC;
+        font-weight: 400;
         font-size: 19px;
         line-height: 20px;
         color: #FFFFFF;
         border-radius: 10px;
+
+        &--watched {
+          height: 40px;
+          background-color: #3BB239;
+        }
       }
     }
 
@@ -47,6 +53,44 @@
     }
   }
 
+  &-info {
+    .card-info-headind {
+      .card-info__title {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 24px;
+      }
+
+      .card-info__descr {
+        font-weight: 350;
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+
+    .card-info-footer {
+      gap: 20px;
+
+      .card-info-tags {
+        &__tag {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+
+      .card-info__row {
+        .card-info__btn.card-info__btn--favourites {
+          >span {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+
   @media screen and (max-width: 576px) {
     &__preview {
       .card-pl-button {
@@ -56,16 +100,4 @@
       }
     }
   }
-
-  // @media screen and (max-width: 374px) {
-  //   &__preview {
-  //     flex-direction: column;
-
-  //     .card-pl-button,
-  //     .card-pl-overlay {
-  //       height: 50%;
-  //     }
-
-  //   }
-  // }
 }

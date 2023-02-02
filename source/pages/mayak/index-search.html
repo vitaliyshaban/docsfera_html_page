@@ -10,27 +10,29 @@
 	</block>
 
 	<block name="content">
-		<include src="mayak/partials/components/header-mayak.html"></include>
-		<include src="mayak/partials/components/search-mayak.html"></include>
-		<!-- Модуль Хлебные крошки -->
-		<!-- <include locals='{"breadcrumbs": {{breadcrumbs}}' src="../layouts/components/breadcrumbs.html"></include> -->
-		<!-- Модуль внутреннего меню в .page__content -->
-		<!-- <include src="../layouts/components/content-menu.html"></include> -->
-		<!-- Модуль заголовка карточки -->
-		<!-- <include locals='{"detailHeader": {{detailHeader}}}' src="../layouts/components/detail-header.html"></include> -->
-		<div class="container">
-			<div class="row">
-				<div class="column column--12-small column--8-tablet content">
-					<div class="new__content">
-						<include src="mayak/partials/pages/search.html"></include>
-					</div>
-				</div>
-				<div class="column column--12-small column--4-tablet">
-					<aside class="detail-body__aside" style="top: 93px; overflow: visible;">
-						<div class="detail-body__aside-top">
-							<include src="mayak/partials/components/filter-search.html"></include>
+		<div id="index-search">
+			<include src="mayak/partials/components/header-mayak.html"></include>
+			<include src="mayak/partials/components/search-mayak.html"></include>
+			<!-- Модуль Хлебные крошки -->
+			<!-- <include locals='{"breadcrumbs": {{breadcrumbs}}' src="../layouts/components/breadcrumbs.html"></include> -->
+			<!-- Модуль внутреннего меню в .page__content -->
+			<!-- <include src="../layouts/components/content-menu.html"></include> -->
+			<!-- Модуль заголовка карточки -->
+			<!-- <include locals='{"detailHeader": {{detailHeader}}}' src="../layouts/components/detail-header.html"></include> -->
+			<div class="container">
+				<div class="row">
+					<div class="column column--12-small column--8-tablet content">
+						<div class="new__content">
+							<include src="mayak/partials/pages/search.html"></include>
 						</div>
-					</aside>
+					</div>
+					<div class="column column--12-small column--4-tablet">
+						<aside class="detail-body__aside" style="top: 93px; overflow: visible;">
+							<div class="detail-body__aside-top">
+								<include src="mayak/partials/components/filter-search.html"></include>
+							</div>
+						</aside>
+					</div>
 				</div>
 			</div>
 		</div>
