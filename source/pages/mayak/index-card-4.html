@@ -42,18 +42,22 @@
 			{
 				name: "Гриценко Ирина Юрьевна",
 				descr: "Практикующий специалист в области медицинского права и урегулирования споров по качеству оказания медицинских услуг.",
+				notClicked: false
 			},
 			{
 				name: "Саверский Александр Владимирович",
 				descr: 'Президент "Лиги пациентов", член Экспертного совета при Правительстве Российской Федерации.',
+				notClicked: true
 			},
 			{
 				name: "Гриценко Ирина Юрьевна",
 				descr: "Практикующий специалист в области медицинского права и урегулирования споров по качеству оказания медицинских услуг.",
+				notClicked: true
 			},
 			{
 				name: "Саверский Александр Владимирович",
 				descr: 'Президент "Лиги пациентов", член Экспертного совета при Правительстве Российской Федерации.',
+				notClicked: false
 			},
 		],
 		listVideo: [
@@ -104,7 +108,8 @@
 	</block>
 
 	<block name="content">
-		<include src="mayak/partials/components/header-mayak.html"></include>
+		<div class="index-card" id="index-card-4">
+			<include src="mayak/partials/components/header-mayak.html"></include>
 		<!-- Модуль Хлебные крошки -->
 		<include locals='{"breadcrumbs": {{breadcrumbs}}}' src="../layouts/components/breadcrumbs.html"></include>
 		<!-- Модуль внутреннего меню в .page__content -->
@@ -120,7 +125,7 @@
 							src="mayak/partials/pages/card.html"></include>
 					</div>
 				</div>
-				<div class="column column--12-small column--4-tablet">
+				<div class="column column--12-small column--4-tablet playlist">
 					<div class="playlist playlist__block">
 						<div class="playlist-header playlist-header--sm">
 							<img src="./assets/images/playlist-header.jpg" alt="Изображение плейлиста" class="playlist-header__bg">
@@ -154,56 +159,58 @@
 			</div>
 		</div>
 		<div class="container container--card">
-			<include locale='{
-				"cardsVideo": {{cardsVideo}}
-			}' src="mayak/partials/components/card-video.html"></include>
-			<div class="ds-pagination column--12" data-target="#content-4">
-				<div class="column column--12 has-text-align-center js-infinity-pager-wrap">
-					<a href="/research/?PAGEN_1=2&amp;paging=y" class="button button--outlined" id="infinity-next-page">Показать
-						ещё</a>
+			<div class="row row--card-video">
+				<include locale='{ "cardsVideo": {{cardsVideo}} }' src="mayak/partials/components/card-video.html"></include>
+				<div class="ds-pagination column--12 ds-pagination--visible" data-target="#content-4">
+					<div class="column column--12 has-text-align-center js-infinity-pager-wrap">
+						<a href="/research/?PAGEN_1=2&amp;paging=y" class="button button--outlined"
+							id="infinity-next-page">Показать
+							ещё</a>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="ds-filter__wrapper">
 			<div class="ds-filter">
 				<div class="container">
-					<div class="row row--vcentered">
-						<div class="column">
+					<div class="row">
+						<div class="column lector-slider-column">
 							<h2>Лекторы</h2>
+							<div class="lector-slider-controls">
+								<div class="lector-slider-controls__prev">
+									<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M26.6745 16.2386L31.7657 21.4239C32.0781 21.7421 32.0781 22.2579 31.7657 22.5761L26.6745 27.7614C26.3621 28.0795 25.8556 28.0795 25.5431 27.7614C25.2307 27.4432 25.2307 26.9273 25.5431 26.6091L29.2686 22.8148L12 22.8148L12 21.1852L29.2686 21.1852L25.5431 17.3909C25.2307 17.0727 25.2307 16.5568 25.5431 16.2386C25.8556 15.9205 26.3621 15.9205 26.6745 16.2386Z"
+											fill="black" />
+										<rect x="1" y="1" width="42" height="42" rx="21" stroke="black" stroke-width="2" />
+									</svg>
+								</div>
+								<div class="lector-slider-controls__next">
+									<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M26.6745 16.2386L31.7657 21.4239C32.0781 21.7421 32.0781 22.2579 31.7657 22.5761L26.6745 27.7614C26.3621 28.0795 25.8556 28.0795 25.5431 27.7614C25.2307 27.4432 25.2307 26.9273 25.5431 26.6091L29.2686 22.8148L12 22.8148L12 21.1852L29.2686 21.1852L25.5431 17.3909C25.2307 17.0727 25.2307 16.5568 25.5431 16.2386C25.8556 15.9205 26.3621 15.9205 26.6745 16.2386Z"
+											fill="black" />
+										<rect x="1" y="1" width="42" height="42" rx="21" stroke="black" stroke-width="2" />
+									</svg>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="container">
-			<div class="lector-slider swiper-container">
+		<div class="container container--card">
+			<div class="lector-slider">
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
 						<include locale='{ "cardsLector": {{cardsLector}} }' src="mayak/partials/components/card-lector.html">
 						</include>
 					</div>
 				</div>
-				<div class="lector-slider-controls">
-					<div class="lector-slider-controls__prev">
-						<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" clip-rule="evenodd"
-								d="M26.6745 16.2386L31.7657 21.4239C32.0781 21.7421 32.0781 22.2579 31.7657 22.5761L26.6745 27.7614C26.3621 28.0795 25.8556 28.0795 25.5431 27.7614C25.2307 27.4432 25.2307 26.9273 25.5431 26.6091L29.2686 22.8148L12 22.8148L12 21.1852L29.2686 21.1852L25.5431 17.3909C25.2307 17.0727 25.2307 16.5568 25.5431 16.2386C25.8556 15.9205 26.3621 15.9205 26.6745 16.2386Z"
-								fill="black" />
-							<rect x="1" y="1" width="42" height="42" rx="21" stroke="black" stroke-width="2" />
-						</svg>
-					</div>
-					<div class="lector-slider-controls__next">
-						<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" clip-rule="evenodd"
-								d="M26.6745 16.2386L31.7657 21.4239C32.0781 21.7421 32.0781 22.2579 31.7657 22.5761L26.6745 27.7614C26.3621 28.0795 25.8556 28.0795 25.5431 27.7614C25.2307 27.4432 25.2307 26.9273 25.5431 26.6091L29.2686 22.8148L12 22.8148L12 21.1852L29.2686 21.1852L25.5431 17.3909C25.2307 17.0727 25.2307 16.5568 25.5431 16.2386C25.8556 15.9205 26.3621 15.9205 26.6745 16.2386Z"
-								fill="black" />
-							<rect x="1" y="1" width="42" height="42" rx="21" stroke="black" stroke-width="2" />
-						</svg>
-					</div>
-				</div>
 			</div>
 		</div>
 		<include src="../layouts/components/social.html"></include>
+		</div>
 	</block>
 
 	<block name="footer">

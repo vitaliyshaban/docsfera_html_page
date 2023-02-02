@@ -325,9 +325,9 @@
     const swiper = new Swiper(slider.children[0], {
       direction: 'horizontal',
       slidesPerView: 1,
-      spaceBetween: 0,
+      spaceBetween: 24,
       loop: false,
-      autoHeight: false,
+      autoHeight: true,
 
       navigation: {
         nextEl: '.lector-slider-controls__next',
@@ -337,9 +337,124 @@
       breakpoints: {
         1280: {
           slidesPerView: 2,
-          spaceBetween: 24
         },
       }
     });
+  }
+})();
+
+// Динамическая высота плейлиста
+(function () {
+  let windowInnerWidth = window.innerWidth;
+  let playlists = document.querySelectorAll('.playlist');
+  let dsPagination = document.querySelector('.ds-pagination-for-playlist');
+
+  for (const playlist of playlists) {
+    let playlistWrapper = playlist.children[1];
+    let itemVideoLength = playlistWrapper.children.length;
+
+    // Если плейлист в одну колонку
+    if (playlistWrapper.classList.contains('playlist__wrapper--one-column')) {
+      if (itemVideoLength === 1) {
+        playlistWrapper.style.cssText = 'grid-template-rows: repeat(1, 150px); overflow-y: hidden;';
+      }
+
+      if (itemVideoLength === 2) {
+        playlistWrapper.style.cssText = 'grid-template-rows: repeat(2, 150px); overflow-y: hidden;';
+      }
+
+      if (itemVideoLength === 3) {
+        playlistWrapper.style.cssText = 'grid-template-rows: repeat(3, 150px); overflow-y: hidden;';
+      }
+
+      if (itemVideoLength === 4) {
+        playlistWrapper.style.cssText = 'grid-template-rows: repeat(4, 150px); overflow-y: hidden;';
+      }
+
+      if (itemVideoLength > 4) {
+        playlistWrapper.style.cssText = 'grid-template-rows: repeat(4, 150px); overflow-y: scroll; height: 692px;';
+      }
+    }
+
+    // Если плейлист обычный
+    if (!playlistWrapper.classList.contains('playlist__wrapper--one-column')) {
+      const changeSizeWrapper = (windowWidth) => {
+        // Desktop
+        if (windowWidth > 1024) {
+          if (dsPagination) dsPagination.style.cssText = 'display: none';
+  
+          if (itemVideoLength >= 1 && itemVideoLength <= 3) {
+            playlistWrapper.style.cssText = 'grid-template-rows: repeat(1, 150px);';
+          }
+  
+          if (itemVideoLength > 3 && itemVideoLength <= 6) {
+            playlistWrapper.style.cssText = 'grid-template-rows: repeat(2, 150px);';
+          }
+  
+          if (itemVideoLength > 6 && itemVideoLength <= 9) {
+            playlistWrapper.style.cssText = 'grid-template-rows: repeat(3, 150px);';
+          }
+  
+          if (itemVideoLength > 9 && itemVideoLength <= 12) {
+            playlistWrapper.style.cssText = 'grid-template-rows: repeat(4, 150px);';
+          }
+  
+          if (itemVideoLength > 12) {
+            playlistWrapper.style.cssText = 'grid-template-rows: repeat(4, 150px); height: 692px;';
+            if (dsPagination) dsPagination.style.cssText = 'display: block';
+          }
+        }
+  
+        // Laptoop | tablet
+        if (windowWidth > 768 && windowWidth <= 1024) {
+          if (dsPagination) dsPagination.style.cssText = 'display: none';
+  
+          if (itemVideoLength >= 1 && itemVideoLength <= 3) {
+            playlistWrapper.style.cssText = 'grid-template-rows: repeat(1, 150px);';
+          }
+  
+          if (itemVideoLength > 3 && itemVideoLength <= 6) {
+            playlistWrapper.style.cssText = 'grid-template-rows: repeat(2, 150px);';
+          }
+  
+          if (itemVideoLength > 6) {
+            playlistWrapper.style.cssText = 'grid-template-rows: repeat(3, 150px); height: 522px;';
+            if (dsPagination) dsPagination.style.cssText = 'display: block';
+          }
+        }
+  
+        // Tablet | phone
+        if (windowWidth > 320 && windowWidth <= 768) {
+          if (dsPagination) dsPagination.style.cssText = 'display: none';
+  
+          if (itemVideoLength === 1) {
+            playlistWrapper.style.cssText = 'grid-template-rows: repeat(1, 130px); overflow-y: hidden;';
+          }
+  
+          if (itemVideoLength === 2) {
+            playlistWrapper.style.cssText = 'grid-template-rows: repeat(2, 130px); overflow-y: hidden;';
+          }
+  
+          if (itemVideoLength === 3) {
+            playlistWrapper.style.cssText = 'grid-template-rows: repeat(3, 130px); overflow-y: hidden;';
+          }
+  
+          if (itemVideoLength === 4) {
+            playlistWrapper.style.cssText = 'grid-template-rows: repeat(4, 130px); overflow-y: hidden;';
+          }
+  
+          if (itemVideoLength > 4) {
+            playlistWrapper.style.cssText = 'grid-template-rows: repeat(4, 130px); overflow-y: scroll; height: 612px;';
+          }
+        }
+      }
+  
+      changeSizeWrapper(windowInnerWidth);
+  
+      window.addEventListener('resize', (e) => {
+        let windowInnerWidth = window.innerWidth;
+        changeSizeWrapper(windowInnerWidth);
+      }, true);
+    }
   }
 })();
