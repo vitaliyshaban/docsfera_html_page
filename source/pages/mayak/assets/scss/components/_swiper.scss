@@ -1,46 +1,65 @@
 .lector-slider {
+  margin: 20px 0 0 0;
   position: relative;
 
   .swiper-container {
     overflow: hidden;
+    padding-right: 2px;
   }
+}
 
-  &-controls {
-    overflow: visible !important;
-    position: absolute;
-    top: -60px;
-    right: 0;
-    display: flex;
-    gap: 25px;
+.ds-filter {
+  .column {
+    h2 {
+      margin: 0;
+    }
+    &.lector-slider-column {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-    &__prev,
-    &__next {
-      &:hover {
-        cursor: pointer;
-      }
+      .lector-slider-controls {
+        overflow: visible !important;
+        display: flex;
+        gap: 25px;
+        line-height: 0px;
 
-      &.swiper-button-disabled {
-        svg {
-          path {
-            fill: #B2B2B2;
+        @media screen and (max-width: 768px) {
+          top: -65px;
+        }
+
+        &__prev,
+        &__next {
+          padding: 0;
+
+          &:hover {
+            cursor: pointer;
           }
 
-          rect {
-            stroke: #B2B2B2;
+          svg {
+            height: 44px;
+            width: 44px;
+          }
+
+          &.swiper-button-disabled {
+            svg {
+              path {
+                fill: #B2B2B2;
+              }
+
+              rect {
+                stroke: #B2B2B2;
+              }
+            }
+          }
+        }
+
+        &__prev {
+          svg {
+            transform: rotate(180deg);
           }
         }
       }
     }
-
-    &__prev {
-      svg {
-        transform: rotate(180deg);
-      }
-    }
-  }
-
-
-  @media screen and (max-width:1024px) {
-    margin-top: 80px;
   }
 }

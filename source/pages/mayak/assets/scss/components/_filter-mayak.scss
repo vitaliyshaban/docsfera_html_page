@@ -81,7 +81,6 @@
   @media screen and (max-width: 1024px) {
     margin: 0;
 
-
     &-btn {
       &.sort-mayak-btn {
         display: none;
@@ -94,17 +93,6 @@
           display: inline;
         }
       }
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  @media screen and (max-width: 576px) {
-    h2 {
-      text-align: center;
     }
   }
 }

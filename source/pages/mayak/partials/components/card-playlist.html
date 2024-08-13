@@ -4,13 +4,18 @@
 			<div class="card__wrapper">
 				<div class="card-preview card-pl__preview">
 					<div class="card-pl-button">
-						<a href="./index-card.html" class="card-pl-button__btn">Продолжить <br> просмотр</a>
+						<if condition="card.isWatched === true">
+							<a href="./index-card.html" class="card-pl-button__btn card-pl-button__btn--watched">Просмотрено</a>
+						</if>
+						<if condition="card.isWatched !== true">
+							<a href="./index-card.html" class="card-pl-button__btn">Продолжить <br> просмотр</a>
+						</if>
 					</div>
 					<div class="card-pl-overlay">
 						<span class="card-pl-overlay__count">9 видео</span>
 					</div>
 				</div>
-				<div class="card-info">
+				<div class="card-info card-pl-info">
 					<div class="card-info-heading">
 						<h4 class="card-info__title">{{card.title}}</h4>
 						<p class="card-info__descr">{{card.author}}</p>
@@ -22,14 +27,26 @@
 							</each>
 						</div>
 						<div class="card-info__row">
-							<button data-card-id="" type="button" class="card-info__btn card-info__btn--favourites">
-								<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M2 0H12C13.1 0 14 0.9 14 2V18L7 15L-1.90735e-06 18V2C-1.90735e-06 0.9 0.899999 0 2 0ZM2 15L7 12.82L12 15V2H2V15Z"
-										fill="#707075" />
-								</svg>
-								<span>В избранное</span>
-							</button>
+							<if condition="card.inFavourites === true">
+								<button data-card-id="" type="button" class="card-info__btn card-info__btn--favourites card-info__btn--in-favourites">
+									<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M2 0H12C13.1 0 14 0.9 14 2V18L7 15L-1.90735e-06 18V2C-1.90735e-06 0.9 0.899999 0 2 0ZM2 15L7 12.82L12 15V2H2V15Z"
+											fill="#707075" />
+									</svg>
+									<span>В избранном</span>
+								</button>
+							</if>
+							<if condition="card.inFavourites !== true">
+								<button data-card-id="" type="button" class="card-info__btn card-info__btn--favourites">
+									<svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M2 0H12C13.1 0 14 0.9 14 2V18L7 15L-1.90735e-06 18V2C-1.90735e-06 0.9 0.899999 0 2 0ZM2 15L7 12.82L12 15V2H2V15Z"
+											fill="#707075" />
+									</svg>
+									<span>В избранное</span>
+								</button>
+							</if>
 						</div>
 					</div>
 				</div>

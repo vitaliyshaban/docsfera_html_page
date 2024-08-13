@@ -23,16 +23,19 @@
 				title: "Работа с жалобами, провокациями и отказами от выполнения назначений",
 				author: "Саверский Александр Владимирович",
 				tags: ["Право", "Конфликты", "Документы"],
+				isWatched: true,
 			},
 			{
 				title: "Виды вины медицинских работников",
 				author: "Саверский Александр Владимирович",
 				tags: ["Право", "Конфликты", "Документы"],
+				isWatched: false,
 			},
 			{
 				title: "Проверки медицинских организаций",
 				author: "Саверский Александр Владимирович",
 				tags: ["Право", "Конфликты", "Документы"],
+				isWatched: false,
 			},
 		],
 		cardsVideo: [
@@ -133,11 +136,11 @@
 				tag: "Конфликты",
 				date: "27 Фев 2019",
 			},
-			{
-				title: "Права и обязанности медицинских работников и пациентов",
-				tag: "Конфликты",
-				date: "27 Фев 2019",
-			},
+			// {
+			// 	title: "Права и обязанности медицинских работников и пациентов",
+			// 	tag: "Конфликты",
+			// 	date: "27 Фев 2019",
+			// },
 		],
 	};
 </script>
@@ -150,9 +153,11 @@
 	</block>
 
 	<block name="content">
-		<!-- <include src="mayak/partials/components/header-mayak.html"></include>
+		<div id="index-playlist">
+			<!-- <include src="mayak/partials/components/header-mayak.html"></include>
 		<include src="mayak/partials/components/search-mayak.html"></include>
 		<include src="mayak/partials/components/questions-mayak.html"></include> -->
+      
 		<!-- Модуль Хлебные крошки -->
 		<include locals='{"breadcrumbs": {{breadcrumbs}}' src="../layouts/components/breadcrumbs.html"></include>
 		<!-- Модуль внутреннего меню в .page__content -->
@@ -173,24 +178,25 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="container container--card">
-			<div class="row row--vcentered">
-				<include locale='{ "cardsPlaylist": {{cardsPlaylist}} }' src="mayak/partials/components/card-playlist.html">
-				</include>
-				<include src="mayak/partials/components/pagination.html">
-				</include>
-				<div class="ds-pagination column--12 ds-pagination--playlist" data-target="#content-4">
-					<div class="column column--12 has-text-align-center js-infinity-pager-wrap">
-						<a href="/research/?PAGEN_1=2&amp;paging=y" class="button button--outlined" id="infinity-next-page">Показать
-							ещё</a>
+			<div class="container container--card">
+				<div class="row row--vcentered row--card-playlist">
+					<include locale='{ "cardsPlaylist": {{cardsPlaylist}} }' src="mayak/partials/components/card-playlist.html">
+					</include>
+					<include src="mayak/partials/components/pagination.html">
+					</include>
+					<div class="ds-pagination column--12 ds-pagination--playlist" data-target="#content-4">
+						<div class="column column--12 has-text-align-center js-infinity-pager-wrap">
+							<a href="/research/?PAGEN_1=2&amp;paging=y" class="button button--outlined"
+								id="infinity-next-page">Показать
+								ещё</a>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 		<include src="mayak/partials/components/pagination-page.html"></include>
 		<include src="../layouts/components/social.html"></include>
-        </div>
+  </div>
+
 	</block>
 
 	<block name="footer">
