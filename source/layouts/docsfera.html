@@ -38,7 +38,7 @@
 
     <!-- <link href="{{env}}bitrix/cache/css/s1/mcmportal2/page_ad369bb831f6739721004dbf8e534cee/page_ad369bb831f6739721004dbf8e534cee_v1.css?166990453640638" type="text/css"  rel="stylesheet" /> -->
 	<link href="{{env}}local/templates/mcmportal2/library/css/common.css" type="text/css" rel="stylesheet" />
-	<link href="../local/templates/mcmportal2/library/assets/fonts.css" type="text/css" rel="stylesheet" />
+	<link href="/local/templates/mcmportal2/library/assets/fonts.css" type="text/css" rel="stylesheet" />
 	<block name="head"></block>
 	<meta property="og:title" content="Docsfera — профессиональный медицинский сайт для врачей" />
 	<meta property="og:url" content="{{env}}" />
@@ -51,14 +51,12 @@
 	<block name="header"></block>
 	<div class="page__main">
 		<section class="page__content">
-			<div class="mayak_content_explorer">
-				<block name="content"></block>
-			</div>
+			<block name="content"></block>
 		</section>
 	</div>
 	<block name="footer"></block>
-	<link href="{{env}}local/templates/mcmportal2/library/assets/vendor/select2/select2.min.css" type="text/css"
-		rel="stylesheet" />
+	<link href="{{env}}local/templates/mcmportal2/library/assets/vendor/select2/select2.min.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" href="../../local/styles/portal_styles.css">
 
 	<!-- <link href="{{env}}bitrix/cache/css/s1/mcmportal2/template_46113d3985b806c81db87412bc34c3e4/template_46113d3985b806c81db87412bc34c3e4_v1.css?1667398195895616" type="text/css" data-template-style="true" rel="stylesheet" /> -->
 	<!-- <link href="{{env}}bitrix/cache/css/s1/mcmportal2/template_d296f889f596345cf422b2317edcbbfc/template_d296f889f596345cf422b2317edcbbfc_v1.css?1669903410895633" type="text/css" data-template-style="true" rel="stylesheet" /> -->

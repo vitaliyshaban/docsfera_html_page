@@ -1,0 +1,10 @@
+<if condition="footerLinks.abbr.length">
+    <div class="abbr-list hidden">
+        <p class="abbr-list-title">Сокращения</p>
+        <each loop="abb, index in {{footerLinks.abbr}}">
+            <p class="abbr-list-item"><abbr title="{{{abb.split('—')[1]}}}">{{{abb.split('—')[0]}}}</abbr> — {{{abb.split('—')[1]}}}</p>
+        </each>
+    </div>
+</if>
+
+

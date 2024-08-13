@@ -157,20 +157,23 @@
 			<!-- <include src="mayak/partials/components/header-mayak.html"></include>
 		<include src="mayak/partials/components/search-mayak.html"></include>
 		<include src="mayak/partials/components/questions-mayak.html"></include> -->
-			<!-- Модуль Хлебные крошки -->
-			<include locals='{"breadcrumbs": {{breadcrumbs}}' src="../layouts/components/breadcrumbs.html"></include>
-			<!-- Модуль внутреннего меню в .page__content -->
-			<!-- <include src="../layouts/components/content-menu.html"></include> -->
-			<!-- Модуль заголовка карточки -->
-			<!-- <include locals='{"detailHeader": {{detailHeader}}}' src="../layouts/components/detail-header.html"></include> -->
-			<include locale='{ "cardsVideo": {{cardsVideo}} }' src="mayak/partials/pages/playlist.html"></include>
-			<div class="ds-filter__wrapper">
-				<div class="ds-filter">
-					<div class="container">
-						<div class="row row--vcentered">
-							<div class="column">
-								<h2>Другие плейлисты</h2>
-							</div>
+      
+		<!-- Модуль Хлебные крошки -->
+		<include locals='{"breadcrumbs": {{breadcrumbs}}' src="../layouts/components/breadcrumbs.html"></include>
+		<!-- Модуль внутреннего меню в .page__content -->
+		<!-- <include src="../layouts/components/content-menu.html"></include> -->
+		<!-- Модуль заголовка карточки -->
+		<!-- <include locals='{"detailHeader": {{detailHeader}}}' src="../layouts/components/detail-header.html"></include> -->
+        <div class="mayak_content_explorer">
+		<include locale='{
+                    "cardsVideo": {{cardsVideo}}
+                }' src="mayak/partials/pages/playlist.html"></include>
+		<div class="ds-filter__wrapper">
+			<div class="ds-filter">
+				<div class="container">
+					<div class="row row--vcentered">
+						<div class="column">
+							<h2>Другие плейлисты</h2>
 						</div>
 					</div>
 				</div>
@@ -190,9 +193,10 @@
 					</div>
 				</div>
 			</div>
-			<include src="mayak/partials/components/pagination-page.html"></include>
-			<include src="../layouts/components/social.html"></include>
-		</div>
+		<include src="mayak/partials/components/pagination-page.html"></include>
+		<include src="../layouts/components/social.html"></include>
+  </div>
+
 	</block>
 
 	<block name="footer">
